@@ -19,9 +19,10 @@ class AgendaType extends AbstractType
     {
         $builder
             ->add('start')
-            ->add('end', 'datetime' , array(
-                  'minutes' => range(0, 30, 30)
-           ))
+           // ->add('end', 'datetime' , array(
+           //      'minutes' => range(0, 30, 30)
+           //))
+            ->add('end')
             //->add('start', DateTimeType::class)
             //->add('end', DateTimeType::class)
             ->add('titre')

@@ -85,17 +85,8 @@
                             <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
                         </div>
                         <div class="col s12 m6 l6">
-                            {{ form_widget(form.image, { 'attr': {'class': 'calendar-responsive-input'} }) }}
-                            {{ form_errors(form.image) }}
-                        </div>
-                    </div>
-                    <div class="row upload_file_event calendar-row valign-wrapper">
-                        <div class="col s12 m6 l6 calendar-td valign-wrapper">
-                            <p class="calendar-p valign">Ajouter le lien d'une page :</p>
-                        </div>
-                        <div class="col s12 m6 l6">
-                            {{ form_widget(form.lien, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
-                            {{ form_errors(form.lien) }}
+                            {{ form_widget(form.media, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                            {{ form_errors(form.media) }}
                         </div>
                     </div>
                 </div>
@@ -116,7 +107,7 @@
                     </a>
 
                     <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
-                       href="{{ path('plate_forme_homepage') }}">
+                       href="{{ path('homepage') }}">
                         <i class="small material-icons">view_list</i>
                     </a>
                 </div>
