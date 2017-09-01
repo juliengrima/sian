@@ -1,0 +1,22 @@
+AppBundle\Entity\SubGallery:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\SubGalleryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sgallery:
+            type: string
+            length: 255
+
+    manyToOne:
+        gallery:
+          targetEntity: gallery
+          joinColumn:
+            name: gallery_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

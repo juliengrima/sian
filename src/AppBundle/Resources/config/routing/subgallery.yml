@@ -1,0 +1,24 @@
+subgallery_index:
+    path:     /
+    defaults: { _controller: "AppBundle:SubGallery:index" }
+    methods:  GET
+
+subgallery_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:SubGallery:show" }
+    methods:  GET
+
+subgallery_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:SubGallery:new" }
+    methods:  [GET, POST]
+
+subgallery_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:SubGallery:edit" }
+    methods:  [GET, POST]
+
+subgallery_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:SubGallery:delete" }
+    methods:  DELETE

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav-wrapper backnav">
+                <a href="#!" class="brand-logo decal">Acceuil</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <ul id="dropdown2" class="dropdown-content">
+                            <li><a href="#!">one<span class="badge">1</span></a></li>
+                            <li><a href="#!">two<span class="new badge">1</span></a></li>
+                            <li><a href="#!">three</a></li>
+                        </ul>
+                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Galleries{#<i class="material-icons right">arrow_drop_down</i>#}</a>
+                    </li>
+
+                    <li>
+                        <ul id="dropdown2" class="dropdown-content">
+                            <li><a href="#!">one<span class="badge">1</span></a></li>
+                            <li><a href="#!">two<span class="new badge">1</span></a></li>
+                            <li><a href="#!">three</a></li>
+                        </ul>
+                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Collections{#<i class="material-icons right">arrow_drop_down</i>#}</a>
+                    </li>
+                    <li><a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-content backcontent center">
+                <span class="nav-title f-size">Nathalie Sian Création</span>
+            </div>
+        </nav>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+
+    <footer class="page-footer backfoot">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <a href="{{ path('fos_user_security_login') }}" class="login">©</a>  2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

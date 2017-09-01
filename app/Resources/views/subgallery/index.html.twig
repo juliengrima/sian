@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Subgalleries list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Sgallery</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subGallery in subGalleries %}
+            <tr>
+                <td><a href="{{ path('subgallery_show', { 'id': subGallery.id }) }}">{{ subGallery.id }}</a></td>
+                <td>{{ subGallery.sgallery }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('subgallery_show', { 'id': subGallery.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('subgallery_edit', { 'id': subGallery.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('subgallery_new') }}">Create a new subGallery</a>
+        </li>
+    </ul>
+{% endblock %}

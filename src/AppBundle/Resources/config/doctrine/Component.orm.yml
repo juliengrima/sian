@@ -1,0 +1,35 @@
+AppBundle\Entity\Component:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ComponentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        compname:
+            type: string
+            length: 255
+        description:
+            type: text
+            nullable: true
+
+    manyToOne:
+        subgallery:
+          targetEntity: SubGallery
+          joinColumn:
+            name: subgallery_id
+            referencedColumnName: id
+        collection:
+          targetEntity: collection
+          joinColumn:
+            name: collection_id
+            referencedColumnName: id
+        media:
+          targetEntity: Media
+          joinColumn:
+            name: media_id
+            referencedColumnName: id
+    lifecycleCallbacks: {  }

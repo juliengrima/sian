@@ -1,0 +1,57 @@
+
+
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575px) {
+
+}
+
+/* Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767px) {
+
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991px) {
+
+}
+
+
+/*******************************************************/
+/*******************************************************/
+/************************ NAV BAR **********************/
+/*******************************************************/
+/*******************************************************/
+
+.backnav, .backfoot{
+    background-color: black !important;
+}
+
+/* Extension TITRE */
+.backcontent{
+    background-color: #546e7a !important;
+}
+
+.navbutton{
+    background-color: black;
+    border-color: #546e7a;
+}
+.navbutton:hover{
+    background-color: #546e7a;
+}
+
+/*******************************************************/
+/*******************************************************/
+/************************ FOOTER ***********************/
+/*******************************************************/
+/*******************************************************/
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
