@@ -88,12 +88,12 @@ class CalendarController extends Controller
         if ($form->isSubmitted () && $form->isValid ()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $form->get ('image');
+            $imageForm = $form->get ('media');
             $image = $imageForm->getData ();
             $agenda->setMedia ($image);
 
             /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setName (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+            $image->setName () (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
 
             // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
             $this->get ('media.interface')->mediaUpload ($image);

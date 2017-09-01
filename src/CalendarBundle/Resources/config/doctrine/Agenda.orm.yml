@@ -26,9 +26,6 @@ CalendarBundle\Entity\Agenda:
             type: string
             length: 255
             nullable: true
-        slider:
-            type: boolean
-            nullable: true
 
     manyToOne:
         media:

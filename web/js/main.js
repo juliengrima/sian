@@ -11,6 +11,7 @@ jQuery(document).ready(function($) {
     carousel();
 
     cal();
+    forms();
 
 });
 
@@ -38,3 +39,14 @@ function cal() {
         dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
     });
 }
+
+// ********************************************************************
+// *                       FORMS
+// ********************************************************************
+
+function forms() {
+    $('#textarea1').val('New Text', 'autoresize');
+    $('select').material_select();
+}
+
+

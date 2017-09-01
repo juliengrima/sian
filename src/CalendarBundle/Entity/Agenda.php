@@ -58,11 +58,6 @@ class Agenda
     private $color;
 
     /**
-     * @var boolean
-     */
-    private $slider;
-
-    /**
      * @var \AppBundle\Entity\Media
      */
     private $media;
@@ -220,30 +215,6 @@ class Agenda
     public function getColor()
     {
         return $this->color;
-    }
-
-    /**
-     * Set slider
-     *
-     * @param boolean $slider
-     *
-     * @return Agenda
-     */
-    public function setSlider($slider)
-    {
-        $this->slider = $slider;
-
-        return $this;
-    }
-
-    /**
-     * Get slider
-     *
-     * @return boolean
-     */
-    public function getSlider()
-    {
-        return $this->slider;
     }
 
     /**
