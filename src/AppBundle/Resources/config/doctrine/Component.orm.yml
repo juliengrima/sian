@@ -22,11 +22,6 @@ AppBundle\Entity\Component:
           joinColumn:
             name: subgallery_id
             referencedColumnName: id
-        collection:
-          targetEntity: collection
-          joinColumn:
-            name: collection_id
-            referencedColumnName: id
         media:
           targetEntity: Media
           joinColumn:

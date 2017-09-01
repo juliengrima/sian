@@ -28,11 +28,6 @@ class Component
     private $subgallery;
 
     /**
-     * @var \AppBundle\Entity\collection
-     */
-    private $collection;
-
-    /**
      * @var \AppBundle\Entity\media
      */
     private $media;
@@ -118,30 +113,6 @@ class Component
     public function getSubgallery()
     {
         return $this->subgallery;
-    }
-
-    /**
-     * Set collection
-     *
-     * @param \AppBundle\Entity\collection $collection
-     *
-     * @return Component
-     */
-    public function setCollection(\AppBundle\Entity\collection $collection = null)
-    {
-        $this->collection = $collection;
-
-        return $this;
-    }
-
-    /**
-     * Get collection
-     *
-     * @return \AppBundle\Entity\collection
-     */
-    public function getCollection()
-    {
-        return $this->collection;
     }
 
     /**

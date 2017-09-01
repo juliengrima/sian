@@ -18,14 +18,12 @@ class AgendaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-//            ->add('start', 'datetime' , array(
-//        'minutes' => range(0, 30, 30)
-//    ))
-//            ->add('end', 'datetime' , array(
-//                  'minutes' => range(0, 30, 30)
-//            ))
-            ->add('start', DateTimeType::class)
-            ->add('end', DateTimeType::class)
+            ->add('start')
+            ->add('end', 'datetime' , array(
+                  'minutes' => range(0, 30, 30)
+           ))
+            //->add('start', DateTimeType::class)
+            //->add('end', DateTimeType::class)
             ->add('titre')
             ->add('texte')
             ->add('lieu')
@@ -33,7 +31,7 @@ class AgendaType extends AbstractType
             ->add('slider', CheckboxType::class, array(
                 'required' => false,
             ))
-            ->add('image', Media::class)
+            ->add('media', Media::class)
         ;
     }
     
@@ -47,13 +45,13 @@ class AgendaType extends AbstractType
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'calendarbundle_agenda';
-    }
+//    /**
+//    * {@inheritdoc}
+//    */
+//    public function getBlockPrefix()
+//    {
+//        return 'calendarbundle_agenda';
+//    }
 
 
 }

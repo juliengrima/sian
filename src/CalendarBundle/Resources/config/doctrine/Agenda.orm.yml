@@ -37,5 +37,4 @@ CalendarBundle\Entity\Agenda:
             name: media_id
             referencedColumnName: id
 
-
     lifecycleCallbacks: {  }
