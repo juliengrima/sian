@@ -78,7 +78,7 @@ class CalendarController extends Controller
             $agenda->setStart(new \DateTime($start));
             $agenda->setEnd(new \DateTime($start));
         }
-
+        /* TEST DUMP */
         $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
 
         $form->setData($agenda);
