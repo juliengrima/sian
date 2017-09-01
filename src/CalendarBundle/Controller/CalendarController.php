@@ -75,48 +75,47 @@ class CalendarController extends Controller
         $agenda = new Agenda();
 
         if ($start != 0) {
-            $agenda->setStart(new \DateTime($start));
-            $agenda->setEnd(new \DateTime($start));
+            $agenda->setStart (new \DateTime($start));
+            $agenda->setEnd (new \DateTime($start));
         }
-        /* TEST DUMP */
-        $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
 
-        $form->setData($agenda);
+        $form = $this->createForm ('CalendarBundle\Form\AgendaType', $agenda);
 
-        $form->handleRequest($request);
+        $form->setData ($agenda);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $form->handleRequest ($request);
+
+        if ($form->isSubmitted () && $form->isValid ()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $form->get('image');
-            $image = $imageForm->getData();
-            $agenda->setMedia($image);
+            $imageForm = $form->get ('image');
+            $image = $imageForm->getData ();
+            $agenda->setMedia ($image);
 
             /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
+            $image->setName (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
 
             // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
-            $this->get('media.interface')->mediaUpload($image);
+            $this->get ('media.interface')->mediaUpload ($image);
 
             /* SI L'HEURE ET/OU LA DATE DE FIN EST INFERIEUR A CELLE DE DEBUT ON REVIENT A LA PAGE NEW*/
 
-            if($agenda->getStart() > $agenda->getEnd()) {
+            if ($agenda->getStart () > $agenda->getEnd ()) {
                 $this->addFlash (
                     'success',
                     'Attention la date de fin est antérieur à la date de début'
                 );
 
-                return $this->render('@Calendar/agenda/new.html.twig', array(
+                return $this->render ('@Calendar/agenda/new.html.twig', array (
                     'agenda' => $agenda,
-                    'form' => $form->createView(),
+                    'form' => $form->createView (),
                 ));
-            }
-            else{
+            } else {
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($agenda);
-                $em->flush();
-                return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
+                $em = $this->getDoctrine ()->getManager ();
+                $em->persist ($agenda);
+                $em->flush ();
+                return $this->redirectToRoute ('agenda_show', array ('id' => $agenda->getId ()));
             }
         }
 
