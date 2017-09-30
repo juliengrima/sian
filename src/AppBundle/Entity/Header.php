@@ -3,9 +3,9 @@
 namespace AppBundle\Entity;
 
 /**
- * Gallery
+ * Header
  */
-class Gallery
+class Header
 {
     /**
      * @var integer
@@ -50,34 +50,5 @@ class Gallery
     public function getName()
     {
         return $this->name;
-    }
-    /**
-     * @var \AppBundle\Entity\Header
-     */
-    private $header;
-
-
-    /**
-     * Set header
-     *
-     * @param \AppBundle\Entity\Header $header
-     *
-     * @return Gallery
-     */
-    public function setHeader(\AppBundle\Entity\Header $header = null)
-    {
-        $this->header = $header;
-
-        return $this;
-    }
-
-    /**
-     * Get header
-     *
-     * @return \AppBundle\Entity\Header
-     */
-    public function getHeader()
-    {
-        return $this->header;
     }
 }

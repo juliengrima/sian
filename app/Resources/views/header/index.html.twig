@@ -1,0 +1,88 @@
+
+{% block body %}
+
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav-wrapper backnav">
+                <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
+                <ul class="right hide-on-med-and-down">
+
+                    <!-------------- METTRE EN BDD POUR ADMIN ------------------->
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
+                                <i class=" material-icons bouton-new-gallery-icon">add</i>
+                            </a>
+                        </li>
+
+                    {% endif %}
+
+                    {% for header in headers %}
+
+                    <li>
+                        <ul id="dropdown2" class="dropdown-content">
+                            <li><a href="">one<span class="badge">1</span></a></li>
+                            <li><a href="#!">two<span class="new badge">1</span></a></li>
+                            <li><a href="#!">three</a></li>
+                        </ul>
+                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+
+                        {% endif %}
+                    </li>
+
+                    {% endfor %}
+
+                    <li><a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-content backcontent center">
+                <span class="nav-title f-size">Nathalie Sian Création</span>
+            </div>
+        </nav>
+    </div>
+
+{% endblock %}
+
+
+
+    {##}
+    {##}
+    {##}
+    {##}
+    {#<h1>Headers list</h1>#}
+
+    {#<table>#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<th>Name</th>#}
+                {#<th>Actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for header in headers %}#}
+            {#<tr>#}
+                {#<td><a href="{{ path('header_show', { 'id': header.id }) }}">{{ header.id }}</a></td>#}
+                {#<td>{{ header.name }}</td>#}
+                {#<td>#}
+                    {#<ul>#}
+                        {#<li>#}
+                            {#<a href="{{ path('header_show', { 'id': header.id }) }}">show</a>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="{{ path('header_edit', { 'id': header.id }) }}">edit</a>#}
+                        {#</li>#}
+                    {#</ul>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('header_new') }}">Create a new header</a>#}
+        {#</li>#}
+    {#</ul>#}

@@ -2,10 +2,10 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-app_layout:
-    path:     /
-    defaults: { _controller: "AppBundle:Default:layout" }
-    methods:  GET
+app_header:
+    resource: "@AppBundle/Resources/config/routing/header.yml"
+    prefix:   /header
+
 ##############################################
 #                                            #
 #                   GALLERY                  #
