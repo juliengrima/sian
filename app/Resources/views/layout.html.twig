@@ -4,14 +4,38 @@
     <div class="navbar-fixed">
         <nav class="nav-extended">
             <div class="nav-wrapper backnav">
-                <a href="#!" class="brand-logo decal">Acceuil</a>
+                <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
                 <ul class="right hide-on-med-and-down">
 
                     <!-------------- METTRE EN BDD POUR ADMIN ------------------->
 
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path('gallery_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
+                                <i class=" material-icons bouton-new-gallery-icon">add</i>
+                            </a>
+                        </li>
+
+                    {% endif %}
+
+                   {##}
+                    {#{% for gallery in galleries %}#}
+
+                        {#<li>#}
+                            {#<ul id="dropdown2" class="dropdown-content">#}
+                                {#<li><a href="#!">one<span class="badge">1</span></a></li>#}
+                                {#<li><a href="#!">two<span class="new badge">1</span></a></li>#}
+                                {#<li><a href="#!">three</a></li>#}
+                            {#</ul>#}
+                            {#<a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ gallery.name }}</a>#}
+                        {#</li>#}
+
+                    {#{% endfor %}#}
+
+
                     <li>
                         <ul id="dropdown2" class="dropdown-content">
-                            <li><a href="#!">one<span class="badge">1</span></a></li>
+                            <li><a href="">one<span class="badge">1</span></a></li>
                             <li><a href="#!">two<span class="new badge">1</span></a></li>
                             <li><a href="#!">three</a></li>
                         </ul>

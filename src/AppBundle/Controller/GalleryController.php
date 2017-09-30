@@ -27,6 +27,17 @@ class GalleryController extends Controller
         ));
     }
 
+    public function layoutAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $galleries = $em->getRepository('AppBundle:Gallery')->findAll();
+
+        return $this->render('::layout.html.twig', array(
+            'galleries' => $galleries,
+        ));
+    }
+
     /**
      * Creates a new gallery entity.
      *

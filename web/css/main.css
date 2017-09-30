@@ -99,6 +99,13 @@
     .f-size {
         font-size: 70px !important;
     }
+    .bouton-new-gallery{
+         width: 30px !important;
+         height: 30px !important;
+     }
+    .bouton-new-gallery-icon{
+        margin-top: -12px;
+    }
 
     /*******************************************************/
     /*******************************************************/
