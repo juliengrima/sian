@@ -8,6 +8,11 @@ header_show:
     defaults: { _controller: "AppBundle:Header:show" }
     methods:  GET
 
+header_show_all:
+    path:     /show_all
+    defaults: { _controller: "AppBundle:Header:all" }
+    methods:  GET
+
 header_new:
     path:     /new
     defaults: { _controller: "AppBundle:Header:new" }

@@ -27,9 +27,6 @@
                             <li><a href="#!">three</a></li>
                         </ul>
                         <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>
-                        {% if is_granted('ROLE_ADMIN') %}
-
-                        {% endif %}
                     </li>
 
                     {% endfor %}
@@ -44,45 +41,3 @@
     </div>
 
 {% endblock %}
-
-
-
-    {##}
-    {##}
-    {##}
-    {##}
-    {#<h1>Headers list</h1>#}
-
-    {#<table>#}
-        {#<thead>#}
-            {#<tr>#}
-                {#<th>Id</th>#}
-                {#<th>Name</th>#}
-                {#<th>Actions</th>#}
-            {#</tr>#}
-        {#</thead>#}
-        {#<tbody>#}
-        {#{% for header in headers %}#}
-            {#<tr>#}
-                {#<td><a href="{{ path('header_show', { 'id': header.id }) }}">{{ header.id }}</a></td>#}
-                {#<td>{{ header.name }}</td>#}
-                {#<td>#}
-                    {#<ul>#}
-                        {#<li>#}
-                            {#<a href="{{ path('header_show', { 'id': header.id }) }}">show</a>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="{{ path('header_edit', { 'id': header.id }) }}">edit</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                {#</td>#}
-            {#</tr>#}
-        {#{% endfor %}#}
-        {#</tbody>#}
-    {#</table>#}
-
-    {#<ul>#}
-        {#<li>#}
-            {#<a href="{{ path('header_new') }}">Create a new header</a>#}
-        {#</li>#}
-    {#</ul>#}

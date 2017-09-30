@@ -28,6 +28,21 @@ class HeaderController extends Controller
     }
 
     /**
+     * Lists all header entities.
+     *
+     */
+    public function allAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $headers = $em->getRepository('AppBundle:Header')->findAll();
+
+        return $this->render('header/show_all.html.twig', array(
+            'headers' => $headers,
+        ));
+    }
+
+    /**
      * Creates a new header entity.
      *
      */
@@ -78,7 +93,7 @@ class HeaderController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('header_edit', array('id' => $header->getId()));
+            return $this->redirectToRoute('header_show', array('id' => $header->getId()));
         }
 
         return $this->render('header/edit.html.twig', array(

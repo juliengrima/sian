@@ -1,21 +1,45 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Header edit</h1>
+    <div class="container">
+        <div class="header-marge">
+            <div class="row">
+                <div class="col s12">
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+                    <div class="row">
+                        <h1 class="center">Modification de la catégorie</h1>
+                    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('header_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    {{ form_start(edit_form) }}
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Nom de la nouvelle catégorie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.name) }}
+                            {{ form_errors(edit_form.name) }}
+                        </div>
+                    </div>
+
+                    <div class="center">
+                        <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                                type="submit">
+                            <i class="material-icons">check</i>
+                        </button>
+
+                        <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                           href="{{ path('homepage') }}">
+                            <i class="small material-icons">home</i>
+                        </a>
+                    </div>
+
+                    {{ form_end(edit_form) }}
+
+                    <div class="header-buttom-marge"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
