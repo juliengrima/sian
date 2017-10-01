@@ -10,4 +10,5 @@ namespace AppBundle\Repository;
  */
 class GalleryRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use AppBundle\Entity\Header;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,9 +22,11 @@ class HeaderController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $headers = $em->getRepository('AppBundle:Header')->findAll();
+        $galleries = $em->getRepository('AppBundle:Gallery')->findBy(array ('header_id' => $headers));
 
         return $this->render('header/index.html.twig', array(
             'headers' => $headers,
+            'galleries' => $galleries,
         ));
     }
 

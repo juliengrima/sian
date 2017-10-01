@@ -7,8 +7,6 @@
                 <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
                 <ul class="right hide-on-med-and-down">
 
-                    <!-------------- METTRE EN BDD POUR ADMIN ------------------->
-
                     {% if is_granted('ROLE_ADMIN') %}
                         <li>
                             <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
@@ -21,11 +19,25 @@
                     {% for header in headers %}
 
                     <li>
+
                         <ul id="dropdown2" class="dropdown-content">
-                            <li><a href="">one<span class="badge">1</span></a></li>
-                            <li><a href="#!">two<span class="new badge">1</span></a></li>
-                            <li><a href="#!">three</a></li>
+
+                            {% for gallery in galleries %}
+
+                                <li><a href="">{{ gallery.name }}</a></li>
+
+                            {% endfor %}
+
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <li class="center">
+                                <a href="{{ path('header_new') }}" class="waves-effect waves-light green darken-1">
+                                    <i class=" material-icons white-text large material-icons-size">add</i>
+                                </a>
+                            </li>
+                            {% endif %}
+
                         </ul>
+
                         <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>
                     </li>
 
