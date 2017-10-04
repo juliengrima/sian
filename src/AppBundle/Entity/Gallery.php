@@ -17,6 +17,12 @@ class Gallery
      */
     private $name;
 
+    /**
+     * @var \AppBundle\Entity\Header
+     */
+    private $header;
+
+
 
     /**
      * Get id
@@ -51,11 +57,6 @@ class Gallery
     {
         return $this->name;
     }
-    /**
-     * @var \AppBundle\Entity\Header
-     */
-    private $header;
-
 
     /**
      * Set header
