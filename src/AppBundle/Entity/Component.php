@@ -23,17 +23,6 @@ class Component
     private $description;
 
     /**
-     * @var \AppBundle\Entity\SubGallery
-     */
-    private $subgallery;
-
-    /**
-     * @var \AppBundle\Entity\media
-     */
-    private $media;
-
-
-    /**
      * Get id
      *
      * @return integer
@@ -90,6 +79,16 @@ class Component
     {
         return $this->description;
     }
+    /**
+     * @var \AppBundle\Entity\SubGallery
+     */
+    private $subgallery;
+
+    /**
+     * @var \AppBundle\Entity\Media
+     */
+    private $media;
+
 
     /**
      * Set subgallery
@@ -118,11 +117,11 @@ class Component
     /**
      * Set media
      *
-     * @param \AppBundle\Entity\media $media
+     * @param \AppBundle\Entity\Media $media
      *
      * @return Component
      */
-    public function setMedia(\AppBundle\Entity\media $media = null)
+    public function setMedia(\AppBundle\Entity\Media $media = null)
     {
         $this->media = $media;
 
@@ -132,7 +131,7 @@ class Component
     /**
      * Get media
      *
-     * @return \AppBundle\Entity\media
+     * @return \AppBundle\Entity\Media
      */
     public function getMedia()
     {

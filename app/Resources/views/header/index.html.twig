@@ -1,18 +1,24 @@
+{% extends 'base.html.twig' %}
 
 {% block body %}
 
-    <div class="navbar-fixed">
-        <nav class="nav-extended">
-            <div class="nav-wrapper backnav">
+    {#<div class="navbar-fixed">#}
+        {#<nav class="nav-extended">#}
+            {#<div class="nav-wrapper backnav">#}
                 <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
                 <ul class="right hide-on-med-and-down">
 
                     {% if is_granted('ROLE_ADMIN') %}
-                        <li>
-                            <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
-                                <i class=" material-icons bouton-new-gallery-icon">add</i>
-                            </a>
-                        </li>
+                        {#<li class="disposition">#}
+                            {#<a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">#}
+                                {#<i class=" material-icons bouton-new-gallery-icon">add</i>#}
+                            {#</a>#}
+                            {#<a href="{{ path('header_show_all') }}">#}
+                                {#<button class=" btn-floating btn-large waves-effect icon-background6 bouton-new-gallery" type="submit" name="action">#}
+                                    {#<i class="material-icons bouton-new-gallery-icon">edit</i>#}
+                                {#</button>#}
+                            {#</a>#}
+                        {#</li>#}
 
                     {% endif %}
 
@@ -23,9 +29,19 @@
                         <ul id="dropdown2" class="dropdown-content">
 
                             {% for gallery in galleries %}
+                                {% if header == gallery.header %}
+                                    <li class="disposition">
 
-                                <li><a href={{ path('subgallery_index') }}">{{ gallery.name}}</a></li>
+                                        <a href="{{ path('subgallery_index') }}" class="box-size">{{ gallery.name }}</a>
 
+                                        {% if is_granted('ROLE_ADMIN') %}
+
+                                            <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}" class="waves-effect icon-background4 orange darken-2">éditer</a>
+
+                                        {% endif %}
+
+                                    </li>
+                                {% endif %}
                             {% endfor %}
 
                             {% if is_granted('ROLE_ADMIN') %}

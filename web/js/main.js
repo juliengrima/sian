@@ -9,9 +9,9 @@ jQuery(document).ready(function($) {
     console.log('jQuery de app.js a démarré julien test');
 
     carousel();
-
+    text();
+    select();
     cal();
-    forms();
 
 });
 
@@ -28,6 +28,19 @@ function carousel() {
 }
 
 // ********************************************************************
+// *                       FORMS
+// ********************************************************************
+
+function text() {
+    $('#textarea1').val('New Text', 'autoresize');
+}
+
+function select() {
+    console.log('select')
+    $('select').material_select();
+}
+
+// ********************************************************************
 // *                       Calendar
 // ********************************************************************
 
@@ -40,13 +53,5 @@ function cal() {
     });
 }
 
-// ********************************************************************
-// *                       FORMS
-// ********************************************************************
-
-function forms() {
-    $('#textarea1').val('New Text', 'autoresize');
-    $('select').material_select();
-}
 
 

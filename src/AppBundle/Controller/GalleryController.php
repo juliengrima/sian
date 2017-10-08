@@ -77,6 +77,21 @@ class GalleryController extends Controller
     }
 
     /**
+     * Lists all header entities.
+     *
+     */
+    public function allAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $gallery = $em->getRepository('AppBundle:Gallery')->findAll();
+
+        return $this->render('gallery/show_all.html.twig', array(
+            'galleries' => $gallery,
+        ));
+    }
+
+    /**
      * Displays a form to edit an existing gallery entity.
      *
      */

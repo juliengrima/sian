@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="header-marge">
+            <div class="row">
+                <div class="col s12">
+
+                    <div class="row">
+                        <div class="col l4 center">
+                            <p class="title">Identifiant</p>
+                        </div>
+                        <div class="col l4 center">
+                            <p class="title">Nom de catégorie</p>
+                        </div>
+                        <div class="col l4 center">
+                            <p class="title">Action</p>
+                        </div>
+                    </div>
+
+                    {% for gallery in galleries %}
+                        <div class="row">
+                            <div class="col l4 center">
+                                <p>{{ gallery.id }}</p>
+                            </div>
+                            <div class="col l4">
+                                <p class="decal">{{ gallery.name }}</p>
+                            </div>
+                            <div class="col l4 center">
+                                <a href="{{ path('header_edit', { 'id': gallery.id }) }}">
+                                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 orange darken-2" type="submit" name="action"
+                                            data-position="bottom"
+                                            data-delay="50"
+                                            data-tooltip="Editer">
+                                        <i class="material-icons">edit</i>
+                                    </button>
+                                </a>
+
+                                <a href="{{ path('header_delete', {'id': gallery.id})}}">
+                                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 red darken-2" type="submit" name="action"
+                                            data-position="bottom"
+                                            data-delay="50"
+                                            data-tooltip="supprimer">
+                                        <i class="material-icons">lock_outline</i>
+                                    </button>
+                                </a>
+
+                            </div>
+
+                        </div>
+                        {% endfor %}
+
+                    <div class="header-buttom-marge">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
