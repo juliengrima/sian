@@ -1,36 +1,47 @@
-{% extends 'base.html.twig' %}
+{#{% extends 'base.html.twig' %}#}
 
-{% block body %}
+{#{% for header in headers %}#}
+    {#<ul >#}
+        {#{% for gallery in galleries %}#}
+            {#{% if header == gallery.header %}#}
+                {#<li><a href="#">{{ gallery.name }}</a></li>#}
+            {#{% endif %}#}
+        {#{% endfor %}#}
+    {#</ul>#}
+    {#<a  href="#" >{{ header.name }}</a>#}
+{#{% endfor %}#}
 
-    {#<div class="navbar-fixed">#}
-        {#<nav class="nav-extended">#}
-            {#<div class="nav-wrapper backnav">#}
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav-wrapper backnav">
                 <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
                 <ul class="right hide-on-med-and-down">
 
                     {% if is_granted('ROLE_ADMIN') %}
-                        {#<li class="disposition">#}
-                            {#<a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">#}
-                                {#<i class=" material-icons bouton-new-gallery-icon">add</i>#}
-                            {#</a>#}
-                            {#<a href="{{ path('header_show_all') }}">#}
-                                {#<button class=" btn-floating btn-large waves-effect icon-background6 bouton-new-gallery" type="submit" name="action">#}
-                                    {#<i class="material-icons bouton-new-gallery-icon">edit</i>#}
-                                {#</button>#}
-                            {#</a>#}
-                        {#</li>#}
+                        <li class="disposition">
+                            <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
+                                <i class=" material-icons bouton-new-gallery-icon">add</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('header_show_all') }}">
+                                <button class=" btn-floating btn-large waves-effect icon-background6 bouton-new-gallery" type="submit" name="action">
+                                    <i class="material-icons bouton-new-gallery-icon">edit</i>
+                                </button>
+                            </a>
+                        </li>
 
                     {% endif %}
 
-                    {% for header in headers %}
-
                     <li>
+
+                        {% for header in headers %}
 
                         <ul id="dropdown2" class="dropdown-content">
 
                             {% for gallery in galleries %}
                                 {% if header == gallery.header %}
-                                    <li class="disposition">
+                                    {#<li class="disposition">#}
 
                                         <a href="{{ path('subgallery_index') }}" class="box-size">{{ gallery.name }}</a>
 
@@ -40,7 +51,7 @@
 
                                         {% endif %}
 
-                                    </li>
+                                    {#</li>#}
                                 {% endif %}
                             {% endfor %}
 
@@ -59,7 +70,9 @@
 
                     {% endfor %}
 
-                    <li><a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a></li>
+                    <li>
+                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a>
+                    </li>
                 </ul>
             </div>
             <div class="nav-content backcontent center">
@@ -67,5 +80,3 @@
             </div>
         </nav>
     </div>
-
-{% endblock %}
