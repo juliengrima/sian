@@ -17,6 +17,7 @@
                 <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
                 <ul class="right hide-on-med-and-down">
 
+                    {# ################## Si L'ADMIN EST ACTIF ############################ #}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="disposition">
                             <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
@@ -32,40 +33,49 @@
                         </li>
 
                     {% endif %}
+                    {# #################################################################### #}
 
                     <li>
-
+    {# 1ere BOUCLE POUR LISTER LES CATEGORIES DE LA NAVBAR #}
                         {% for header in headers %}
+
+                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>
 
                         <ul id="dropdown2" class="dropdown-content">
 
+    {# 2eme BOUCLE IMBRIQUEE POUR LISTER EN FONCTION DES CATEGORIES #}
                             {% for gallery in galleries %}
-                                {% if header == gallery.header %}
-                                    {#<li class="disposition">#}
 
-                                        <a href="{{ path('subgallery_index') }}" class="box-size">{{ gallery.name }}</a>
+                                {% if header == gallery.header %}
+                                    <li class="disposition">
+
+                                        <a href="{{ path('subgallery_index', { 'id': gallery.id }) }}" class="box-size">{{ gallery.name }}</a>
+
+                                    {# ################## Si L'ADMIN EST ACTIF ############################ #}
 
                                         {% if is_granted('ROLE_ADMIN') %}
 
                                             <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}" class="waves-effect icon-background4 orange darken-2">éditer</a>
 
                                         {% endif %}
+                                    {# #################################################################### #}
 
-                                    {#</li>#}
+                                    </li>
+
                                 {% endif %}
                             {% endfor %}
 
-                            {% if is_granted('ROLE_ADMIN') %}
-                            <li class="center">
-                                <a href="{{ path('gallery_new') }}" class="waves-effect waves-light green darken-1">
-                                    <i class=" material-icons white-text large material-icons-size">add</i>
-                                </a>
-                            </li>
-                            {% endif %}
+                                {# ################## Si L'ADMIN EST ACTIF ############################ #}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="center">
+                                        <a href="{{ path('gallery_new') }}" class="waves-effect waves-light green darken-1">
+                                            <i class=" material-icons white-text large material-icons-size">add</i>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                {# #################################################################### #}
 
-                        </ul>
-
-                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>
+                                </ul>
                     </li>
 
                     {% endfor %}
