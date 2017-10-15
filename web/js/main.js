@@ -11,7 +11,9 @@ jQuery(document).ready(function($) {
     carousel();
     text();
     select();
-    cal();
+    myFunction();
+    click();
+    // cal();
 
 });
 
@@ -44,14 +46,16 @@ function select() {
 // *                       Calendar
 // ********************************************************************
 
-function cal() {
-    $('#calendar').datepicker({
-        inline: true,
-        firstDay: 1,
-        showOtherMonths: true,
-        dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-    });
-}
+// function cal() {
+//     $('#calendar').datepicker({
+//         inline: true,
+//         firstDay: 1,
+//         showOtherMonths: true,
+//         dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
+//     });
+// }
+
+
 
 
 

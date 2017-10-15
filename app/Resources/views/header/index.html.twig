@@ -1,92 +1,204 @@
 {#{% extends 'base.html.twig' %}#}
 
-{#{% for header in headers %}#}
-    {#<ul >#}
-        {#{% for gallery in galleries %}#}
-            {#{% if header == gallery.header %}#}
-                {#<li><a href="#">{{ gallery.name }}</a></li>#}
-            {#{% endif %}#}
-        {#{% endfor %}#}
-    {#</ul>#}
-    {#<a  href="#" >{{ header.name }}</a>#}
-{#{% endfor %}#}
+{% block body %}
 
-    <div class="navbar-fixed">
-        <nav class="nav-extended">
-            <div class="nav-wrapper backnav">
-                <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
-                <ul class="right hide-on-med-and-down">
+        <style>
+            .navbarjs {
+                overflow: hidden;
+                background-color: #333;
+            }
 
-                    {# ################## Si L'ADMIN EST ACTIF ############################ #}
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <li class="disposition">
-                            <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
-                                <i class=" material-icons bouton-new-gallery-icon">add</i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('header_show_all') }}">
-                                <button class=" btn-floating btn-large waves-effect icon-background6 bouton-new-gallery" type="submit" name="action">
-                                    <i class="material-icons bouton-new-gallery-icon">edit</i>
-                                </button>
-                            </a>
-                        </li>
+            .navbarjs a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
 
-                    {% endif %}
-                    {# #################################################################### #}
+            .dropdown1 {
+                float: left;
+                overflow: hidden;
+            }
 
-                    <li>
-    {# 1ere BOUCLE POUR LISTER LES CATEGORIES DE LA NAVBAR #}
-                        {% for header in headers %}
+            .dropdown1 .dropbtn {
+                cursor: pointer;
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+            }
 
-                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>
+            .navbarjs a:hover, .dropdown1:hover .dropbtn {
+                background-color: #546e7a;
+            }
 
-                        <ul id="dropdown2" class="dropdown-content">
+            .dropdown-content1 {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
 
-    {# 2eme BOUCLE IMBRIQUEE POUR LISTER EN FONCTION DES CATEGORIES #}
+            .dropdown-content1 a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+            .show {
+                display: block;
+            }
+
+            .float-right{
+                margin-top: 0.5%;
+                float: right !important;
+            }
+
+        </style>
+
+    <div class="navbarjs">
+        <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
+        <div class="float-right">
+            {% for header in headers %}
+                <div class="dropdown1">
+                    <button class="dropbtn" onclick="myFunction{{ header.id }}()">{{ header.name }}
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+
+                        <div class="dropdown-content1" id="myDropdown{{ header.id }}">
                             {% for gallery in galleries %}
-
                                 {% if header == gallery.header %}
-                                    <li class="disposition">
-
-                                        <a href="{{ path('subgallery_index', { 'id': gallery.id }) }}" class="box-size">{{ gallery.name }}</a>
-
-                                    {# ################## Si L'ADMIN EST ACTIF ############################ #}
-
-                                        {% if is_granted('ROLE_ADMIN') %}
-
-                                            <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}" class="waves-effect icon-background4 orange darken-2">éditer</a>
-
-                                        {% endif %}
-                                    {# #################################################################### #}
-
-                                    </li>
-
+                                    <a href="{{ path('subgallery_index', { 'id': gallery.id }) }}" class="box-size">{{ gallery.name }}</a>
                                 {% endif %}
                             {% endfor %}
+                        </div>
 
-                                {# ################## Si L'ADMIN EST ACTIF ############################ #}
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                    <li class="center">
-                                        <a href="{{ path('gallery_new') }}" class="waves-effect waves-light green darken-1">
-                                            <i class=" material-icons white-text large material-icons-size">add</i>
-                                        </a>
-                                    </li>
-                                    {% endif %}
-                                {# #################################################################### #}
-
-                                </ul>
-                    </li>
-
-                    {% endfor %}
-
-                    <li>
-                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-content backcontent center">
-                <span class="nav-title f-size">Nathalie Sian Création</span>
-            </div>
-        </nav>
+                 </div>
+            {% endfor %}
+        </div>
     </div>
+    <div class="nav-content backcontent center">
+    <span class="nav-title f-size">Nathalie Sian Création</span>
+    </div>
+
+
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        {% for header in headers %}
+        function myFunction{{ header.id }}() {
+                document.getElementById("myDropdown{{ header.id }}").classList.toggle("show");
+        }
+        {% endfor %}
+        // fermer le dropdown lorque l'on click en dehors
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                {% for header in headers %}
+                    var myDropdown = document.getElementById("myDropdown{{ header.id }}");
+                {% endfor %}
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+    {#<p>-----------------------------------------------------------------------------------------------</p>#}
+
+    {#<div class="navbar-fixed">#}
+        {#<nav class="nav-extended">#}
+            {#<div class="nav-wrapper backnav">#}
+                {#<a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>#}
+
+                {#<ul class="right hide-on-med-and-down">#}
+
+                     {################### Si L'ADMIN EST ACTIF #############################}
+                    {#{% if is_granted('ROLE_ADMIN') %}#}
+                        {#<li class="disposition">#}
+                            {#<a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">#}
+                                {#<i class=" material-icons bouton-new-gallery-icon">add</i>#}
+                            {#</a>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="{{ path('header_show_all') }}">#}
+                                {#<button class=" btn-floating btn-large waves-effect icon-background6 bouton-new-gallery" type="submit" name="action">#}
+                                    {#<i class="material-icons bouton-new-gallery-icon">edit</i>#}
+                                {#</button>#}
+                            {#</a>#}
+                        {#</li>#}
+                    {#{% endif %}#}
+                     {######################################################################}
+
+                    {#<li>#}
+     {#1ere BOUCLE POUR LISTER LES CATEGORIES DE LA NAVBAR#}
+                        {#{% for header in headers %}#}
+
+                        {#<a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">{{ header.name }}</a>#}
+
+                        {#<ul id="dropdown2" class="dropdown-content">#}
+
+     {#2eme BOUCLE IMBRIQUEE POUR LISTER EN FONCTION DES CATEGORIES#}
+                            {#{% for gallery in galleries %}#}
+
+                                {#{% if header == gallery.header %}#}
+                                    {#<li class="disposition">#}
+
+                                        {#<a href="{{ path('subgallery_index', { 'id': gallery.id }) }}" class="box-size">{{ gallery.name }}</a>#}
+
+                                     {################### Si L'ADMIN EST ACTIF #############################}
+
+                                        {#{% if is_granted('ROLE_ADMIN') %}#}
+
+                                            {#<a href="{{ path('gallery_edit', { 'id': gallery.id }) }}" class="waves-effect icon-background4 orange darken-2">éditer</a>#}
+
+                                        {#{% endif %}#}
+                                     {######################################################################}
+
+                                    {#</li>#}
+
+                                {#{% endif %}#}
+                            {#{% endfor %}#}
+
+                                 {################### Si L'ADMIN EST ACTIF #############################}
+                                    {#{% if is_granted('ROLE_ADMIN') %}#}
+                                    {#<li class="center">#}
+                                        {#<a href="{{ path('gallery_new') }}" class="waves-effect waves-light green darken-1">#}
+                                            {#<i class=" material-icons white-text large material-icons-size">add</i>#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                    {#{% endif %}#}
+                                 {######################################################################}
+
+                        {#</ul>#}
+                    {#</li>#}
+
+                    {#{% endfor %}#}
+
+                {#</ul>#}
+            {#</div>#}
+            {#<div class="nav-content backcontent center">#}
+                {#<span class="nav-title f-size">Nathalie Sian Création</span>#}
+            {#</div>#}
+        {#</nav>#}
+    {#</div>#}
+
+{% endblock %}

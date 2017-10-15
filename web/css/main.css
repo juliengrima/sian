@@ -115,6 +115,7 @@ p{
 
     .f-size {
         font-size: 70px !important;
+        color: white;
     }
     .bouton-new-gallery{
          width: 30px !important;
@@ -219,7 +220,8 @@ p{
 /*******************************************************/
 /*******************************************************/
 .decal{
-    margin-left: 100px;
+    margin-left: 50px;
+    font-size: 25px !important;
 }
 
 .title{
