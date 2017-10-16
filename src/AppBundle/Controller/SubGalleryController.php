@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\SubGallery;
+use AppBundle\Entity\Gallery;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,10 +21,10 @@ class SubGalleryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $subGalleries = $em->getRepository('AppBundle:SubGallery')->findAll();
+        $subGallery = $em->getRepository('AppBundle:SubGallery')->findAll();
 
         return $this->render('subgallery/index.html.twig', array(
-            'subGalleries' => $subGalleries,
+            'subGalleries' => $subGallery,
         ));
     }
 

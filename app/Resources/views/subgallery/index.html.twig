@@ -1,16 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Subgalleries list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Sgallery</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
         <tbody>
         {% for subGallery in subGalleries %}
             <tr>
