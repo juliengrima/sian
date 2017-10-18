@@ -17,14 +17,16 @@ class SubGalleryController extends Controller
      * Lists all subGallery entities.
      *
      */
-    public function indexAction()
+    public function indexAction(SubGallery $subGallery, Gallery $gallery)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $subGallery = $em->getRepository('AppBundle:SubGallery')->findAll();
+        $galleries = $em->getRepository('AppBundle:Gallery')->findOneBy(array('id' => $gallery));
+        $subGalleries = $em->getRepository('AppBundle:SubGallery')->findby(array('id' => $galleries));
 
         return $this->render('subgallery/index.html.twig', array(
-            'subGalleries' => $subGallery,
+            'subGalleries' => $subGalleries,
+            'galleries' => $galleries,
         ));
     }
 

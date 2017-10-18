@@ -248,11 +248,11 @@ p{
 .box-size{
     display: flex;
     float: right;
-    width: 10%;
+    width: 20%;
 }
 
 .disposition{
-    display: flex;
+    width: 80%;
     float: left;
 }
 

@@ -71,6 +71,13 @@
                 margin-top: 1.3%;
             }
 
+            .disposition-a1{
+                width: 100%;
+            }
+
+            .disposition-add{
+                height: 30px;
+            }
 
 
         </style>
@@ -89,7 +96,7 @@
                             {% if header == gallery.header %}
 
                                 <div class="disposition">
-                                    <a href="{{ path('subgallery_index', { 'id': gallery.id }) }}" class="">{{ gallery.name }}</a> <!-- class box-size -->
+                                    <a href="{{ path('subgallery_index', { 'id': gallery.id }) }}" class="disposition-a1">{{ gallery.name }}</a> <!-- class box-size -->
                                 </div>
                                 {# ################# Si L'ADMIN EST ACTIF ########################### #}
 
@@ -106,7 +113,7 @@
                         {# ################# Si L'ADMIN EST ACTIF ###########################c#}
                         {% if is_granted('ROLE_ADMIN') %}
 
-                            <a href="{{ path('gallery_new') }}" class="waves-effect waves-light green darken-1">
+                            <a href="{{ path('gallery_new') }}" class="waves-effect waves-light green darken-1 disposition-add">
                                 <i class=" material-icons white-text large material-icons-size">add</i>
                             </a>
 
