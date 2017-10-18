@@ -1,21 +1,70 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Gallery edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <div class="container">
+        <div class="header-marge">
+            <div class="row">
+                <div class="col s12">
 
-    <ul>
-        <li>
-            <a href="{{ path('gallery_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    <div class="row">
+                        <h1 class="center">Modification de la gallerie</h1>
+                    </div>
+
+                    {{ form_start(edit_form) }}
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification du nom de la gallerie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.name) }}
+                            {{ form_errors(edit_form.name) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification de la catégorie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.header) }}
+                            {{ form_errors(edit_form.header) }}
+                        </div>
+                    </div>
+
+                    <div class="row right">
+                        <div class="col s12 disposition2">
+                            <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                                    type="submit">
+                                <i class="material-icons">check</i>
+                            </button>
+
+                            <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                               href="{{ path('homepage') }}">
+                                <i class="small material-icons">home</i>
+                            </a>
+
+                    {{ form_end(edit_form) }}
+
+                    {{ form_start(delete_form) }}
+
+                            <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 red darken-2" type="submit" name="action"
+                                    data-position="bottom"
+                                    data-delay="50"
+                                    data-tooltip="supprimer">
+                                <i class="material-icons">lock_outline</i>
+                            </button>
+
+                    {{ form_end(delete_form) }}
+                        </div>
+                    </div>
+
+                    <div class="header-buttom-marge"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 {% endblock %}

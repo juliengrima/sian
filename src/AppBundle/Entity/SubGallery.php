@@ -18,12 +18,6 @@ class SubGallery
     private $sgallery;
 
     /**
-     * @var \AppBundle\Entity\gallery
-     */
-    private $gallery;
-
-
-    /**
      * Get id
      *
      * @return integer
@@ -56,6 +50,11 @@ class SubGallery
     {
         return $this->sgallery;
     }
+    /**
+     * @var \AppBundle\Entity\gallery
+     */
+    private $gallery;
+
 
     /**
      * Set gallery

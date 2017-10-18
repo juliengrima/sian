@@ -27,6 +27,17 @@ class GalleryController extends Controller
         ));
     }
 
+    public function layoutAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $galleries = $em->getRepository('AppBundle:Gallery')->findAll();
+
+        return $this->render('::layout.html.twig', array(
+            'galleries' => $galleries,
+        ));
+    }
+
     /**
      * Creates a new gallery entity.
      *
@@ -62,6 +73,21 @@ class GalleryController extends Controller
         return $this->render('gallery/show.html.twig', array(
             'gallery' => $gallery,
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Lists all header entities.
+     *
+     */
+    public function allAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $gallery = $em->getRepository('AppBundle:Gallery')->findAll();
+
+        return $this->render('gallery/show_all.html.twig', array(
+            'galleries' => $gallery,
         ));
     }
 

@@ -1,18 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Subgalleries list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Sgallery</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
         <tbody>
         {% for subGallery in subGalleries %}
+        {% if Gallery == subGallery.gallery %}
             <tr>
                 <td><a href="{{ path('subgallery_show', { 'id': subGallery.id }) }}">{{ subGallery.id }}</a></td>
                 <td>{{ subGallery.sgallery }}</td>
@@ -27,6 +19,7 @@
                     </ul>
                 </td>
             </tr>
+        {% endif %}
         {% endfor %}
         </tbody>
     </table>

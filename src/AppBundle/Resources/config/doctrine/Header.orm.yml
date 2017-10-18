@@ -1,7 +1,7 @@
-AppBundle\Entity\Collection:
+AppBundle\Entity\Header:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\CollectionRepository
+    repositoryClass: AppBundle\Repository\HeaderRepository
     id:
         id:
             type: integer
@@ -9,7 +9,7 @@ AppBundle\Entity\Collection:
             generator:
                 strategy: AUTO
     fields:
-        colname:
+        name:
             type: string
             length: 255
     lifecycleCallbacks: {  }

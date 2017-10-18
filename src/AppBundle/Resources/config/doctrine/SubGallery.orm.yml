@@ -15,7 +15,7 @@ AppBundle\Entity\SubGallery:
 
     manyToOne:
         gallery:
-          targetEntity: gallery
+          targetEntity: AppBundle\Entity\Gallery
           joinColumn:
             name: gallery_id
             referencedColumnName: id

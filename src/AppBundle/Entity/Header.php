@@ -3,10 +3,17 @@
 namespace AppBundle\Entity;
 
 /**
- * Collection
+ * Header
  */
-class Collection
+class Header
 {
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
+
     /**
      * @var integer
      */
@@ -15,7 +22,7 @@ class Collection
     /**
      * @var string
      */
-    private $colname;
+    private $name;
 
 
     /**
@@ -29,26 +36,26 @@ class Collection
     }
 
     /**
-     * Set colname
+     * Set name
      *
-     * @param string $colname
+     * @param string $name
      *
-     * @return Collection
+     * @return Gallery
      */
-    public function setColname($colname)
+    public function setName($name)
     {
-        $this->colname = $colname;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get colname
+     * Get name
      *
      * @return string
      */
-    public function getColname()
+    public function getName()
     {
-        return $this->colname;
+        return $this->name;
     }
 }

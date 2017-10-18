@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
     textArea();
 
     //COLLAPSIBLE
-    hide_Show();
+    //hide_Show();
 
     //COLORPICKER
     colorpicker();

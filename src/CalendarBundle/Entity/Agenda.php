@@ -23,29 +23,9 @@ class Agenda
 //    GENERATED CODE
 
     /**
-     * @var int
+     * @var integer
      */
-    protected $id;
-
-    /**
-     * @var string
-     */
-    private $titre;
-
-    /**
-     * @var string
-     */
-    private $texte;
-
-    /**
-     * @var \DateTime
-     */
-    private $date;
-
-    /**
-     * @var string
-     */
-    private $lieu;
+    private $id;
 
     /**
      * @var \DateTime
@@ -60,122 +40,37 @@ class Agenda
     /**
      * @var string
      */
+    private $titre;
+
+    /**
+     * @var string
+     */
+    private $texte;
+
+    /**
+     * @var string
+     */
+    private $lieu;
+
+    /**
+     * @var string
+     */
     private $color;
 
     /**
-     * @var boolean
-     */
-    private $slider;
-
-    /**
-     * @var boolean
+     * @var \AppBundle\Entity\Media
      */
     private $media;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set titre
-     *
-     * @param string $titre
-     *
-     * @return Agenda
-     */
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    /**
-     * Get titre
-     *
-     * @return string
-     */
-    public function getTitre()
-    {
-        return $this->titre;
-    }
-
-    /**
-     * Set texte
-     *
-     * @param string $texte
-     *
-     * @return Agenda
-     */
-    public function setTexte($texte)
-    {
-        $this->texte = $texte;
-
-        return $this;
-    }
-
-    /**
-     * Get texte
-     *
-     * @return string
-     */
-    public function getTexte()
-    {
-        return $this->texte;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Agenda
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set lieu
-     *
-     * @param string $lieu
-     *
-     * @return Agenda
-     */
-    public function setLieu($lieu)
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu
-     *
-     * @return string
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
     }
 
     /**
@@ -227,9 +122,81 @@ class Agenda
     }
 
     /**
-     * Set couleur
+     * Set titre
      *
-     * @param string $couleur
+     * @param string $titre
+     *
+     * @return Agenda
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set texte
+     *
+     * @param string $texte
+     *
+     * @return Agenda
+     */
+    public function setTexte($texte)
+    {
+        $this->texte = $texte;
+
+        return $this;
+    }
+
+    /**
+     * Get texte
+     *
+     * @return string
+     */
+    public function getTexte()
+    {
+        return $this->texte;
+    }
+
+    /**
+     * Set lieu
+     *
+     * @param string $lieu
+     *
+     * @return Agenda
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    /**
+     * Get lieu
+     *
+     * @return string
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * Set color
+     *
+     * @param string $color
      *
      * @return Agenda
      */
@@ -241,7 +208,7 @@ class Agenda
     }
 
     /**
-     * Get couleur
+     * Get color
      *
      * @return string
      */
@@ -250,31 +217,6 @@ class Agenda
         return $this->color;
     }
 
-    /**
-     * Set slider
-     *
-     * @param boolean $slider
-     *
-     * @return Agenda
-     */
-    public function setSlider($slider)
-    {
-        $this->slider = $slider;
-
-        return $this;
-    }
-
-    /**
-     * Get slider
-     *
-     * @return boolean
-     */
-    public function getSlider()
-    {
-        return $this->slider;
-    }
-
-//_________________________________________________________________________________________
     /**
      * Set media
      *

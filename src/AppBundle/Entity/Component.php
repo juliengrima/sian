@@ -23,22 +23,6 @@ class Component
     private $description;
 
     /**
-     * @var \AppBundle\Entity\SubGallery
-     */
-    private $subgallery;
-
-    /**
-     * @var \AppBundle\Entity\collection
-     */
-    private $collection;
-
-    /**
-     * @var \AppBundle\Entity\media
-     */
-    private $media;
-
-
-    /**
      * Get id
      *
      * @return integer
@@ -95,6 +79,16 @@ class Component
     {
         return $this->description;
     }
+    /**
+     * @var \AppBundle\Entity\SubGallery
+     */
+    private $subgallery;
+
+    /**
+     * @var \AppBundle\Entity\Media
+     */
+    private $media;
+
 
     /**
      * Set subgallery
@@ -121,37 +115,13 @@ class Component
     }
 
     /**
-     * Set collection
-     *
-     * @param \AppBundle\Entity\collection $collection
-     *
-     * @return Component
-     */
-    public function setCollection(\AppBundle\Entity\collection $collection = null)
-    {
-        $this->collection = $collection;
-
-        return $this;
-    }
-
-    /**
-     * Get collection
-     *
-     * @return \AppBundle\Entity\collection
-     */
-    public function getCollection()
-    {
-        return $this->collection;
-    }
-
-    /**
      * Set media
      *
-     * @param \AppBundle\Entity\media $media
+     * @param \AppBundle\Entity\Media $media
      *
      * @return Component
      */
-    public function setMedia(\AppBundle\Entity\media $media = null)
+    public function setMedia(\AppBundle\Entity\Media $media = null)
     {
         $this->media = $media;
 
@@ -161,7 +131,7 @@ class Component
     /**
      * Get media
      *
-     * @return \AppBundle\Entity\media
+     * @return \AppBundle\Entity\Media
      */
     public function getMedia()
     {

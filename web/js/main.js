@@ -9,8 +9,11 @@ jQuery(document).ready(function($) {
     console.log('jQuery de app.js a démarré julien test');
 
     carousel();
-
-    cal();
+    text();
+    select();
+    myFunction();
+    click();
+    // cal();
 
 });
 
@@ -27,14 +30,32 @@ function carousel() {
 }
 
 // ********************************************************************
+// *                       FORMS
+// ********************************************************************
+
+function text() {
+    $('#textarea1').val('New Text', 'autoresize');
+}
+
+function select() {
+    console.log('select')
+    $('select').material_select();
+}
+
+// ********************************************************************
 // *                       Calendar
 // ********************************************************************
 
-function cal() {
-    $('#calendar').datepicker({
-        inline: true,
-        firstDay: 1,
-        showOtherMonths: true,
-        dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-    });
-}
+// function cal() {
+//     $('#calendar').datepicker({
+//         inline: true,
+//         firstDay: 1,
+//         showOtherMonths: true,
+//         dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
+//     });
+// }
+
+
+
+
+
