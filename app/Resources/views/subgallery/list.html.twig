@@ -5,11 +5,11 @@
         {% for subGallery in subGalleries %}
             {{ dump(subGallery) }}
 
-            {% if gallery == subGallery.gallery %}
+            {#{% if gallery == subGallery.gallery %}#}
 
                 <div>{{ subGallery.sgallery }} </div>
 
-            {% endif %}
+            {#{% endif %}#}
         {% endfor %}
 
 {% endblock %}

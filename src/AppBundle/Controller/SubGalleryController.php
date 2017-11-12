@@ -37,14 +37,17 @@ class SubGalleryController extends Controller
      */
     public function indexSubAction(Request $request)
     {
+        $gallery = new gallery;
+        $gallery = $_GET['id'];
+
         $em = $this->getDoctrine()->getManager();
 
-        $gallery = $em->getRepository('AppBundle:Gallery')->findAll();
+//        $gallery = $em->getRepository('AppBundle:Gallery')->findAll();
         $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('id' => $gallery));
 
         return $this->render('subgallery/list.html.twig', array(
             'subGalleries' => $subGallery,
-            'gallery' => $gallery,
+//            'gallery' => $gallery,
 
         ));
     }
