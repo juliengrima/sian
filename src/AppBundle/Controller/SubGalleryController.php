@@ -2,10 +2,14 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\SubGallery;
+use AppBundle\AppBundle;
 use AppBundle\Entity\Gallery;
+use AppBundle\Entity\SubGallery;
+use AppBundle\Entity\Component;
+use AppBundle\Repository\ComponentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Subgallery controller.
@@ -17,16 +21,31 @@ class SubGalleryController extends Controller
      * Lists all subGallery entities.
      *
      */
-    public function indexAction(SubGallery $subGallery, Gallery $gallery)
+    public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $galleries = $em->getRepository('AppBundle:Gallery')->findOneBy(array('id' => $gallery));
-        $subGalleries = $em->getRepository('AppBundle:SubGallery')->findby(array('id' => $galleries));
+        $subGalleries = $em->getRepository('AppBundle:SubGallery')->findAll ();
 
         return $this->render('subgallery/index.html.twig', array(
             'subGalleries' => $subGalleries,
-            'galleries' => $galleries,
+        ));
+    }
+
+    /**
+     * Lists subGallery entity in function Gallery.
+     *
+     */
+    public function indexSubAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $gallery = $em->getRepository('AppBundle:Gallery')->findAll();
+        $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('id' => $gallery));
+
+        return $this->render('subgallery/list.html.twig', array(
+            'subGalleries' => $subGallery,
+            'gallery' => $gallery,
+
         ));
     }
 

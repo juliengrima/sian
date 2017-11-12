@@ -2,7 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\Component;
 use AppBundle\Entity\Gallery;
+use AppBundle\Entity\SubGallery;
+use AppBundle\Repository\ComponentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,6 +30,7 @@ class GalleryController extends Controller
             'galleries' => $galleries,
         ));
     }
+
 
     public function layoutAction()
     {

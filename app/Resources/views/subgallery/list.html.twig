@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+        {% for subGallery in subGalleries %}
+            {{ dump(subGallery) }}
+
+            {% if gallery == subGallery.gallery %}
+
+                <div>{{ subGallery.sgallery }} </div>
+
+            {% endif %}
+        {% endfor %}
+
+{% endblock %}
