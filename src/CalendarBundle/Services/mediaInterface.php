@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Services;
+namespace CalendarBundle\Services;
 
 use AppBundle\Entity\Media;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;

@@ -1,15 +1,47 @@
 {% extends 'layout.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style_common.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style.css') }}" />
+{% endblock %}
+
 {% block body %}
 
-        {% for subGallery in subGalleries %}
-            {{ dump(subGallery) }}
+    <div id="grid" class="main">
 
-            {#{% if gallery == subGallery.gallery %}#}
+        {% for subGallery in subGalleries %}
+
+                <div class="view">
+                    <div class="view-back">
+                        <span data-icon="A">566</span>
+                        <span data-icon="B">124</span>
+                        <a href="http://www.flickr.com/photos/ag2r/5439506585/in/photostream">?</a>
+                    </div>
+                    <img src="{{ asset('images/downloads/1.jpg') }}" />
+                </div>
 
                 <div>{{ subGallery.sgallery }} </div>
 
-            {#{% endif %}#}
         {% endfor %}
 
+    </div>
+
+
+
+    <script type="text/javascript" src="{{ asset('js/effects/modernizr.custom.69142.js') }}"></script>
+
+    <script type="text/javascript">
+        Modernizr.load({test: Modernizr.csstransforms3d && Modernizr.csstransitions,
+            yep : ['{{ asset('js/jquery-3.2.1.min.js') }}','{{ asset('js/effects/jquery.hoverfold.js') }}'],
+            nope: '{{ asset('css/effects/fallback.css') }}',
+            callback : function( url, result, key ) {
+                if( url === '{{ asset('js/effects/jquery.hoverfold.js') }}' ) {
+                    $( '#grid' ).hoverfold();}}
+        });
+    </script>
+
 {% endblock %}
+
+
+
+
