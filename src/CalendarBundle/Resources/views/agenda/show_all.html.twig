@@ -1,19 +1,19 @@
-{% extends '@PlateForme/layout.html.twig' %}
+{% extends 'layout.html.twig' %}
 {% block body %}
 
     <div class="container center" id="user_list_model">
 
         <h2>Liste des évènements</h2>
-        <div class="boutons-haut">
-            <a href="{{ path('admin_dashboard') }}">
-                <button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
-                        data-position="bottom"
-                        data-delay="50"
-                        data-tooltip="Accueil">
-                    <i class="material-icons">home</i>
-                </button>
-            </a>
-        </div>
+        {#<div class="boutons-haut">#}
+            {#<a href="{{ path('homepage') }}">#}
+                {#<button class="user btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"#}
+                        {#data-position="bottom"#}
+                        {#data-delay="50"#}
+                        {#data-tooltip="Accueil">#}
+                    {#<i class="material-icons">home</i>#}
+                {#</button>#}
+            {#</a>#}
+        {#</div>#}
 
         <table class="responsive-table bordered striped" id="table_id">
             <thead>
@@ -36,7 +36,7 @@
                         </div>
                     </td>
                     <td>{{ event.texte }}</td>
-                    <td>{% if event.slider %}Evènement ajouté{% else %}Evènement non ajouté{% endif %}</td>
+                    {#<td>{% if event.slider %}Evènement ajouté{% else %}Evènement non ajouté{% endif %}</td>#}
 
                     <td class="boutons_user">
                         <div class="boutons">

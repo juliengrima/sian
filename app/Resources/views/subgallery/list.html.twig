@@ -11,20 +11,51 @@
 
         {% for subGallery in subGalleries %}
 
+            {% if subGallery is defined %}
+
                 <div class="view">
                     <div class="view-back">
-                        <span data-icon="A">566</span>
-                        <span data-icon="B">124</span>
-                        <a href="http://www.flickr.com/photos/ag2r/5439506585/in/photostream">?</a>
+                        <span data-icon="A">{{ subGallery.sgallery }}</span>
+
+                        <a href="#modal1">?</a>
                     </div>
-                    <img src="{{ asset('images/downloads/1.jpg') }}" />
+                    <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}"/>
                 </div>
 
-                <div>{{ subGallery.sgallery }} </div>
+            {% else %}
 
-        {% endfor %}
+                <div class="container">
+
+                    <div class="valign-wrapper">
+                        <h5>Nous N'avons pas trouvé votre demande</h5>
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
 
     </div>
+
+<!------------------------------- --------------- ------------------------------------->
+<!------------------------------- --------------- ------------------------------------->
+<!------------------------------- MODAL STRUCTURE ------------------------------------->
+<!------------------------------- --------------- ------------------------------------->
+<!------------------------------- --------------- ------------------------------------->
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>{{ subGallery.sgallery }}r</h4>
+                <p>{{ subGallery.component.description }}</p>
+                <p>{{ subGallery.component.prix }}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Quitter</a>
+            </div>
+        </div>
+
+    {% endfor %}
 
 
 

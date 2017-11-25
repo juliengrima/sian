@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
     text();
     select();
     myFunction();
+    modallist();
     click();
     // cal();
 
@@ -55,7 +56,16 @@ function select() {
 //     });
 // }
 
+// ********************************************************************
+// *                       Calendar
+// ********************************************************************
 
+function modallist() {
+
+    console.log('modal')
+    $('.modal').modal();
+
+}
 
 
 
