@@ -9,22 +9,10 @@ AppBundle\Entity\Component:
             generator:
                 strategy: AUTO
     fields:
-        compname:
-            type: string
-            length: 255
+        prix:
+            type: integer
         description:
             type: text
             nullable: true
 
-    manyToOne:
-        subgallery:
-          targetEntity: SubGallery
-          joinColumn:
-            name: subgallery_id
-            referencedColumnName: id
-        media:
-          targetEntity: Media
-          joinColumn:
-            name: media_id
-            referencedColumnName: id
     lifecycleCallbacks: {  }

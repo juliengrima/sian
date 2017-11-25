@@ -137,4 +137,33 @@ class Component
     {
         return $this->media;
     }
+    /**
+     * @var integer
+     */
+    private $prix;
+
+
+    /**
+     * Set prix
+     *
+     * @param integer $prix
+     *
+     * @return Component
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return integer
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
 }

@@ -1,0 +1,78 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style_common.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+    <div id="grid" class="main">
+
+        {% for subGallery in subGalleries %}
+
+            {% if subGallery is defined %}
+
+                <div class="view">
+                    <div class="view-back">
+                        <span data-icon="A">{{ subGallery.sgallery }}</span>
+
+                        <a href="#modal1">?</a>
+                    </div>
+                    <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}"/>
+                </div>
+
+            {% else %}
+
+                <div class="container">
+
+                    <div class="valign-wrapper">
+                        <h5>Nous N'avons pas trouvé votre demande</h5>
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+
+
+    </div>
+
+<!------------------------------- --------------- ------------------------------------->
+<!------------------------------- --------------- ------------------------------------->
+<!------------------------------- MODAL STRUCTURE ------------------------------------->
+<!------------------------------- --------------- ------------------------------------->
+<!------------------------------- --------------- ------------------------------------->
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>{{ subGallery.sgallery }}r</h4>
+                <p>{{ subGallery.component.description }}</p>
+                <p>{{ subGallery.component.prix }}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Quitter</a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+
+
+    <script type="text/javascript" src="{{ asset('js/effects/modernizr.custom.69142.js') }}"></script>
+
+    <script type="text/javascript">
+        Modernizr.load({test: Modernizr.csstransforms3d && Modernizr.csstransitions,
+            yep : ['{{ asset('js/jquery-3.2.1.min.js') }}','{{ asset('js/effects/jquery.hoverfold.js') }}'],
+            nope: '{{ asset('css/effects/fallback.css') }}',
+            callback : function( url, result, key ) {
+                if( url === '{{ asset('js/effects/jquery.hoverfold.js') }}' ) {
+                    $( '#grid' ).hoverfold();}}
+        });
+    </script>
+
+{% endblock %}
+
+
+
+

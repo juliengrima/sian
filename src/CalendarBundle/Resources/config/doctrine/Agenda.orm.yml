@@ -30,8 +30,6 @@ CalendarBundle\Entity\Agenda:
     manyToOne:
         media:
           targetEntity: AppBundle\Entity\Media
-          joinColumn:
-            name: media_id
-            referencedColumnName: id
+          cascade: ['all']
 
     lifecycleCallbacks: {  }
