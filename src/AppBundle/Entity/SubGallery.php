@@ -18,6 +18,21 @@ class SubGallery
     private $sgallery;
 
     /**
+     * @var \AppBundle\Entity\gallery
+     */
+    private $gallery;
+
+    /**
+     * @var \AppBundle\Entity\Media
+     */
+    private $media;
+
+    /**
+     * @var \AppBundle\Entity\Component
+     */
+    private $component;
+
+    /**
      * Get id
      *
      * @return integer
@@ -50,11 +65,6 @@ class SubGallery
     {
         return $this->sgallery;
     }
-    /**
-     * @var \AppBundle\Entity\gallery
-     */
-    private $gallery;
-
 
     /**
      * Set gallery
@@ -79,11 +89,6 @@ class SubGallery
     {
         return $this->gallery;
     }
-    /**
-     * @var \AppBundle\Entity\Media
-     */
-    private $media;
-
 
     /**
      * Set media
@@ -107,5 +112,29 @@ class SubGallery
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set component
+     *
+     * @param \AppBundle\Entity\Component $component
+     *
+     * @return SubGallery
+     */
+    public function setComponent(\AppBundle\Entity\Component $component = null)
+    {
+        $this->component = $component;
+
+        return $this;
+    }
+
+    /**
+     * Get media
+     *
+     * @return \AppBundle\Entity\Component
+     */
+    public function getComponent()
+    {
+        return $this->component;
     }
 }

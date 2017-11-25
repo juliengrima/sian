@@ -13,9 +13,9 @@ class Component
     private $id;
 
     /**
-     * @var string
+     * @var integer
      */
-    private $compname;
+    private $prix;
 
     /**
      * @var string
@@ -30,30 +30,6 @@ class Component
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set compname
-     *
-     * @param string $compname
-     *
-     * @return Component
-     */
-    public function setCompname($compname)
-    {
-        $this->compname = $compname;
-
-        return $this;
-    }
-
-    /**
-     * Get compname
-     *
-     * @return string
-     */
-    public function getCompname()
-    {
-        return $this->compname;
     }
 
     /**
@@ -79,69 +55,6 @@ class Component
     {
         return $this->description;
     }
-    /**
-     * @var \AppBundle\Entity\SubGallery
-     */
-    private $subgallery;
-
-    /**
-     * @var \AppBundle\Entity\Media
-     */
-    private $media;
-
-
-    /**
-     * Set subgallery
-     *
-     * @param \AppBundle\Entity\SubGallery $subgallery
-     *
-     * @return Component
-     */
-    public function setSubgallery(\AppBundle\Entity\SubGallery $subgallery = null)
-    {
-        $this->subgallery = $subgallery;
-
-        return $this;
-    }
-
-    /**
-     * Get subgallery
-     *
-     * @return \AppBundle\Entity\SubGallery
-     */
-    public function getSubgallery()
-    {
-        return $this->subgallery;
-    }
-
-    /**
-     * Set media
-     *
-     * @param \AppBundle\Entity\Media $media
-     *
-     * @return Component
-     */
-    public function setMedia(\AppBundle\Entity\Media $media = null)
-    {
-        $this->media = $media;
-
-        return $this;
-    }
-
-    /**
-     * Get media
-     *
-     * @return \AppBundle\Entity\Media
-     */
-    public function getMedia()
-    {
-        return $this->media;
-    }
-    /**
-     * @var integer
-     */
-    private $prix;
-
 
     /**
      * Set prix

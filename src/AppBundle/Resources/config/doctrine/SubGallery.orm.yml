@@ -19,15 +19,18 @@ AppBundle\Entity\SubGallery:
           joinColumn:
             name: gallery_id
             referencedColumnName: id
-        gallery:
-          targetEntity: AppBundle\Entity\Component
-          joinColumn:
-            name: component_id
-            referencedColumnName: id
         media:
           targetEntity: Media
           joinColumn:
             name: media_id
             referencedColumnName: id
+
+    oneToOne:
+        component:
+          targetEntity: AppBundle\Entity\Component
+          joinColumn:
+            name: component_id
+            referencedColumnName: id
+
 
     lifecycleCallbacks: {  }
