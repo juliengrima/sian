@@ -11,6 +11,7 @@ AppBundle\Entity\Component:
     fields:
         prix:
             type: integer
+            nullable: true
         description:
             type: text
             nullable: true
