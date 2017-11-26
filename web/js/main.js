@@ -10,11 +10,10 @@ jQuery(document).ready(function($) {
 
     carousel();
     text();
-    select();
+    selecteur();
     myFunction();
-    modallist();
+    modal();
     click();
-    // cal();
 
 });
 
@@ -38,33 +37,24 @@ function text() {
     $('#textarea1').val('New Text', 'autoresize');
 }
 
-function select() {
-    console.log('select')
-    $('select').material_select();
+function selecteur() {
+
+    $(document).ready(function () {
+        $('select').material_select();
+    });
 }
 
 // ********************************************************************
-// *                       Calendar
+// *                     MODALS
 // ********************************************************************
 
-// function cal() {
-//     $('#calendar').datepicker({
-//         inline: true,
-//         firstDay: 1,
-//         showOtherMonths: true,
-//         dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-//     });
-// }
+function modal() {
 
-// ********************************************************************
-// *                       Calendar
-// ********************************************************************
+    $(document).ready(function(){
 
-function modallist() {
+        $('#modal').modal();
 
-    console.log('modal')
-    $('.modal').modal();
-
+    });
 }
 
 

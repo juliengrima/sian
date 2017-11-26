@@ -18,6 +18,7 @@ class SubGalleryType extends AbstractType
             ->add('gallery')
             ->add('description')
             ->add('prix')
+            ->add('slider')
             ->add('media', Media::class);
     }
     

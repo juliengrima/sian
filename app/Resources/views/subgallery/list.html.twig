@@ -9,6 +9,8 @@
 
     <div id="grid" class="main">
 
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
         {% for subGallery in subGalleries %}
 
             {% if subGallery is defined %}
@@ -76,13 +78,27 @@
         <div id="modal" class="modal">
             <div class="modal-content">
                 <h4>{{ subGallery.sgallery }}r</h4>
-                <p>{{ subGallery.component.description }}</p>
-                <p>{{ subGallery.component.prix }}</p>
+                <p>{{ subGallery.description }}</p>
+                <p>{{ subGallery.prix }}</p>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Quitter</a>
             </div>
         </div>
+
+
+    {# ############################################# #}
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
 
     {% endfor %}
 

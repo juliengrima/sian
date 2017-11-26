@@ -19,6 +19,9 @@ AppBundle\Entity\SubGallery:
         description:
             type: text
             nullable: true
+        slider:
+            type: boolean
+            nullable: true
 
     manyToOne:
         gallery:

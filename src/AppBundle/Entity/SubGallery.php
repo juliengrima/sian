@@ -167,4 +167,33 @@ class SubGallery
     {
         return $this->description;
     }
+    /**
+     * @var boolean
+     */
+    private $slider;
+
+
+    /**
+     * Set slider
+     *
+     * @param boolean $slider
+     *
+     * @return SubGallery
+     */
+    public function setSlider($slider)
+    {
+        $this->slider = $slider;
+
+        return $this;
+    }
+
+    /**
+     * Get slider
+     *
+     * @return boolean
+     */
+    public function getSlider()
+    {
+        return $this->slider;
+    }
 }
