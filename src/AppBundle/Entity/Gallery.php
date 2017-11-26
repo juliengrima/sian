@@ -8,11 +8,11 @@ namespace AppBundle\Entity;
 class Gallery
 {
 
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->header;
-//    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
 
     /**
      * @var integer

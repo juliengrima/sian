@@ -13,7 +13,9 @@ class SubGalleryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('sgallery')->add('gallery');
+        $builder
+            ->add('sgallery')
+            ->add('gallery');
     }
     
     /**

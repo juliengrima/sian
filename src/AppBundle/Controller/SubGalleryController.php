@@ -48,8 +48,6 @@ class SubGalleryController extends Controller
 
         return $this->render('subgallery/list.html.twig', array(
             'subGalleries' => $subGallery,
-//            'component' => $component,
-//            'picture' => $picture,
         ));
     }
 
