@@ -28,9 +28,15 @@ class SubGallery
     private $media;
 
     /**
-     * @var \AppBundle\Entity\Component
+     * @var integer
      */
-    private $component;
+    private $prix;
+
+    /**
+     * @var string
+     */
+    private $description;
+
 
     /**
      * Get id
@@ -115,26 +121,50 @@ class SubGallery
     }
 
     /**
-     * Set component
+     * Set prix
      *
-     * @param \AppBundle\Entity\Component $component
+     * @param integer $prix
      *
      * @return SubGallery
      */
-    public function setComponent(\AppBundle\Entity\Component $component = null)
+    public function setPrix($prix)
     {
-        $this->component = $component;
+        $this->prix = $prix;
 
         return $this;
     }
 
     /**
-     * Get media
+     * Get prix
      *
-     * @return \AppBundle\Entity\Component
+     * @return integer
      */
-    public function getComponent()
+    public function getPrix()
     {
-        return $this->component;
+        return $this->prix;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return SubGallery
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

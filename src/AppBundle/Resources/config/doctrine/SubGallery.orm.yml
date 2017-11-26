@@ -12,6 +12,12 @@ AppBundle\Entity\SubGallery:
         sgallery:
             type: string
             length: 255
+        prix:
+            type: integer
+            nullable: true
+        description:
+            type: text
+            nullable: true
 
     manyToOne:
         gallery:
@@ -24,13 +30,5 @@ AppBundle\Entity\SubGallery:
           joinColumn:
             name: media_id
             referencedColumnName: id
-
-    oneToOne:
-        component:
-          targetEntity: AppBundle\Entity\Component
-          joinColumn:
-            name: component_id
-            referencedColumnName: id
-
 
     lifecycleCallbacks: {  }

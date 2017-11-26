@@ -1,16 +1,87 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Subgallery creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div class="container">
+        <div class="header-marge">
+            <div class="row">
+                <div class="col s12">
 
-    <ul>
-        <li>
-            <a href="{{ path('subgallery_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                    <div class="row">
+                        <h1 class="center">Ajout d'un nouvel objet</h1>
+                    </div>
+
+                    {{ form_start(form) }}
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Sélection de la gallerie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.gallery) }}
+                            {{ form_errors(form.gallery) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Nom du nouvel objet :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.sgallery) }}
+                            {{ form_errors(form.sgallery) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Description du nouvel objet :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.description) }}
+                            {{ form_errors(form.description) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>prix du nouvel objet :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.prix) }}
+                            {{ form_errors(form.prix) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Photo du nouvel objet :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.media) }}
+                            {{ form_errors(form.media) }}
+                        </div>
+                    </div>
+
+                    <div class="center">
+                        <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                                type="submit">
+                            <i class="material-icons">check</i>
+                        </button>
+
+                        <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                           href="{{ path('homepage') }}">
+                            <i class="small material-icons">home</i>
+                        </a>
+                    </div>
+
+                    {{ form_end(form) }}
+
+                    <div class="header-buttom-marge"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

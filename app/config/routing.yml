@@ -26,27 +26,6 @@ app_subgallery:
       resource: "@AppBundle/Resources/config/routing/subgallery.yml"
       prefix:   /subgallery
 
-##############################################
-#                                            #
-#                 COMPONENT                  #
-#                                            #
-##############################################
-
-app_component:
-    resource: "@AppBundle/Resources/config/routing/component.yml"
-    prefix:   /component
-
-##############################################
-#                                            #
-#                COLLECTION                  #
-#                                            #
-##############################################
-
-app_collection:
-    resource: "@AppBundle/Resources/config/routing/collection.yml"
-    prefix:   /collection
-
-
 
 ############################################################################################################
 

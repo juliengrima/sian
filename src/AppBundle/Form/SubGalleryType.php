@@ -15,7 +15,10 @@ class SubGalleryType extends AbstractType
     {
         $builder
             ->add('sgallery')
-            ->add('gallery');
+            ->add('gallery')
+            ->add('description')
+            ->add('prix')
+            ->add('media', Media::class);
     }
     
     /**
