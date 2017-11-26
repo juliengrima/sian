@@ -13,7 +13,8 @@ AppBundle\Entity\SubGallery:
             type: string
             length: 255
         prix:
-            type: integer
+            type: string
+            length: 255
             nullable: true
         description:
             type: text
