@@ -10,7 +10,7 @@ header_show:
 
 header_show_all:
     path:     /show_all
-    defaults: { _controller: "AppBundle:Header:all" }
+    defaults: { _controller: "AppBundle:Header:allHeader" }
     methods:  GET
 
 header_new:

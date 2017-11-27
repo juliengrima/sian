@@ -98,16 +98,6 @@
                                 <div class="disposition1">
                                     <a href="{{ path('list_show', { 'id': gallery.id }) }}" class="disposition-a1">{{ gallery.name }}</a> <!-- class box-size -->
                                 </div>
-                                {# ################# Si L'ADMIN EST ACTIF ########################### #}
-
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <div class="disposition2">
-                                        <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}" class="">
-                                            <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon-index">
-                                        </a>
-                                    </div>
-                                {% endif %}
-                                {# ################################################################## #}
 
                             {% endif %}
                         {% endfor %}
@@ -115,9 +105,12 @@
                         {# ################# Si L'ADMIN EST ACTIF ###########################c#}
                         {% if is_granted('ROLE_ADMIN') %}
 
-                            <div class="center">
-                                <a href="{{ path('gallery_new') }}" class="">
+                            <div class="">
+                                <a href="{{ path('gallery_new') }}" class="left">
                                     <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon-index">
+                                </a>
+                                <a href="{{ path('gallery_show_all') }}" class="right">
+                                    <img src="{{ asset('images/local/icons/shuffle.svg') }}" class="plus-icon-index">
                                 </a>
                             </div>
 
