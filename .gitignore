@@ -23,6 +23,8 @@
 
 ### Symfony web
 /web/bundles/
+/web/images/downloads/
+/web/media/cache/
 
 #### Fichiers temporaires
 *~

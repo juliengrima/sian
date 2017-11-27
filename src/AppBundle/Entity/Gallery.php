@@ -8,11 +8,11 @@ namespace AppBundle\Entity;
 class Gallery
 {
 
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->header;
-//    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
+    }
 
     /**
      * @var integer
@@ -23,6 +23,11 @@ class Gallery
      * @var string
      */
     private $name;
+
+    /**
+     * @var \AppBundle\Entity\Header
+     */
+    private $header;
 
     /**
      * Get id
@@ -57,11 +62,6 @@ class Gallery
     {
         return $this->name;
     }
-    /**
-     * @var \AppBundle\Entity\Header
-     */
-    private $header;
-
 
     /**
      * Set header

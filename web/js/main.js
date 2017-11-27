@@ -10,17 +10,34 @@ jQuery(document).ready(function($) {
 
     carousel();
     text();
-    select();
+    selecteur();
     myFunction();
-    modallist();
-    click();
-    // cal();
+    modal();
 
 });
 
 // ********************************************************************
+// *
+// *
 // *                       JS General
+// *
+// *
 // ********************************************************************
+
+// ********************************************************************
+// *                       FORMS
+// ********************************************************************
+
+function text() {
+    $('#textarea1').val('New Text', 'autoresize');
+}
+
+function selecteur() {
+
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+}
 
 // ********************************************************************
 // *                       Sliders
@@ -31,40 +48,16 @@ function carousel() {
 }
 
 // ********************************************************************
-// *                       FORMS
+// *                     MODALS
 // ********************************************************************
 
-function text() {
-    $('#textarea1').val('New Text', 'autoresize');
-}
+function modal() {
 
-function select() {
-    console.log('select')
-    $('select').material_select();
-}
+    $(document).ready(function(){
 
-// ********************************************************************
-// *                       Calendar
-// ********************************************************************
+        $('#modal').modal();
 
-// function cal() {
-//     $('#calendar').datepicker({
-//         inline: true,
-//         firstDay: 1,
-//         showOtherMonths: true,
-//         dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-//     });
-// }
-
-// ********************************************************************
-// *                       Calendar
-// ********************************************************************
-
-function modallist() {
-
-    console.log('modal')
-    $('.modal').modal();
-
+    });
 }
 
 

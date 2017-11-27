@@ -48,8 +48,6 @@ class SubGalleryController extends Controller
 
         return $this->render('subgallery/list.html.twig', array(
             'subGalleries' => $subGallery,
-//            'component' => $component,
-//            'picture' => $picture,
         ));
     }
 
@@ -61,9 +59,26 @@ class SubGalleryController extends Controller
     {
         $subGallery = new Subgallery();
         $form = $this->createForm('AppBundle\Form\SubGalleryType', $subGallery);
+        $form->setData ($subGallery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /* ON RECUP LE FICHIER IMAGE */
+            $imageForm = $form->get ('media');
+            $image = $imageForm->getData ();
+            $subGallery->setMedia ($image);
+
+            if (isset($image)) {
+
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . $subGallery->getTitre () . uniqid ()));
+
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+            }
+
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($subGallery);
             $em->flush();

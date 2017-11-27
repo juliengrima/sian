@@ -18,6 +18,27 @@ class SubGallery
     private $sgallery;
 
     /**
+     * @var \AppBundle\Entity\gallery
+     */
+    private $gallery;
+
+    /**
+     * @var \AppBundle\Entity\Media
+     */
+    private $media;
+
+    /**
+     * @var integer
+     */
+    private $prix;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+
+    /**
      * Get id
      *
      * @return integer
@@ -50,11 +71,6 @@ class SubGallery
     {
         return $this->sgallery;
     }
-    /**
-     * @var \AppBundle\Entity\gallery
-     */
-    private $gallery;
-
 
     /**
      * Set gallery
@@ -79,11 +95,6 @@ class SubGallery
     {
         return $this->gallery;
     }
-    /**
-     * @var \AppBundle\Entity\Media
-     */
-    private $media;
-
 
     /**
      * Set media
@@ -107,5 +118,82 @@ class SubGallery
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param integer $prix
+     *
+     * @return SubGallery
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return integer
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return SubGallery
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * @var boolean
+     */
+    private $slider;
+
+
+    /**
+     * Set slider
+     *
+     * @param boolean $slider
+     *
+     * @return SubGallery
+     */
+    public function setSlider($slider)
+    {
+        $this->slider = $slider;
+
+        return $this;
+    }
+
+    /**
+     * Get slider
+     *
+     * @return boolean
+     */
+    public function getSlider()
+    {
+        return $this->slider;
     }
 }

@@ -9,32 +9,63 @@
 
     <div id="grid" class="main">
 
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
         {% for subGallery in subGalleries %}
 
             {% if subGallery is defined %}
 
-                <div class="view">
-                    <div class="view-back">
-                        <span data-icon="A">{{ subGallery.sgallery }}</span>
+                    <div class="view">
+                        <div class="view-back">
+                            <span>{{ subGallery.sgallery }}</span>
 
-                        <a href="#modal1">?</a>
+                            <a href="#modal1">?</a>
+                        </div>
+                        <img src="{{ asset(subGallery.media.picpath) | imagine_filter('my_thumb') }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                     </div>
-                    <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}"/>
-                </div>
+
+                    {# ################# Si L'ADMIN EST ACTIF ###########################c#}
+                    {% if is_granted('ROLE_ADMIN') %}
+
+                        <div>
+                            <a href="{{ path('subgallery_new') }}" class="">
+                                <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
+                            </a>
+                        </div>
+
+                    {% endif %}
+                    {# ################################################################## #}
 
             {% else %}
 
                 <div class="container">
 
                     <div class="valign-wrapper">
-                        <h5>Nous N'avons pas trouvé votre demande</h5>
+                        <h5>Nous n'avons pas trouvé votre recherche</h5>
                     </div>
 
                 </div>
 
             {% endif %}
 
+    </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center">
+
+                {# ################# Si L'ADMIN EST ACTIF ###########################c#}
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    <a href="{{ path('subgallery_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close bouton-new">
+                        <i class=" material-icons">add</i>
+                    </a>
+
+                {% endif %}
+                {# ################################################################## #}
+
+            </div>
+        </div>
 
     </div>
 
@@ -47,17 +78,16 @@
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>{{ subGallery.sgallery }}r</h4>
-                <p>{{ subGallery.component.description }}</p>
-                <p>{{ subGallery.component.prix }}</p>
+                <p>{{ subGallery.description }}</p>
+                <p>{{ subGallery.prix }}</p>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Quitter</a>
             </div>
         </div>
 
+
     {% endfor %}
-
-
 
     <script type="text/javascript" src="{{ asset('js/effects/modernizr.custom.69142.js') }}"></script>
 

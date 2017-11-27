@@ -18,14 +18,14 @@ jQuery(document).ready(function($) {
     //TEXTAREA AUTO RESIZE
     textArea();
 
-    //COLLAPSIBLE
-    //hide_Show();
-
     //COLORPICKER
     colorpicker();
 
     //PAGINATION
     pagination();
+
+    //DATEPIKER
+    cal();
 });
 
 // ********************************************************************
@@ -107,21 +107,6 @@ function textArea(){
 }
 
 // ********************************************************************
-// *                    IMAGE DISPLAY
-// ********************************************************************
-
-function hide_Show() {
-    $('#test5').click(function () {
-        if (this.checked){
-            $('.upload_file_event').css('display', 'block')
-        }
-        else {
-            $('.upload_file_event').css('display', 'none')
-        }
-    })
-}
-
-// ********************************************************************
 // *                    COLORPICKER
 // ********************************************************************
 
@@ -135,6 +120,19 @@ function colorpicker(){
     //     var color = $( '#colorpicker' ).val();
     //     $( '#colorpicker' ).css( 'background', color );
     // });
+}
+
+// ********************************************************************
+// *                       DATE PIKER
+// ********************************************************************
+
+function cal() {
+    $('#calendar').datepicker({
+        inline: true,
+        firstDay: 1,
+        showOtherMonths: true,
+        dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
+    });
 }
 
 // ********************************************************************
