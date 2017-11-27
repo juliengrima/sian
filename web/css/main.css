@@ -78,17 +78,11 @@ p{
     width: 45px;
     height: 45px;
 }
-.delete-icon{
+.plus-icon-index{
 
-    width: 45px;
-    height: 45px;
+    width: 25px;
+    height: 25px;
 }
-.edit-icon{
-
-    width: 45px;
-    height: 45px;
-}
-
 
 
     /*******************************************************/
@@ -268,9 +262,13 @@ p{
     width: 20%;
 }
 
-.disposition{
-    width: 80%;
+.disposition1{
+    width: 70%;
     float: left;
+}
+.disposition2{
+    width: 30%;
+    float: right;
 }
 
 /*******************************************************/
