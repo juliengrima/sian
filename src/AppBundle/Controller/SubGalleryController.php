@@ -115,6 +115,21 @@ class SubGalleryController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            /* ON RECUP LE FICHIER IMAGE */
+            $imageForm = $form->get ('media');
+            $image = $imageForm->getData ();
+            $subGallery->setMedia ($image);
+
+            if (isset($image)) {
+
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . uniqid ()));
+
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('subgallery_edit', array('id' => $subGallery->getId()));

@@ -11,42 +11,18 @@
     <!-- SLIDER DES DERNIERES CREATIONS -->
     <div class="slider">
         <ul class="slides">
-            <li>
-                <a href="#" target="_blank">
-                    <img src="https://lorempixel.com/800/400/food/1" alt=""/>
-                </a>
-                <div class="caption center-align">
-                    <h3>TITRE 1</h3>
-                    <h5 class="light grey-text text-lighten-3">TEXTE SUPLEMENTAIRE</h5>
-                </div>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="https://lorempixel.com/800/400/food/2" alt=""/>
-                </a>
-                <div class="caption center-align">
-                    <h3>TITRE 2</h3>
-                    <h5 class="light grey-text text-lighten-3">TEXTE SUPLEMENTAIRE</h5>
-                </div>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="https://lorempixel.com/800/400/food/3" alt=""/>
-                </a>
-                <div class="caption center-align">
-                    <h3>TITRE 3</h3>
-                    <h5 class="light grey-text text-lighten-3">TEXTE SUPLEMENTAIRE</h5>
-                </div>
-            </li>
-            <li>
-                <a href="#" target="_blank">
-                    <img src="https://lorempixel.com/800/400/food/4" alt=""/>
-                </a>
-                <div class="caption center-align">
-                    <h3>TITRE 4</h3>
-                    <h5 class="light grey-text text-lighten-3">TEXTE SUPLEMENTAIRE</h5>
-                </div>
-            </li>
+            {% for subGallery in subGalleries %}
+
+                <li>
+                    {% if suGallery.media.picpath != null %}
+                        <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}"/>
+                    {% endif %}
+                    <div class="caption center-align">
+                        <h3>{{ subGallery.sgallery }}</h3>
+                    </div>
+                </li>
+
+            {% endfor %}
         </ul>
     </div>
 
