@@ -42,9 +42,7 @@ class SubGalleryController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('id' => $gallery));
-//        $component = $em->getRepository('AppBundle:Component')->findby(array('id' => $subGallery));
-//        $picture = $em->getRepository('AppBundle:Media')->findby(array('id' => $subGallery));
+        $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('gallery' => $gallery));
 
         return $this->render('subgallery/list.html.twig', array(
             'subGalleries' => $subGallery,
