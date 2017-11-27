@@ -9,32 +9,18 @@
 
     <div id="grid" class="main">
 
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
         {% for subGallery in subGalleries %}
 
             {% if subGallery is defined %}
 
-                    <div class="view">
-                        <div class="view-back">
-                            <span>{{ subGallery.sgallery }}</span>
-
-                            <a href="#modal1">?</a>
-                        </div>
-                        <img src="{{ asset(subGallery.media.picpath) | imagine_filter('my_thumb') }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                <div class="view">
+                    <div class="view-back">
+                        <span>{{ subGallery.sgallery }}</span>
+                        <span>{{ subGallery.id }}</span>
+                        <a class="modal-trigger" href="#modal1">?</a>
                     </div>
-
-                    {# ################# Si L'ADMIN EST ACTIF ###########################c#}
-                    {% if is_granted('ROLE_ADMIN') %}
-
-                        <div>
-                            <a href="{{ path('subgallery_new') }}" class="">
-                                <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
-                            </a>
-                        </div>
-
-                    {% endif %}
-                    {# ################################################################## #}
+                    <img src="{{ asset(subGallery.media.picpath) | imagine_filter('my_thumb') }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                </div>
 
             {% else %}
 
@@ -75,17 +61,28 @@
 <!------------------------------- --------------- ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
 
-        <div id="modal1" class="modal">
+        <div id="modal1" class="modal modal-fixed-footer">
             <div class="modal-content">
                 <h4>{{ subGallery.sgallery }}r</h4>
                 <p>{{ subGallery.description }}</p>
                 <p>{{ subGallery.prix }}</p>
             </div>
             <div class="modal-footer">
+                {# ################# Si L'ADMIN EST ACTIF ###########################c#}
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    <a href="{{ path('subgallery_edit', { 'id': subGallery.id }) }}" class="left">
+                        <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
+                    </a>
+                    <a href="{{ path('subgallery_delete', { 'id': subGallery.id }) }}" class="left">
+                        <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
+                    </a>
+
+                {% endif %}
+                {# ################################################################## #}
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Quitter</a>
             </div>
         </div>
-
 
     {% endfor %}
 

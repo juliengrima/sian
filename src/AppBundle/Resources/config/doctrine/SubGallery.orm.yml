@@ -29,10 +29,9 @@ AppBundle\Entity\SubGallery:
           joinColumn:
             name: gallery_id
             referencedColumnName: id
+            cascade: ['all']
         media:
-          targetEntity: Media
-          joinColumn:
-            name: media_id
-            referencedColumnName: id
+          targetEntity: AppBundle\Entity\Media
+          cascade: ['all']
 
     lifecycleCallbacks: {  }

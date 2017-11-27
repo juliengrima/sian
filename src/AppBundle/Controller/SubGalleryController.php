@@ -72,7 +72,7 @@ class SubGalleryController extends Controller
             if (isset($image)) {
 
                 /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . $subGallery->getTitre () . uniqid ()));
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . uniqid ()));
 
                 // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
                 $this->get ('media.interface')->mediaUpload ($image);
