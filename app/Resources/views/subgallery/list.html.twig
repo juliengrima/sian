@@ -19,7 +19,7 @@
                         <div class="view-back">
                             <span>{{ subGallery.sgallery }}</span>
 
-                            <a href="#modal">?</a>
+                            <a href="#modal1">?</a>
                         </div>
                         <img src="{{ asset(subGallery.media.picpath) | imagine_filter('my_thumb') }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                     </div>
@@ -75,7 +75,7 @@
 <!------------------------------- --------------- ------------------------------------->
 <!------------------------------- --------------- ------------------------------------->
 
-        <div id="modal" class="modal">
+        <div id="modal1" class="modal">
             <div class="modal-content">
                 <h4>{{ subGallery.sgallery }}r</h4>
                 <p>{{ subGallery.description }}</p>
@@ -87,22 +87,7 @@
         </div>
 
 
-    {# ############################################# #}
-
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-    </div>
-
-
     {% endfor %}
-
-
 
     <script type="text/javascript" src="{{ asset('js/effects/modernizr.custom.69142.js') }}"></script>
 
