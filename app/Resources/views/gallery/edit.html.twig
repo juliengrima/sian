@@ -32,30 +32,29 @@
                         </div>
                     </div>
 
-                    <div class="row right">
-                        <div class="col s12 disposition2">
-                            <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
-                                    type="submit">
-                                <i class="material-icons">check</i>
+                    <div class="row ">
+                        <div class="col s12 center">
+                            <button class="left" type="submit">
+                                <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
                             </button>
-
-                            <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
-                               href="{{ path('homepage') }}">
-                                <i class="small material-icons">home</i>
-                            </a>
 
                     {{ form_end(edit_form) }}
 
                     {{ form_start(delete_form) }}
 
-                            <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 red darken-2" type="submit" name="action"
+                            <button class="right" type="submit" name="action"
                                     data-position="bottom"
                                     data-delay="50"
                                     data-tooltip="supprimer">
-                                <i class="material-icons">lock_outline</i>
+                                <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
                             </button>
 
                     {{ form_end(delete_form) }}
+
+                            <a class="" href="{{ path('homepage') }}">
+                                <img src="{{ asset('images/local/icons/home-icon.svg') }}" class="plus-icon">
+                            </a>
+
                         </div>
                     </div>
 

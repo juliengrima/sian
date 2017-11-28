@@ -1,21 +1,105 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Subgallery edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    <div class="container">
+        <div class="header-marge">
+            <div class="row">
+                <div class="col s12">
 
-    <ul>
-        <li>
-            <a href="{{ path('subgallery_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    <div class="row">
+                        <h1 class="center">Modification de l'objet</h1>
+                    </div>
+
+                    {{ form_start(edit_form) }}
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification du nom de l'objet :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.sgallery) }}
+                            {{ form_errors(edit_form.sgallery) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification de la catégorie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.gallery) }}
+                            {{ form_errors(edit_form.gallery) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification de la description :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.description) }}
+                            {{ form_errors(edit_form.description) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification du prix :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.prix) }}
+                            {{ form_errors(edit_form.prix) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Modification de la photo :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.media) }}
+                            {{ form_errors(edit_form.media) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Mettre en avant :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(edit_form.slider) }}
+                            {{ form_errors(edit_form.slider) }}
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col s12 center">
+                            <button class="left" type="submit">
+                                <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
+                            </button>
+
+                            {{ form_end(edit_form) }}
+
+                            {{ form_start(delete_form) }}
+
+                            <button class="right" type="submit" name="action"
+                                    data-position="bottom"
+                                    data-delay="50"
+                                    data-tooltip="supprimer">
+                                <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
+                            </button>
+
+                            {{ form_end(delete_form) }}
+
+                            <a class="" href="{{ path('homepage') }}">
+                                <img src="{{ asset('images/local/icons/home-icon.svg') }}" class="plus-icon">
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="header-buttom-marge"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

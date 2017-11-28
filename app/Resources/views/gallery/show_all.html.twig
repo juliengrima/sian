@@ -28,7 +28,7 @@
                                 <p class="decal">{{ gallery.name }}</p>
                             </div>
                             <div class="col l4 center">
-                                <a href="{{ path('header_edit', { 'id': gallery.id }) }}">
+                                <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}">
                                     <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 orange darken-2" type="submit" name="action"
                                             data-position="bottom"
                                             data-delay="50"
@@ -37,7 +37,7 @@
                                     </button>
                                 </a>
 
-                                <a href="{{ path('header_delete', {'id': gallery.id})}}">
+                                <a href="{{ path('gallery_delete', {'id': gallery.id})}}">
                                     <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 red darken-2" type="submit" name="action"
                                             data-position="bottom"
                                             data-delay="50"
