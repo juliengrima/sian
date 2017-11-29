@@ -19,6 +19,16 @@ app_subgallery:
       resource: "@AppBundle/Resources/config/routing/subgallery.yml"
       prefix:   /subgallery
 
+##############################################
+#                                            #
+#                     ABOUT                  #
+#                                            #
+##############################################
+
+app_about:
+        resource: "@AppBundle/Resources/config/routing/about.yml"
+        prefix:   /about
+
 ##########################################
 ##############   LIIP IMAGINE   ##########
 ##########################################

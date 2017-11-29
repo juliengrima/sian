@@ -64,9 +64,18 @@
                             <div class="col s12 m6 l3">
                                 <p>Mettre en avant :</p>
                             </div>
-                            <div class="col s12 m6 l3">
-                                {{ form_widget(form.slider, { 'id': 'test5' }, { 'attr': {'class': 'checksize'} }) }}
-                                {{ form_errors(form.slider) }}
+                            {#<div class="col s12 m6 l3">#}
+                                {#{{ form_widget(form.slider, { 'id': 'test5' }, { 'attr': {'class': 'checksize'} }) }}#}
+                                {#{{ form_errors(form.slider) }}#}
+                            {#</div>#}
+                            <div class="switch">
+                                <label>
+                                    Off
+                                    {{ form_widget(form.slider, { 'attr': {'class': 'checksize'} }) }}
+                                    {#<input type="checkbox" name="slider">#}
+                                    <span class="lever"></span>
+                                    On
+                                </label>
                             </div>
                         </div>
 

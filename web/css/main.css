@@ -92,11 +92,6 @@ p{
 
 }
 
-/*.checksize{*/
-    /*margin-top: 30px !important;*/
-    /*width: 200px !important;*/
-/*}*/
-
 #test5{
     margin-top: 10px !important;
     width: 30px !important;
@@ -106,6 +101,10 @@ p{
 button{
     border: none;
     background: none;
+}
+
+.font-slide{
+    color: #546e7a;
 }
 
 /*******************************************************/

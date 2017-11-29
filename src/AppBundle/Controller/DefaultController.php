@@ -23,10 +23,12 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $subGalleries = $em->getRepository('AppBundle:SubGallery')->findBy( array('slider' => 1));
+        $about = $em->getRepository('AppBundle:About')->findAll();
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
-            'subGalleries' => $subGalleries
+            'subGalleries' => $subGalleries,
+            'about' => $about
         ));
 
     }

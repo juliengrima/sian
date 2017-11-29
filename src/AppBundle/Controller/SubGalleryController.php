@@ -2,11 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\AppBundle;
+use AppBundle\Entity\Media;
 use AppBundle\Entity\Gallery;
 use AppBundle\Entity\SubGallery;
-use AppBundle\Entity\Component;
-use AppBundle\Repository\ComponentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -117,7 +115,7 @@ class SubGalleryController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $form->get ('media');
+            $imageForm = $editForm->get ('media');
             $image = $imageForm->getData ();
             $subGallery->setMedia ($image);
 
