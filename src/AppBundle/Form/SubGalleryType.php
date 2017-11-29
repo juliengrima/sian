@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class SubGalleryType extends AbstractType
 {
@@ -18,7 +20,9 @@ class SubGalleryType extends AbstractType
             ->add('gallery')
             ->add('description')
             ->add('prix')
-            ->add('slider')
+            ->add('slider', CheckboxType::class, array(
+                'required' => false,
+            ))
             ->add('media', Media::class);
     }
     
