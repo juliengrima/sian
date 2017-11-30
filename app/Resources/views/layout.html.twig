@@ -2,7 +2,7 @@
 
 {% block header %}
 
-    {{ render(controller('AppBundle:Header:index')) }}
+    {#{{ render(controller('AppBundle:Header:index')) }}#}
 
 {% endblock %}
 
@@ -15,7 +15,7 @@
                     <h5 class="white-text">Partenaires</h5>
 
                     <ul>
-                        {{ render(controller('AppBundle:Partner:show')) }}
+                        {#{{ render(controller('AppBundle:Partner:show')) }}#}
 
                         {% if is_granted('ROLE_ADMIN') %}
 
