@@ -12,11 +12,14 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <h5 class="white-text"></h5>
+                    <p class="grey-text text-lighten-4">
+                        {{ render(controller('AppBundle:About:show')) }}
+                    </p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Partenaires</h5>
+                    {#{{ render(controller('AppBundle:')) }}#}
                     <ul>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
                         <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
@@ -30,9 +33,11 @@
             </div>
         </div>
         <div class="footer-copyright">
-            <div class="container">
-                <a href="{{ path('fos_user_security_login') }}" class="login">©</a>  2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="container font-href-foot">
+                <a href="{{ path('fos_user_security_login') }}" class="login">©</a>
+                <a href="https://www.linkedin.com/in/julien-grima-927612129/">
+                    Créé et géré par Julien Grima
+                </a>
             </div>
         </div>
     </footer>

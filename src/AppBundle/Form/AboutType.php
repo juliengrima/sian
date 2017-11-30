@@ -5,10 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
-class SubGalleryType extends AbstractType
+class AboutType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,13 +14,7 @@ class SubGalleryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('sgallery')
-            ->add('gallery')
-            ->add('description')
-            ->add('prix')
-            ->add('slider', CheckboxType::class, array(
-                'required' => false,
-            ))
+            ->add('about')
             ->add('media', Media::class);
     }
     
@@ -32,7 +24,7 @@ class SubGalleryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\SubGallery'
+            'data_class' => 'AppBundle\Entity\About'
         ));
     }
 
@@ -41,7 +33,7 @@ class SubGalleryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_subgallery';
+        return 'appbundle_about';
     }
 
 

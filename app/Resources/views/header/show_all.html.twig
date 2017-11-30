@@ -2,62 +2,79 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="header-marge">
-            <div class="row">
-                <div class="col s12">
+    {% if is_granted('ROLE_ADMIN') %}
 
-                    <div class="row">
-                        <div class="col l4 center">
-                            <p class="title">Identifiant</p>
-                        </div>
-                        <div class="col l4 center">
-                            <p class="title">Nom de catégorie</p>
-                        </div>
-                        <div class="col l4 center">
-                            <p class="title">Action</p>
-                        </div>
-                    </div>
+        <div class="container">
+            <div class="header-marge">
+                <div class="row">
+                    <div class="col s12">
 
-                    {% for header in headers %}
                         <div class="row">
                             <div class="col l4 center">
-                                <p>{{ header.id }}</p>
-                            </div>
-                            <div class="col l4">
-                                <p class="decal">{{ header.name }}</p>
+                                <p class="title">Identifiant</p>
                             </div>
                             <div class="col l4 center">
-                                <a href="{{ path('header_edit', { 'id': header.id }) }}">
-                                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 orange darken-2" type="submit" name="action"
-                                            data-position="bottom"
-                                            data-delay="50"
-                                            data-tooltip="Editer">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                </a>
+                                <p class="title">Nom de catégorie</p>
+                            </div>
+                            <div class="col l4 center">
+                                <p class="title">Action</p>
+                            </div>
+                        </div>
 
-                                <a href="{{ path('header_delete', {'id': header.id})}}">
-                                    <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 red darken-2" type="submit" name="action"
-                                            data-position="bottom"
-                                            data-delay="50"
-                                            data-tooltip="supprimer">
-                                        <i class="material-icons">lock_outline</i>
-                                    </button>
-                                </a>
+                        {% for header in headers %}
+                            <div class="row">
+                                <div class="col l4 center">
+                                    <p>{{ header.id }}</p>
+                                </div>
+                                <div class="col l4">
+                                    <p class="decal">{{ header.name }}</p>
+                                </div>
+                                <div class="col l4 center">
+                                    <a href="{{ path('header_edit', { 'id': header.id }) }}">
+                                        <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 orange darken-2" type="submit" name="action"
+                                                data-position="bottom"
+                                                data-delay="50"
+                                                data-tooltip="Editer">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+                                    </a>
+
+                                    <a href="{{ path('header_delete', {'id': header.id})}}">
+                                        <button class="user btn-floating btn-large waves-effect tooltipped icon-background4 red darken-2" type="submit" name="action"
+                                                data-position="bottom"
+                                                data-delay="50"
+                                                data-tooltip="supprimer">
+                                            <i class="material-icons">lock_outline</i>
+                                        </button>
+                                    </a>
+
+                                </div>
 
                             </div>
+                            {% endfor %}
+
+                        <div class="header-buttom-marge">
 
                         </div>
-                        {% endfor %}
-
-                    <div class="header-buttom-marge">
 
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
 
+    {% else %}
+
+        <div class="container">
+            <div class="row center">
+                <div class="col s12">
+                    <img src="{{ asset('images/local/icons/warning-icon1.svg') }}" class="warning">
+                </div>
+                <div class="col s12">
+                    <h2 class="center-align">La page Que vous recherchez n'existe pas</h2>
+                </div>
+            </div>
+
+        </div>
+
+    {% endif %}
 {% endblock %}

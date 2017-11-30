@@ -10,57 +10,45 @@
                     <div class="col s12">
 
                         <div class="row">
-                            <h1 class="center">Modification de la gallerie</h1>
+                            <h1 class="center">Nouvel à propos</h1>
                         </div>
 
-                        {{ form_start(edit_form) }}
+                        {{ form_start(form) }}
 
                         <div class="row">
                             <div class="col s12 m6 l3">
-                                <p>Modification du nom de la gallerie :</p>
+                                <p>Sélection de la gallerie :</p>
                             </div>
                             <div class="col s12 m6 l3">
-                                {{ form_widget(edit_form.name) }}
-                                {{ form_errors(edit_form.name) }}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 m6 l3">
-                                <p>Modification de la catégorie :</p>
-                            </div>
-                            <div class="col s12 m6 l3">
-                                {{ form_widget(edit_form.header) }}
-                                {{ form_errors(edit_form.header) }}
+                                {{ form_widget(form.about) }}
+                                {{ form_errors(form.about) }}
                             </div>
                         </div>
 
-                        <div class="row ">
+                        <div class="row">
+                            <div class="col s12 m6 l3">
+                                <p>Photo du à propos :</p>
+                            </div>
+                            <div class="col s12 m6 l3">
+                                {{ form_widget(form.media) }}
+                                {{ form_errors(form.media) }}
+                            </div>
+                        </div>
+
+                        <div class="center">
                             <div class="col s12 center">
                                 <button class="left" type="submit">
                                     <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
                                 </button>
 
-                        {{ form_end(edit_form) }}
-
-                        {{ form_start(delete_form) }}
-
-                                <button class="right" type="submit" name="action"
-                                        data-position="bottom"
-                                        data-delay="50"
-                                        data-tooltip="supprimer">
-                                    <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
-                                </button>
-
-                        {{ form_end(delete_form) }}
-
                                 <a class="" href="{{ path('homepage') }}">
                                     <img src="{{ asset('images/local/icons/home-icon.svg') }}" class="plus-icon">
                                 </a>
-
                             </div>
-                        </div>
 
-                        <div class="header-buttom-marge"></div>
+                            {{ form_end(form) }}
+
+                        </div>
 
                     </div>
                 </div>
@@ -82,6 +70,5 @@
         </div>
 
     {% endif %}
-
 
 {% endblock %}

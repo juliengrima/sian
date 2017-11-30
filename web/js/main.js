@@ -11,7 +11,6 @@ jQuery(document).ready(function($) {
     carousel();
     text();
     selecteur();
-    myFunction();
     modal();
 
 });
@@ -34,9 +33,7 @@ function text() {
 
 function selecteur() {
 
-    $(document).ready(function () {
         $('select').material_select();
-    });
 }
 
 // ********************************************************************
@@ -53,11 +50,7 @@ function carousel() {
 
 function modal() {
 
-    $(document).ready(function(){
-
-        $('#modal').modal();
-
-    });
+        $('.modal').modal();
 }
 
 

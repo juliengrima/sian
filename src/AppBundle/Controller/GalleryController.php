@@ -82,10 +82,10 @@ class GalleryController extends Controller
     }
 
     /**
-     * Lists all header entities.
+     * Lists all gallery entities.
      *
      */
-    public function allAction()
+    public function allgalleryAction()
     {
         $em = $this->getDoctrine()->getManager();
 

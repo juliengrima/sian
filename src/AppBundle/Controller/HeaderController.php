@@ -34,7 +34,7 @@ class HeaderController extends Controller
      * Lists all header entities.
      *
      */
-    public function allAction()
+    public function allHeaderAction()
     {
         $em = $this->getDoctrine()->getManager();
 

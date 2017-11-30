@@ -8,9 +8,9 @@ gallery_show:
     defaults: { _controller: "AppBundle:Gallery:show" }
     methods:  GET
 
-header_show_all:
+gallery_show_all:
     path:     /show_all
-    defaults: { _controller: "AppBundle:Gallery:all" }
+    defaults: { _controller: "AppBundle:Gallery:allgallery" }
     methods:  GET
 
 gallery_new:

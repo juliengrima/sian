@@ -43,6 +43,16 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
+# Twig Extension
+services:
+    twig.extension.text:
+            class: Twig_Extensions_Extension_Text
+            tags:
+                - { name: twig.extension }
+
+twig:
+    exception_controller:  AppBundle:Exception:showException
+
 # Doctrine Configuration
 doctrine:
     dbal:

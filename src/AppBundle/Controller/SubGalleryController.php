@@ -2,11 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\AppBundle;
+use AppBundle\Entity\Media;
 use AppBundle\Entity\Gallery;
 use AppBundle\Entity\SubGallery;
-use AppBundle\Entity\Component;
-use AppBundle\Repository\ComponentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -42,9 +40,7 @@ class SubGalleryController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('id' => $gallery));
-//        $component = $em->getRepository('AppBundle:Component')->findby(array('id' => $subGallery));
-//        $picture = $em->getRepository('AppBundle:Media')->findby(array('id' => $subGallery));
+        $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('gallery' => $gallery));
 
         return $this->render('subgallery/list.html.twig', array(
             'subGalleries' => $subGallery,
@@ -72,7 +68,7 @@ class SubGalleryController extends Controller
             if (isset($image)) {
 
                 /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . $subGallery->getTitre () . uniqid ()));
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . uniqid ()));
 
                 // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
                 $this->get ('media.interface')->mediaUpload ($image);
@@ -117,6 +113,21 @@ class SubGalleryController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            /* ON RECUP LE FICHIER IMAGE */
+            $imageForm = $editForm->get ('media');
+            $image = $imageForm->getData ();
+            $subGallery->setMedia ($image);
+
+            if (isset($image)) {
+
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . uniqid ()));
+
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('subgallery_edit', array('id' => $subGallery->getId()));

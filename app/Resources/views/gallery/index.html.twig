@@ -2,56 +2,37 @@
 
 {% block body %}
 
-    <ul id="dropdown2" class="dropdown-content">
+    {% if is_granted('ROLE_ADMIN') %}
 
-        {% for gallery in galleries %}
+        <ul id="dropdown2" class="dropdown-content">
 
-            <li><a href="">{{ gallery.name }}</a></li>
+            {% for gallery in galleries %}
 
-        {% endfor %}
+                <li><a href="">{{ gallery.name }}</a></li>
 
-        <li>
-            <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
-                <i class=" material-icons bouton-new-gallery-icon">add</i>
-            </a>
-        </li>
-    </ul>
+            {% endfor %}
 
+            <li>
+                <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
+                    <i class=" material-icons bouton-new-gallery-icon">add</i>
+                </a>
+            </li>
+        </ul>
 
+    {% else %}
 
-    {#<h1>Galleries list</h1>#}
+        <div class="container">
+            <div class="row center">
+                <div class="col s12">
+                    <img src="{{ asset('images/local/icons/warning-icon1.svg') }}" class="warning">
+                </div>
+                <div class="col s12">
+                    <h2 class="center-align">La page Que vous recherchez n'existe pas</h2>
+                </div>
+            </div>
 
-    {#<table>#}
-        {#<thead>#}
-            {#<tr>#}
-                {#<th>Id</th>#}
-                {#<th>Name</th>#}
-                {#<th>Actions</th>#}
-            {#</tr>#}
-        {#</thead>#}
-        {#<tbody>#}
-        {#{% for gallery in galleries %}#}
-            {#<tr>#}
-                {#<td><a href="{{ path('gallery_show', { 'id': gallery.id }) }}">{{ gallery.id }}</a></td>#}
-                {#<td>{{ gallery.name }}</td>#}
-                {#<td>#}
-                    {#<ul>#}
-                        {#<li>#}
-                            {#<a href="{{ path('gallery_show', { 'id': gallery.id }) }}">show</a>#}
-                        {#</li>#}
-                        {#<li>#}
-                            {#<a href="{{ path('gallery_edit', { 'id': gallery.id }) }}">edit</a>#}
-                        {#</li>#}
-                    {#</ul>#}
-                {#</td>#}
-            {#</tr>#}
-        {#{% endfor %}#}
-        {#</tbody>#}
-    {#</table>#}
+        </div>
 
-    {#<ul>#}
-        {#<li>#}
-            {#<a href="{{ path('gallery_new') }}">Create a new gallery</a>#}
-        {#</li>#}
-    {#</ul>#}
+    {% endif %}
+
 {% endblock %}
