@@ -9,14 +9,32 @@ jQuery(document).ready(function($) {
     console.log('jQuery de app.js a démarré julien test');
 
     carousel();
-
-    cal();
+    text();
+    selecteur();
+    modal();
 
 });
 
 // ********************************************************************
+// *
+// *
 // *                       JS General
+// *
+// *
 // ********************************************************************
+
+// ********************************************************************
+// *                       FORMS
+// ********************************************************************
+
+function text() {
+    $('#textarea1').val('New Text', 'autoresize');
+}
+
+function selecteur() {
+
+        $('select').material_select();
+}
 
 // ********************************************************************
 // *                       Sliders
@@ -27,14 +45,13 @@ function carousel() {
 }
 
 // ********************************************************************
-// *                       Calendar
+// *                     MODALS
 // ********************************************************************
 
-function cal() {
-    $('#calendar').datepicker({
-        inline: true,
-        firstDay: 1,
-        showOtherMonths: true,
-        dayNamesMin: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam']
-    });
+function modal() {
+
+        $('.modal').modal();
 }
+
+
+

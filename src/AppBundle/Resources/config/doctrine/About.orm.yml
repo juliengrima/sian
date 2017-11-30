@@ -1,0 +1,21 @@
+AppBundle\Entity\About:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\AboutRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        about:
+            type: text
+            nullable: true
+
+    oneToOne:
+        media:
+          targetEntity: AppBundle\Entity\Media
+          cascade: ['all']
+
+    lifecycleCallbacks: {  }

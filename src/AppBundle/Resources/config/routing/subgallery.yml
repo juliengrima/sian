@@ -3,6 +3,11 @@ subgallery_index:
     defaults: { _controller: "AppBundle:SubGallery:index" }
     methods:  GET
 
+list_show:
+    path:     /list
+    defaults: { _controller: "AppBundle:SubGallery:indexSub" }
+    methods:  GET
+
 subgallery_show:
     path:     /{id}/show
     defaults: { _controller: "AppBundle:SubGallery:show" }

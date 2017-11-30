@@ -2,9 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Media;
+use AppBundle\Entity\Gallery;
 use AppBundle\Entity\SubGallery;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Subgallery controller.
@@ -19,11 +22,28 @@ class SubGalleryController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $subGalleries = $em->getRepository('AppBundle:SubGallery')->findAll();
+        $subGalleries = $em->getRepository('AppBundle:SubGallery')->findAll ();
 
         return $this->render('subgallery/index.html.twig', array(
             'subGalleries' => $subGalleries,
+        ));
+    }
+
+    /**
+     * Lists subGallery entity in function Gallery.
+     *
+     */
+    public function indexSubAction(Request $request)
+    {
+        $gallery = new gallery;
+        $gallery = $_GET['id'];
+
+        $em = $this->getDoctrine()->getManager();
+
+        $subGallery = $em->getRepository('AppBundle:SubGallery')->findby(array('gallery' => $gallery));
+
+        return $this->render('subgallery/list.html.twig', array(
+            'subGalleries' => $subGallery,
         ));
     }
 
@@ -35,9 +55,26 @@ class SubGalleryController extends Controller
     {
         $subGallery = new Subgallery();
         $form = $this->createForm('AppBundle\Form\SubGalleryType', $subGallery);
+        $form->setData ($subGallery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /* ON RECUP LE FICHIER IMAGE */
+            $imageForm = $form->get ('media');
+            $image = $imageForm->getData ();
+            $subGallery->setMedia ($image);
+
+            if (isset($image)) {
+
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . uniqid ()));
+
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+            }
+
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($subGallery);
             $em->flush();
@@ -76,6 +113,21 @@ class SubGalleryController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            /* ON RECUP LE FICHIER IMAGE */
+            $imageForm = $editForm->get ('media');
+            $image = $imageForm->getData ();
+            $subGallery->setMedia ($image);
+
+            if (isset($image)) {
+
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Object_" . uniqid ()));
+
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('subgallery_edit', array('id' => $subGallery->getId()));

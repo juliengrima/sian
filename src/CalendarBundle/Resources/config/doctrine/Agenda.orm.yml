@@ -26,16 +26,10 @@ CalendarBundle\Entity\Agenda:
             type: string
             length: 255
             nullable: true
-        slider:
-            type: boolean
-            nullable: true
 
     manyToOne:
         media:
           targetEntity: AppBundle\Entity\Media
-          joinColumn:
-            name: media_id
-            referencedColumnName: id
-
+          cascade: ['all']
 
     lifecycleCallbacks: {  }

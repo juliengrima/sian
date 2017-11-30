@@ -2,7 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\Component;
 use AppBundle\Entity\Gallery;
+use AppBundle\Entity\SubGallery;
+use AppBundle\Repository\ComponentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -23,6 +27,18 @@ class GalleryController extends Controller
         $galleries = $em->getRepository('AppBundle:Gallery')->findAll();
 
         return $this->render('gallery/index.html.twig', array(
+            'galleries' => $galleries,
+        ));
+    }
+
+
+    public function layoutAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $galleries = $em->getRepository('AppBundle:Gallery')->findAll();
+
+        return $this->render('::layout.html.twig', array(
             'galleries' => $galleries,
         ));
     }
@@ -62,6 +78,21 @@ class GalleryController extends Controller
         return $this->render('gallery/show.html.twig', array(
             'gallery' => $gallery,
             'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Lists all gallery entities.
+     *
+     */
+    public function allgalleryAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $gallery = $em->getRepository('AppBundle:Gallery')->findAll();
+
+        return $this->render('gallery/show_all.html.twig', array(
+            'galleries' => $gallery,
         ));
     }
 

@@ -1,39 +1,38 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Galleries list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for gallery in galleries %}
-            <tr>
-                <td><a href="{{ path('gallery_show', { 'id': gallery.id }) }}">{{ gallery.id }}</a></td>
-                <td>{{ gallery.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('gallery_show', { 'id': gallery.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% if is_granted('ROLE_ADMIN') %}
 
-    <ul>
-        <li>
-            <a href="{{ path('gallery_new') }}">Create a new gallery</a>
-        </li>
-    </ul>
+        <ul id="dropdown2" class="dropdown-content">
+
+            {% for gallery in galleries %}
+
+                <li><a href="">{{ gallery.name }}</a></li>
+
+            {% endfor %}
+
+            <li>
+                <a href="{{ path('header_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 bouton-new-gallery">
+                    <i class=" material-icons bouton-new-gallery-icon">add</i>
+                </a>
+            </li>
+        </ul>
+
+    {% else %}
+
+        <div class="container">
+            <div class="row center">
+                <div class="col s12">
+                    <img src="{{ asset('images/local/icons/warning-icon1.svg') }}" class="warning">
+                </div>
+                <div class="col s12">
+                    <h2 class="center-align">La page Que vous recherchez n'existe pas</h2>
+                </div>
+            </div>
+
+        </div>
+
+    {% endif %}
+
 {% endblock %}

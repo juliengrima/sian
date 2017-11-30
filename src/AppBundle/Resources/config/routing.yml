@@ -21,20 +21,17 @@ app_subgallery:
 
 ##############################################
 #                                            #
-#                 COMPONENT                  #
+#                     ABOUT                  #
 #                                            #
 ##############################################
 
-app_component:
-    resource: "@AppBundle/Resources/config/routing/component.yml"
-    prefix:   /component
+app_about:
+        resource: "@AppBundle/Resources/config/routing/about.yml"
+        prefix:   /about
 
-##############################################
-#                                            #
-#                COLLECTION                  #
-#                                            #
-##############################################
+##########################################
+##############   LIIP IMAGINE   ##########
+##########################################
 
-app_collection:
-    resource: "@AppBundle/Resources/config/routing/collection.yml"
-    prefix:   /collection
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

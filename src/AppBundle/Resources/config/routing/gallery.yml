@@ -8,6 +8,11 @@ gallery_show:
     defaults: { _controller: "AppBundle:Gallery:show" }
     methods:  GET
 
+gallery_show_all:
+    path:     /show_all
+    defaults: { _controller: "AppBundle:Gallery:allgallery" }
+    methods:  GET
+
 gallery_new:
     path:     /new
     defaults: { _controller: "AppBundle:Gallery:new" }
