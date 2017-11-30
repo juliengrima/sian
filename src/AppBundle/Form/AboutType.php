@@ -13,7 +13,9 @@ class AboutType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('about')->add('media');
+        $builder
+            ->add('about')
+            ->add('media', Media::class);
     }
     
     /**

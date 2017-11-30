@@ -2,50 +2,78 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
+    {% if is_granted('ROLE_ADMIN') %}
 
-                <div class="center">
-                    <h1>Je me présente</h1>
-                </div>
-
-            </div>
-        </div>
-
-        {% for about in abouts %}
-
+        <div class="container">
             <div class="row">
-                <div class="col s12 m6 l6">
-                    <div class="row">
-                        <div class="col s12 m6 l6">
-                            <p>{{ about.about }}</p>
-                        </div>
-                        <div class="col s12 m6 l6">
-                            <img src="{{ asset(about.media.picpath) }}" alt="{{ about.media.picname }}" class="picsize">
+                <div class="col s12">
+
+                    <div class="center">
+                        <h1>Je me présente</h1>
+                    </div>
+
+                </div>
+            </div>
+
+            {% for about in abouts %}
+
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <div class="row">
+                            <div class="col s12 m6 l6">
+                                <p>{{ about.about }}</p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <img src="{{ asset(about.media.picpath) }}" alt="{{ about.media.picname }}" class="picsize">
+                            </div>
                         </div>
                     </div>
+                    <div class="col s12 m6 l6">
+                        <a href="{{ path('about_edit', { 'id': about.id }) }}">
+                            <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
+                        </a>
+                        <a href="{{ path('about_delete', { 'id': about.id }) }}">
+                            <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
+                        </a>
+                    </div>
                 </div>
-                <div class="col s12 m6 l6">
-                    <a href="{{ path('about_edit', { 'id': about.id }) }}">
-                        <img src="{{ asset('images/local/icons/edit.svg') }}">
-                    </a>
-                    <a href="{{ path('about_delete', { 'id': about.id }) }}">
-                        <img src="{{ asset('images/local/icons/delete.svg') }}">
-                    </a>
+
+            {% endfor %}
+
+
+
+            {% if abouts != null %}
+
+
+            {% else %}
+
+                <div class="row">
+                    <div class="col s12 center">
+                        <a href="{{ path('about_new') }}">
+                            <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-        {% endfor %}
+            {% endif %}
 
-        <div class="row">
-            <div class="col s12">
-                <a href="{{ path('about_new') }}">
-                    <img src="{{ asset('images/local/icons/plus-icon.svg') }}">
-                </a>
-            </div>
         </div>
 
-    </div>
+    {% else %}
+
+        <div class="container">
+            <div class="row center">
+                <div class="col s12">
+                    <img src="{{ asset('images/local/icons/warning-icon1.svg') }}" class="warning">
+                </div>
+                <div class="col s12">
+                    <h2 class="center-align">La page Que vous recherchez n'existe pas</h2>
+                </div>
+            </div>
+
+        </div>
+
+    {% endif %}
+
 
 {% endblock %}

@@ -19,5 +19,6 @@ AppBundle\Entity\About:
           joinColumn:
             name: media_id
             referencedColumnName: id
+            cascade: ['all']
 
     lifecycleCallbacks: {  }
