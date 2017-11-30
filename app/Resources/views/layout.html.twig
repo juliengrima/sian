@@ -29,6 +29,15 @@
                             <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a>
                         </li>
                     </ul>
+                    {% if is_granted('ROLE_ADMIN') %}
+
+                        <div class="right">
+                            <a href="{{ path('partner_index') }}" class="right">
+                                <img src="{{ asset('images/local/icons/menu-icon.svg') }}" class="plus-icon-index">
+                            </a>
+                        </div>
+
+                    {% endif %}
                 </div>
             </div>
         </div>

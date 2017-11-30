@@ -29,6 +29,16 @@ app_about:
         resource: "@AppBundle/Resources/config/routing/about.yml"
         prefix:   /about
 
+ ##############################################
+ #                                            #
+ #                  PARTNER                   #
+ #                                            #
+ ##############################################
+
+ app_partner:
+        resource: "@AppBundle/Resources/config/routing/partner.yml"
+        prefix:   /partner
+
 ##########################################
 ##############   LIIP IMAGINE   ##########
 ##########################################
