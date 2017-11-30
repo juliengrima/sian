@@ -16,9 +16,6 @@ AppBundle\Entity\About:
     oneToOne:
         media:
           targetEntity: AppBundle\Entity\Media
-          joinColumn:
-            name: media_id
-            referencedColumnName: id
-            cascade: ['all']
+          cascade: ['all']
 
     lifecycleCallbacks: {  }

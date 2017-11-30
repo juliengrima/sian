@@ -70,13 +70,14 @@ class AboutController extends Controller
      * Finds and displays a about entity.
      *
      */
-    public function showAction(About $about)
+    public function showAction()
     {
-        $deleteForm = $this->createDeleteForm($about);
+        $em = $this->getDoctrine()->getManager();
+
+        $abouts = $em->getRepository('AppBundle:About')->findAll();
 
         return $this->render('about/show.html.twig', array(
-            'about' => $about,
-            'delete_form' => $deleteForm->createView(),
+            'about' => $abouts,
         ));
     }
 

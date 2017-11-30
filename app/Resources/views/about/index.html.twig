@@ -29,12 +29,14 @@
                         </div>
                     </div>
                     <div class="col s12 m6 l6">
-                        <a href="{{ path('about_edit', { 'id': about.id }) }}">
-                            <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
-                        </a>
-                        <a href="{{ path('about_delete', { 'id': about.id }) }}">
-                            <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
-                        </a>
+                        <div class="center">
+                            <a href="{{ path('about_edit', { 'id': about.id }) }}">
+                                <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
+                            </a>
+                            <a href="{{ path('about_delete', { 'id': about.id }) }}">
+                                <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
+                            </a>
+                        </div>
                     </div>
                 </div>
 
