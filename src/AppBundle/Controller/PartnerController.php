@@ -42,7 +42,7 @@ class PartnerController extends Controller
             $em->persist($partner);
             $em->flush();
 
-            return $this->redirectToRoute('partner_show', array('id' => $partner->getId()));
+            return $this->redirectToRoute('partner_index', array('id' => $partner->getId()));
         }
 
         return $this->render('partner/new.html.twig', array(
@@ -61,8 +61,8 @@ class PartnerController extends Controller
 
         $partners = $em->getRepository('AppBundle:Partner')->findAll();
 
-        return $this->render('partner/show.html.twig', array(
-            'partner' => $partners,
+        return $this->render('partner/index.html.twig', array(
+            'partners' => $partners,
         ));
     }
 
@@ -79,7 +79,7 @@ class PartnerController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('partner_edit', array('id' => $partner->getId()));
+            return $this->redirectToRoute('partner_index', array('id' => $partner->getId()));
         }
 
         return $this->render('partner/edit.html.twig', array(

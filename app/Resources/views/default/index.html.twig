@@ -45,7 +45,7 @@
                     <div class="col">
                         <div class="card card-size">
                             <div class="card-image waves-effect waves-block waves-light">
-                                {% for about in abouts %}
+                                {% for about in about %}
                                     <img class="activator" src="{{ asset(about.media.picpath) }}" alt="{{ about.media.picname }}">
                                 {% endfor %}
                             </div>
@@ -54,18 +54,22 @@
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                                {% for about in abouts %}
+                                {% for about in about %}
                                 <p>{{ about.about }}</p>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="center">
-                    <a href="{{ path('about_index') }}">
-                        <img src="{{ asset('images/local/icons/menu-icon.svg') }}" class="plus-icon">
-                    </a>
-                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    <div class="center">
+                        <a href="{{ path('about_index') }}">
+                            <img src="{{ asset('images/local/icons/menu-icon.svg') }}" class="plus-icon">
+                        </a>
+                    </div>
+
+                {% endif %}
 
             </div>
 

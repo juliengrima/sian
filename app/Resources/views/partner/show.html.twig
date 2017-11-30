@@ -1,11 +1,8 @@
-{% extends 'base.html.twig' %}
 
-{% block body %}
 
-    {% for partner in partners %}
+{% for partner in partners %}
 
-        <li><a class="grey-text text-lighten-3" href="{{ partner.mail }}">{{ partner.partner }}</a></li>
+    <li class="left"><a class="grey-text text-lighten-3" href="{{ partner.mail }}">{{ partner.partner }}</a></li>
 
-    {% endfor %}
+{% endfor %}
 
-{% endblock %}

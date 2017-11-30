@@ -1,47 +1,47 @@
 
-##############################################
-#                                            #
-#                   GALLERY                  #
-#                                            #
-##############################################
-
-app_gallery:
-    resource: "@AppBundle/Resources/config/routing/gallery.yml"
-    prefix:   /gallery
-
-##############################################
-#                                            #
-#                 SUB GALLERY                #
-#                                            #
-##############################################
-
-app_subgallery:
-      resource: "@AppBundle/Resources/config/routing/subgallery.yml"
-      prefix:   /subgallery
-
-##############################################
-#                                            #
-#                     ABOUT                  #
-#                                            #
-##############################################
-
-app_about:
-        resource: "@AppBundle/Resources/config/routing/about.yml"
-        prefix:   /about
-
- ##############################################
- #                                            #
- #                  PARTNER                   #
- #                                            #
- ##############################################
-
- app_partner:
-        resource: "@AppBundle/Resources/config/routing/partner.yml"
-        prefix:   /partner
+###############################################
+##                                            #
+##                   GALLERY                  #
+##                                            #
+###############################################
+#
+#app_gallery:
+#    resource: "@AppBundle/Resources/config/routing/gallery.yml"
+#    prefix:   /gallery
+#
+###############################################
+##                                            #
+##                 SUB GALLERY                #
+##                                            #
+###############################################
+#
+#app_subgallery:
+#      resource: "@AppBundle/Resources/config/routing/subgallery.yml"
+#      prefix:   /subgallery
+#
+###############################################
+##                                            #
+##                     ABOUT                  #
+##                                            #
+###############################################
+#
+#app_about:
+#      resource: "@AppBundle/Resources/config/routing/about.yml"
+#      prefix:   /about
+#
+# ##############################################
+# #                                            #
+# #                  PARTNER                   #
+# #                                            #
+# ##############################################
+#
+#app_partner:
+#      resource: "@AppBundle/Resources/config/routing/partner.yml"
+#      prefix:   /partner
 
 ##########################################
 ##############   LIIP IMAGINE   ##########
 ##########################################
 
-_liip_imagine:
-    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+#_liip_imagine:
+#    resource: "@LiipImagineBundle/Resources/config/routing.xml"

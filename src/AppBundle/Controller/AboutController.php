@@ -67,21 +67,6 @@ class AboutController extends Controller
     }
 
     /**
-     * Finds and displays a about entity.
-     *
-     */
-    public function showAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $abouts = $em->getRepository('AppBundle:About')->findAll();
-
-        return $this->render('about/show.html.twig', array(
-            'about' => $abouts,
-        ));
-    }
-
-    /**
      * Displays a form to edit an existing about entity.
      *
      */
