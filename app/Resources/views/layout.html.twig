@@ -13,20 +13,23 @@
             <div class="row">
                 <div class="col s12 center">
                     <h5 class="white-text">Partenaires</h5>
+
                     <ul>
                         {{ render(controller('AppBundle:Partner:show')) }}
 
                         {% if is_granted('ROLE_ADMIN') %}
 
-                            <li class="right">
+                            <li>
                                 <a href="{{ path('partner_index') }}">
                                     <img src="{{ asset('images/local/icons/menu-icon.svg') }}" class="plus-icon-index">
                                 </a>
                             </li>
 
                         {% endif %}
-                        <li>
-                            <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a>
+                        <li class="right">
+                            <a class="btn dropdown-button navbutton fsize" href="mailto:qq1@qqpart.com" data-activates="dropdown2">
+                                Contactez moi
+                            </a>
                         </li>
                     </ul>
 
