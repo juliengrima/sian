@@ -58,10 +58,9 @@ class PartnerController extends Controller
     public function showAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $partners = $em->getRepository('AppBundle:Partner')->findAll();
 
-        return $this->render('partner/index.html.twig', array(
+        return $this->render('partner/show.html.twig', array(
             'partners' => $partners,
         ));
     }

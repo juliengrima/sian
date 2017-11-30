@@ -14,7 +14,7 @@
                 <div class="col s12 center">
                     <h5 class="white-text">Partenaires</h5>
                     <ul>
-                        {#{{ render(controller('AppBundle:Partner:show')) }}#}
+                        {{ render(controller('AppBundle:Partner:show')) }}
 
                         {% if is_granted('ROLE_ADMIN') %}
 
