@@ -1,0 +1,19 @@
+AppBundle\Entity\Partner:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PartnerRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        partner:
+            type: string
+            length: 255
+        mail:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }
