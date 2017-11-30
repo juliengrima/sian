@@ -1,36 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Partner</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ partner.id }}</td>
-            </tr>
-            <tr>
-                <th>Partner</th>
-                <td>{{ partner.partner }}</td>
-            </tr>
-            <tr>
-                <th>Mail</th>
-                <td>{{ partner.mail }}</td>
-            </tr>
-        </tbody>
-    </table>
+    {% for partner in partners %}
 
-    <ul>
-        <li>
-            <a href="{{ path('partner_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('partner_edit', { 'id': partner.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <li><a class="grey-text text-lighten-3" href="{{ partner.mail }}">{{ partner.partner }}</a></li>
+
+    {% endfor %}
+
 {% endblock %}

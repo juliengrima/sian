@@ -19,12 +19,9 @@
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Partenaires</h5>
-                    {#{{ render(controller('AppBundle:')) }}#}
+
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        {{ render(controller('AppBundle:Partner:show')) }}
                         <li>
                             <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a>
                         </li>

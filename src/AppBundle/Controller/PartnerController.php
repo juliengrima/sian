@@ -55,13 +55,14 @@ class PartnerController extends Controller
      * Finds and displays a partner entity.
      *
      */
-    public function showAction(Partner $partner)
+    public function showAction()
     {
-        $deleteForm = $this->createDeleteForm($partner);
+        $em = $this->getDoctrine()->getManager();
+
+        $partners = $em->getRepository('AppBundle:Partner')->findAll();
 
         return $this->render('partner/show.html.twig', array(
-            'partner' => $partner,
-            'delete_form' => $deleteForm->createView(),
+            'partner' => $partners,
         ));
     }
 
