@@ -21,6 +21,9 @@ jQuery(document).ready(function($) {
     //COLORPICKER
     colorpicker();
 
+    // HIDE AND SHOW
+    hide_Show();
+
     //PAGINATION
     pagination();
 
@@ -104,6 +107,21 @@ function modal() {
 function textArea(){
 
     $('#textarea').trigger('autoresize');
+}
+
+// ********************************************************************
+// *                    IMAGE DISPLAY
+// ********************************************************************
+
+function hide_Show() {
+    $('#hide').click(function () {
+        if (this.checked){
+            $('.upload_file_event').css('display', 'block')
+        }
+        else {
+            $('.upload_file_event').css('display', 'none')
+        }
+    })
 }
 
 // ********************************************************************

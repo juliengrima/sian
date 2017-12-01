@@ -13,7 +13,7 @@
                             <h1 class="center">Modification du partenaire</h1>
                         </div>
 
-                        {{ form_start(form) }}
+                        {{ form_start(edit_form) }}
 
                         <div class="row">
                             <div class="col s12 m6 l3">
@@ -30,24 +30,35 @@
                                 <p>Site Web du partenaire</p>
                             </div>
                             <div class="col s12 m6 l3">
-                                {{ form_widget(edit_form.mail) }}
-                                {{ form_errors(edit_form.mail) }}
+                                {{ form_widget(edit_form.website) }}
+                                {{ form_errors(edit_form.website) }}
                             </div>
                         </div>
 
-                        <div class="center">
+                        <div class="">
                             <div class="col s12 center">
                                 <button class="left" type="submit">
                                     <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
                                 </button>
 
+                            {{ form_end(edit_form) }}
+
+                            {{ form_start(delete_form) }}
+
+                                <button class="right" type="submit" name="action"
+                                        data-position="bottom"
+                                        data-delay="50"
+                                        data-tooltip="supprimer">
+                                    <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
+                                </button>
+
+                            {{ form_end(delete_form) }}
+
                                 <a class="" href="{{ path('partner_index') }}">
                                     <img src="{{ asset('images/local/icons/home-icon.svg') }}" class="plus-icon">
                                 </a>
+
                             </div>
-
-                            {{ form_end(form) }}
-
                         </div>
 
                     </div>

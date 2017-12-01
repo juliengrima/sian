@@ -187,6 +187,15 @@ main {
     flex: 1 0 auto !important;
 }
 
+
+.valign{
+    padding-top: 25%;
+}
+
+.valign-li{
+    padding-top: 3%;
+}
+
 /*******************************************************/
 /*                                                     */
 /*                                                     */
@@ -318,4 +327,9 @@ main {
 .picsize{
     height: 200px;
     width: 300px;
+}
+
+.picsize-listindex{
+    height: 100px;
+    width: 200px;
 }

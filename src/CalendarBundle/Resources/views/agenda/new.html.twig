@@ -75,6 +75,22 @@
                         </div>
                         <div class="row calendar-row valign-wrapper">
                             <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Mettre en avant :</p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <div class="switch">
+                                    <label>
+                                        Off
+                                        {{ form_widget(form.slider, { 'id': 'hide' }, { 'attr': {'class': 'checksize'} }) }}
+                                        {{ form_errors(form.slider) }}
+                                        <span class="lever"></span>
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row upload_file_event calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
                                 <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
                             </div>
                             <div class="col s12 m6 l6">

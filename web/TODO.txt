@@ -1,19 +1,4 @@
-BUG Upload PICTURES service => when i upload a new event
-
-Update CONDITIONS JS HEADER
-
-Make Design LIST SUBGALLERY et COMPONENT
-
-Make footer FOOTER
-
-Make send Mail
-
-Add FACEBOOK
-
-Update SLIDER with COMPONENT
-
-
-!important : How i can do to to retrieve gallery id to display subgallery in SubGalleyController => indexAction
+Nothing TODO
 
 
 

@@ -38,6 +38,7 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
+        $media = $em->getRepository('AppBundle:Media')->findBy( array ('id' => $agenda)); // appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
@@ -54,7 +55,7 @@ class CalendarController extends Controller
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
         /* SUPPRESSION D'UN APPEL DE L'ENTITE POUR LE TABLEAU */
         $normalizer->setCircularReferenceHandler(function ($agenda) {
-            return $agenda->getName('image');
+            return $agenda->getPicname('media');
         });
 
         $serializer = new Serializer(array($normalizer), array($encoder));
@@ -92,11 +93,14 @@ class CalendarController extends Controller
             $image = $imageForm->getData ();
             $agenda->setMedia ($image);
 
-            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setPicname(preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+            if (isset($image)) {
 
-            // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
-            $this->get ('media.interface')->mediaUpload ($image);
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+
+            }
 
             /* SI L'HEURE ET/OU LA DATE DE FIN EST INFERIEUR A CELLE DE DEBUT ON REVIENT A LA PAGE NEW*/
 
@@ -166,15 +170,18 @@ class CalendarController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $editForm->get('image');
+            $imageForm = $editForm->get('media');
             $image = $imageForm->getData();
             $agenda->setMedia($image);
 
-            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
+            if (isset($image)) {
 
-            // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
-            $this->get('media.interface')->mediaUpload($image);
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+
+            }
 
             if($agenda->getStart() > $agenda->getEnd()) {
                 $this->addFlash (
@@ -218,7 +225,7 @@ class CalendarController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin_dashboard');
+        return $this->redirectToRoute('agenda_show_all');
     }
 
 }

@@ -62,6 +62,11 @@ class Agenda
      */
     private $media;
 
+    /**
+     * @var boolean
+     */
+    private $slider;
+
 
     /**
      * Get id
@@ -239,5 +244,29 @@ class Agenda
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set slider
+     *
+     * @param boolean $slider
+     *
+     * @return Agenda
+     */
+    public function setSlider($slider)
+    {
+        $this->slider = $slider;
+
+        return $this;
+    }
+
+    /**
+     * Get slider
+     *
+     * @return boolean
+     */
+    public function getSlider()
+    {
+        return $this->slider;
     }
 }

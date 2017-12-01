@@ -21,6 +21,7 @@ class SubGalleryController extends Controller
      */
     public function indexAction()
     {
+
         $em = $this->getDoctrine()->getManager();
         $subGalleries = $em->getRepository('AppBundle:SubGallery')->findAll ();
 
@@ -130,7 +131,7 @@ class SubGalleryController extends Controller
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('subgallery_edit', array('id' => $subGallery->getId()));
+            return $this->redirectToRoute('subgallery_show', array('id' => $subGallery->getId()));
         }
 
         return $this->render('subgallery/edit.html.twig', array(

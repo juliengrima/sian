@@ -24,6 +24,19 @@
                 </li>
 
             {% endfor %}
+            {% for agenda in agendas %}
+
+                <li>
+                    {% if agenda.media != null %}
+                        <img src="{{ asset(agenda.media.picpath) }}" alt="{{ agenda.media.picname }}"/>
+                    {% endif %}
+                    <div class="caption center-align">
+                        <h3 class="font-slide">{{ agenda.titre }}</h3>
+                        <h5 class="font-slide">{{ agenda.lieu }}</h5>
+                    </div>
+                </li>
+
+            {% endfor %}
         </ul>
     </div>
 
