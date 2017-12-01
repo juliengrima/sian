@@ -38,6 +38,7 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
+        $media = $em->getRepository('AppBundle:Media')->findBy( array ('id' => $agenda)); // appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
@@ -54,7 +55,7 @@ class CalendarController extends Controller
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
         /* SUPPRESSION D'UN APPEL DE L'ENTITE POUR LE TABLEAU */
         $normalizer->setCircularReferenceHandler(function ($agenda) {
-            return $agenda->getName('image');
+            return $agenda->getPicname('media');
         });
 
         $serializer = new Serializer(array($normalizer), array($encoder));
@@ -218,7 +219,7 @@ class CalendarController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin_dashboard');
+        return $this->redirectToRoute('agenda_show_all');
     }
 
 }

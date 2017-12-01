@@ -97,6 +97,7 @@ function calendar() {
                 $('#modalTime').html(Time);
                 $('#modalTitle').html(calEvent.titre);
                 $('#modalTexte').html(calEvent.texte);
+                $('#modalImage').html(calEvent.media.picpath);
 
                 $('#fullCalModal').modal('open');
 
