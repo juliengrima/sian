@@ -24,11 +24,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $subGalleries = $em->getRepository('AppBundle:SubGallery')->findBy( array('slider' => 1));
         $about = $em->getRepository('AppBundle:About')->findAll();
+        $agenda = $em->getRepository('CalendarBundle:Agenda')->findBy( array('slider' => 1) );
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'subGalleries' => $subGalleries,
-            'abouts' => $about
+            'abouts' => $about,
+            'agendas' => $agenda
         ));
 
     }

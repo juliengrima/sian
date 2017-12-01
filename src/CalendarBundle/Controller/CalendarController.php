@@ -93,11 +93,14 @@ class CalendarController extends Controller
             $image = $imageForm->getData ();
             $agenda->setMedia ($image);
 
-            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setPicname(preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+            if (isset($image)) {
 
-            // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
-            $this->get ('media.interface')->mediaUpload ($image);
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+
+            }
 
             /* SI L'HEURE ET/OU LA DATE DE FIN EST INFERIEUR A CELLE DE DEBUT ON REVIENT A LA PAGE NEW*/
 
@@ -167,15 +170,18 @@ class CalendarController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $editForm->get('image');
+            $imageForm = $editForm->get('media');
             $image = $imageForm->getData();
             $agenda->setMedia($image);
 
-            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
+            if (isset($image)) {
 
-            // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
-            $this->get('media.interface')->mediaUpload($image);
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+
+            }
 
             if($agenda->getStart() > $agenda->getEnd()) {
                 $this->addFlash (
