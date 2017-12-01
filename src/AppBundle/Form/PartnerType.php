@@ -13,7 +13,9 @@ class PartnerType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('partner')->add('mail');
+        $builder
+            ->add('partner')
+            ->add('website');
     }
     
     /**

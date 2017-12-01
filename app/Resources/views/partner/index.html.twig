@@ -24,7 +24,7 @@
                                 <p>{{ partner.partner }}</p>
                             </div>
                             <div class="col s12 m6 l6">
-                                <p>{{ partner.mail }}</p>
+                                <p>{{ partner.website }}</p>
                             </div>
                         </div>
                     </div>
@@ -32,9 +32,6 @@
                         <div class="center">
                             <a href="{{ path('partner_edit', { 'id': partner.id }) }}">
                                 <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
-                            </a>
-                            <a href="{{ path('partner_delete', { 'id': partner.id }) }}">
-                                <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
                             </a>
                         </div>
                     </div>

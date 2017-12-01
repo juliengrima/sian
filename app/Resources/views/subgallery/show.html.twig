@@ -48,25 +48,23 @@
 
                         <div class="center">
 
-                            <a href="{{ path('header_show_all') }}">
-                                <button class=" btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
-                                        data-position="bottom"
-                                        data-delay="50"
-                                        data-tooltip="liste">
-                                    <i class="material-icons">view_list</i>
-                                </button>
-                            </a>
-
-                            <a class="btn-floating btn-large waves-effect waves-light blue darken-1"
+                            <a href="{{ path('subgallery_edit', { 'id': subGallery.id }) }}"
                                data-position="bottom"
                                data-delay="50"
-                               data-tooltip="Accueil"
-                               href="{{ path('homepage') }}">
-                                <i class="small material-icons">home</i>
+                               data-tooltip="Accueil">
+                                <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon"
+                                     data-position="bottom"
+                                     data-delay="50"
+                                     data-tooltip="Accueil">
+                            </a>
+
+                            <a class="plus-icon" href="{{ path('homepage') }}">
+                                <img src="{{ asset('images/local/icons/home-icon.svg') }}" class="plus-icon"
+                                     data-position="bottom"
+                                     data-delay="50"
+                                     data-tooltip="Accueil">
                             </a>
                         </div>
-
-                        <div class="header-buttom-marge"></div>
 
                     </div>
                 </div>
