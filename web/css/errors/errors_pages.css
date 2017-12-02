@@ -1,3 +1,36 @@
+body {
+    display: flex !important;
+    min-height: 100vh !important;
+    flex-direction: column !important;
+    font-family: 'Dancing Script', cursive !important;
+}
+
 .background-error{
-    background-image: image('../../images/local/errors/page_erreur.jpg');
+    background-image: url("../../images/local/errors/page_erreur.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+    z-index: -999999;
+}
+
+.background-size{
+    height: 100%;
+
+}
+
+.position-status{
+    margin-top: 35%;
+    margin-left: -40%;
+}
+
+.position-h3{
+    margin-top: 10%;
+    margin-left: -10%;
+}
+
+.font-color1{
+    color: #9F9F9F;
+}
+
+.font-color2{
+    color: #5a5959;
 }
