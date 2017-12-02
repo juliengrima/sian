@@ -327,9 +327,20 @@ main {
 .picsize{
     height: 200px;
     width: 300px;
+    border-radius: 20px;
+    margin-left: 1.5%;
+    margin-top: 1.5%;
 }
 
 .picsize-listindex{
     height: 100px;
     width: 200px;
+}
+
+.back-picture{
+    height: 210px;
+    width: 310px;
+    background-color: #9F9F9F;
+    border-radius: 20px;
+    box-shadow: 8px 8px 12px #aaa;
 }
