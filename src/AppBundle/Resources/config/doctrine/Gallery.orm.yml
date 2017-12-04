@@ -12,4 +12,11 @@ AppBundle\Entity\Gallery:
         name:
             type: string
             length: 255
+
+    manyToOne:
+            header:
+              targetEntity: AppBundle\Entity\Header
+              joinColumn:
+                name: header_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }

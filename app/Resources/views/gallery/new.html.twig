@@ -1,16 +1,123 @@
-{% extends 'base.html.twig' %}
+{% if is_granted('ROLE_ADMIN') %}
+
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Gallery creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div class="container">
+        <div class="header-marge">
+            <div class="row">
+                <div class="col s12">
 
-    <ul>
-        <li>
-            <a href="{{ path('gallery_index') }}">Back to the list</a>
-        </li>
-    </ul>
+                    <div class="row">
+                        <h1 class="center">Ajout d'une nouvelle gallerie</h1>
+                    </div>
+
+                    {{ form_start(form) }}
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Sélection de la catégorie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.header) }}
+                            {{ form_errors(form.header) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <p>Nom de la nouvelle catégorie :</p>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            {{ form_widget(form.name) }}
+                            {{ form_errors(form.name) }}
+                        </div>
+                    </div>
+
+                    <div class="center">
+                        <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                                type="submit">
+                            <i class="material-icons">check</i>
+                        </button>
+
+                        <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                           href="{{ path('homepage') }}">
+                            <i class="small material-icons">home</i>
+                        </a>
+                    </div>
+
+                    {{ form_end(form) }}
+
+                    <div class="header-buttom-marge"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
+{% else %}
+
+    {% block error %}
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Nathalie Sian Création {{ status_text }}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('') }}" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="all">
+        <link rel="stylesheet" href="{{ asset('css/errors/errors_pages.css') }}" media="all">
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Dancing+Script|Great+Vibes|Lobster|Pacifico|Parisienne|Sacramento|Tangerine" rel="stylesheet">
+        <!-- ICONS -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body class="background-error">
+
+    <div class="row font-color2">
+        <div class="col s12">
+            <div class="center-align">
+                <h2>Oops! Ce n'est pas la bonne route!</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row font-color2">
+        <div class="col s12 m6 l5">
+            <div>
+                <h3> Vous voilà au bord de la plage, prenez le temps d'observer le paysage.</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row left font-color2">
+        <div class="col s12 m8 l7">
+            <div class="position-status">
+                <h3 class="font-color1">Si vous lisez ce message, prévenez<span class="right"> l'administrateur :</span></h3>
+                <h3 class="position-h3"> "{{ status_code }} {{ status_text }}".</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <a class="btn dropdown-button navbutton fsize grey darken-2" href="mailto:qq1@qqpart.com" data-activates="dropdown2">
+                Contactez moi
+            </a>
+        </div>
+        <div class="">
+            <a class="btn dropdown-button navbutton fsize red darken-4" href="{{ path('homepage') }}" data-activates="dropdown2">
+                Retour au menu
+            </a>
+        </div>
+    </div>
+
+    </body>
+    </html>
+
+    {% endblock %}
+
+{% endif %}

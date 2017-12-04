@@ -1,0 +1,29 @@
+header_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Header:index" }
+    methods:  GET
+
+header_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Header:show" }
+    methods:  GET
+
+header_show_all:
+    path:     /show_all
+    defaults: { _controller: "AppBundle:Header:allHeader" }
+    methods:  GET
+
+header_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Header:new" }
+    methods:  [GET, POST]
+
+header_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Header:edit" }
+    methods:  [GET, POST]
+
+header_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Header:delete" }
+    methods:  DELETE

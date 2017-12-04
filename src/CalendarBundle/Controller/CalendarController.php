@@ -38,6 +38,7 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $agenda = $em->getRepository('CalendarBundle:Agenda')->findAll(); // appel de la table
+        $media = $em->getRepository('AppBundle:Media')->findBy( array ('id' => $agenda)); // appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalisation des données pour passer en JSON
 
@@ -54,7 +55,7 @@ class CalendarController extends Controller
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
         /* SUPPRESSION D'UN APPEL DE L'ENTITE POUR LE TABLEAU */
         $normalizer->setCircularReferenceHandler(function ($agenda) {
-            return $agenda->getName('image');
+            return $agenda->getPicname('media');
         });
 
         $serializer = new Serializer(array($normalizer), array($encoder));
@@ -75,48 +76,50 @@ class CalendarController extends Controller
         $agenda = new Agenda();
 
         if ($start != 0) {
-            $agenda->setStart(new \DateTime($start));
-            $agenda->setEnd(new \DateTime($start));
+            $agenda->setStart (new \DateTime($start));
+            $agenda->setEnd (new \DateTime($start));
         }
 
-        $form = $this->createForm('CalendarBundle\Form\AgendaType', $agenda);
+        $form = $this->createForm ('CalendarBundle\Form\AgendaType', $agenda);
 
-        $form->setData($agenda);
+        $form->setData ($agenda);
 
-        $form->handleRequest($request);
+        $form->handleRequest ($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted () && $form->isValid ()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $form->get('image');
-            $image = $imageForm->getData();
-            $agenda->setMedia($image);
+            $imageForm = $form->get ('media');
+            $image = $imageForm->getData ();
+            $agenda->setMedia ($image);
 
-            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
+            if (isset($image)) {
 
-            // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
-            $this->get('media.interface')->mediaUpload($image);
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+
+            }
 
             /* SI L'HEURE ET/OU LA DATE DE FIN EST INFERIEUR A CELLE DE DEBUT ON REVIENT A LA PAGE NEW*/
 
-            if($agenda->getStart() > $agenda->getEnd()) {
+            if ($agenda->getStart () > $agenda->getEnd ()) {
                 $this->addFlash (
                     'success',
                     'Attention la date de fin est antérieur à la date de début'
                 );
 
-                return $this->render('@Calendar/agenda/new.html.twig', array(
+                return $this->render ('@Calendar/agenda/new.html.twig', array (
                     'agenda' => $agenda,
-                    'form' => $form->createView(),
+                    'form' => $form->createView (),
                 ));
-            }
-            else{
+            } else {
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($agenda);
-                $em->flush();
-                return $this->redirectToRoute('agenda_show', array('id' => $agenda->getId()));
+                $em = $this->getDoctrine ()->getManager ();
+                $em->persist ($agenda);
+                $em->flush ();
+                return $this->redirectToRoute ('agenda_show', array ('id' => $agenda->getId ()));
             }
         }
 
@@ -167,15 +170,18 @@ class CalendarController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
 
             /* ON RECUP LE FICHIER IMAGE */
-            $imageForm = $editForm->get('image');
+            $imageForm = $editForm->get('media');
             $image = $imageForm->getData();
             $agenda->setMedia($image);
 
-            /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
-            $image->setName(preg_replace('/\W/', '_', "Event_" . $agenda->getTitre() . uniqid()) );
+            if (isset($image)) {
 
-            // On appelle le service d'upload de média (HarasBundle/Services/mediaInterface)
-            $this->get('media.interface')->mediaUpload($image);
+                /* ON DEFINI UN NOM UNIQUE AU FICHIER UPLOAD : LE PREG_REPLACE PERMET LA SUPPRESSION DES ESPACES ET AUTRES CARACTERES INDESIRABLES*/
+                $image->setPicname (preg_replace ('/\W/', '_', "Event_" . $agenda->getTitre () . uniqid ()));
+                // On appelle le service d'upload de média (AppBundle/Services/mediaInterface)
+                $this->get ('media.interface')->mediaUpload ($image);
+
+            }
 
             if($agenda->getStart() > $agenda->getEnd()) {
                 $this->addFlash (
@@ -219,7 +225,7 @@ class CalendarController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('admin_dashboard');
+        return $this->redirectToRoute('agenda_show_all');
     }
 
 }

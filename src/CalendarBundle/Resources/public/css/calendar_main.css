@@ -98,6 +98,14 @@ select{
     color: darkred;
 }
 
+.align{
+    padding-left: 45%;
+}
+
+.align-edit{
+    padding-left: 20%;
+}
+
 /*********************************************************/
 /******************* PAGE SHOW EDIT NEW ******************/
 /*******************    GLOBAL TABLE    ******************/

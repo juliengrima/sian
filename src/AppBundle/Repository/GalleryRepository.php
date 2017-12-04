@@ -2,6 +2,11 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\Header;
+use AppBundle\Entity\Gallery;
+
+
 /**
  * GalleryRepository
  *
@@ -10,4 +15,31 @@ namespace AppBundle\Repository;
  */
 class GalleryRepository extends \Doctrine\ORM\EntityRepository
 {
+
+//    public function getHeaderId($headers){
+////        Alias 'g' = class gallery
+////        Alias 'h' = header
+//
+////        $em = $this->array('id'=>$headers);
+//
+//        $qb = $this->createQueryBuilder('g')
+//            ->select('g.name, g.header_id, h.id, h.name')
+//            ->join('g.gallery', 'h')
+//            ->where('g.header_id = ', $headers)
+//            ->orderBy('g.name', 'DESC');
+//        return $qb->getQuery()->getResult();
+//    }
+
+//    public function getHeaderId()
+//    {
+//        return $this->getEntityManager()
+//            ->createQuery(
+//                'SELECT g.name, g.header, h.id
+//                      FROM AppBundle:Gallery g, AppBundle:Header h
+//                      WHERE g.header = h.id
+//                      ORDER BY g.name DESC '
+//            )
+//            ->getResult();
+//    }
+
 }
