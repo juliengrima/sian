@@ -19,9 +19,10 @@
 
                     <div class="col s12 m4 l4">
 
-                        <div class="view">
+                        <div class="view back-picture">
                             <a class="modal-trigger" href="#modal{{ subGallery.id }}">
-                                <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                                {#<img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>#}
+                                <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                             </a>
                         </div>
 
@@ -35,7 +36,10 @@
                             <div class="modal-content">
                                 <h4 class="center">{{ subGallery.sgallery }}</h4>
                                 <p>{{ subGallery.description }}</p>
-                                <p>{{ subGallery.prix }}</p>
+                                <div class="right">
+                                    <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                                    <p>{{ subGallery.prix }} €</p>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 {# ################# Si L'ADMIN EST ACTIF ###########################c#}
@@ -90,5 +94,62 @@
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('js/effects/jquery.elevateZoom-3.0.8.min.js') }}"></script>
+    <script>
+        // ********************************************************************
+        // *                    ZOOM IMAGE
+        // ********************************************************************
+
+        //Lens Zoom
+        function zoomer() {
+
+            console.log('ma fonction zoom');
+
+            {% for subGallery in subGalleries %}
+
+            // INNER ZOOM
+            $("#{{ subGallery.id }}").elevateZoom({
+                zoomType : "inner",
+                cursor: "crosshair"
+            });
+
+                // OPTIONS FOR DIFFERENT ZOOM
+
+                // LENS
+                // zoomType : "lens",
+                // lensShape : "round",
+                // lensSize : 150
+
+                // COLOR OF BACK
+                // tint:true,
+                // tintColour:'#F90',
+                // tintOpacity:0.5
+
+                // FADE IN / FADE OUT
+                // zoomWindowFadeIn: 500,
+                // zoomWindowFadeOut: 500,
+                // lensFadeIn: 500,
+                // lensFadeOut: 500
+
+                // MOUSEWHEEL
+                // scrollZoom : true
+
+                // EASING
+                // easing : true
+
+
+
+            {% endfor %}
+
+        }
+        zoomer();
+    </script>
 
 {% endblock %}

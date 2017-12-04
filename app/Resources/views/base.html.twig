@@ -17,9 +17,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <style>
-        {% block stylesheets %}{% endblock %}
-    </style>
+    <stylesheets>
+        {% block stylesheets %}
+        {% endblock %}
+    </stylesheets>
     <body>
 
         {% block header %}{% endblock %}
@@ -36,8 +37,6 @@
             {#<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>#}
             <script src="{{ asset('js/materialize.js') }}"></script>
             <script src="{{ asset('js/main.js') }}"></script>
-
-
 
         {% endblock %}
     </body>

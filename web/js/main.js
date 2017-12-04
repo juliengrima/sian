@@ -12,6 +12,8 @@ jQuery(document).ready(function($) {
     text();
     selecteur();
     modal();
+    zoom1()
+
 
 });
 
@@ -49,8 +51,7 @@ function carousel() {
 // ********************************************************************
 
 function modal() {
-
-        $('.modal').modal();
+    $('.modal').modal();
 }
 
 
