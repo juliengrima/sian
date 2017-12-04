@@ -89,14 +89,17 @@ function calendar() {
                 var startTime = moment(calEvent.start._i).format('HH:mm');
                 var endTime = moment(calEvent.end._i).format("HH:mm");
                 var Time = 'Le ' + day + '<br>' +ponctuation1 + ' ' + startTime + '<br>' + ponctuation2 + ' ' + endTime;
+                // var picture = '<img src="'+(calEvent.media)+'" alt="'+(calEvent.media)+'">';
+
                 var editEvent = Routing.generate('agenda') + calEvent.id + '/edit';
                 var deleteEvent = Routing.generate('agenda') + calEvent.id + '/delete';
 
-                console.log('pipi');
+                // console.log('recup des données');
 
                 $('#modalTime').html(Time);
                 $('#modalTitle').html(calEvent.titre);
                 $('#modalTexte').html(calEvent.texte);
+                // $('#modalImage').html(picture);
 
                 $('#fullCalModal').modal('open');
 

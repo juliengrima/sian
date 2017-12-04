@@ -1,63 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block header %}
-    <div class="navbar-fixed">
-        <nav class="nav-extended">
-            <div class="nav-wrapper backnav">
-                <a href="#!" class="brand-logo decal">Acceuil</a>
-                <ul class="right hide-on-med-and-down">
-                    <li>
-                        <ul id="dropdown2" class="dropdown-content">
-                            <li><a href="#!">one<span class="badge">1</span></a></li>
-                            <li><a href="#!">two<span class="new badge">1</span></a></li>
-                            <li><a href="#!">three</a></li>
-                        </ul>
-                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Galleries{#<i class="material-icons right">arrow_drop_down</i>#}</a>
-                    </li>
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
 
-                    <li>
-                        <ul id="dropdown2" class="dropdown-content">
-                            <li><a href="#!">one<span class="badge">1</span></a></li>
-                            <li><a href="#!">two<span class="new badge">1</span></a></li>
-                            <li><a href="#!">three</a></li>
-                        </ul>
-                        <a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Collections{#<i class="material-icons right">arrow_drop_down</i>#}</a>
-                    </li>
-                    <li><a class="btn dropdown-button navbutton fsize" href="#!" data-activates="dropdown2">Contact</a></li>
-                </ul>
-            </div>
-            <div class="nav-content backcontent center">
-                <span class="nav-title f-size">Nathalie Sian Création</span>
-            </div>
-        </nav>
-    </div>
+{% block header %}
+
+    {{ render(controller('AppBundle:Header:index')) }}
 
 {% endblock %}
 
 {% block footer %}
 
-    <footer class="page-footer backfoot">
+    <footer class="page-footer backcontent">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                <div class="col s12 m8 l8 center">
+                    <h4 class="white-text">Partenaires</h4>
+
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        {{ render(controller('AppBundle:Partner:show')) }}
+
+                        {% if is_granted('ROLE_ADMIN') %}
+
+                            <li class="valign-li">
+                                <a href="{{ path('partner_index') }}">
+                                    <img src="{{ asset('images/local/icons/menu-icon.svg') }}" class="plus-icon-index">
+                                </a>
+                            </li>
+
+                        {% endif %}
                     </ul>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center-align valign">
+                        <a class="btn dropdown-button navbutton fsize" href="mailto:qq1@qqpart.com" data-activates="dropdown2">
+                            Contactez moi
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer-copyright">
-            <div class="container">
-                <a href="{{ path('fos_user_security_login') }}" class="login">©</a>  2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="container font-href-foot center-align">
+                <a href="{{ path('fos_user_security_login') }}" class="login">©</a>
+                <a href="https://www.linkedin.com/in/julien-grima-927612129/">
+                    Créé et géré par Julien Grima
+                </a>
             </div>
         </div>
     </footer>

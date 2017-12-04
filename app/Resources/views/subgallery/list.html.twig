@@ -1,0 +1,155 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style_common.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+        {% if subGalleries != null  %}
+
+            <div class="container">
+
+            <div class="row"></div>
+
+                <div class="row">
+
+                {% for subGallery in subGalleries %}
+
+                    <div class="col s12 m4 l4">
+
+                        <div class="view back-picture">
+                            <a class="modal-trigger" href="#modal{{ subGallery.id }}">
+                                {#<img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>#}
+                                <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                            </a>
+                        </div>
+
+                        <!------------------------------- --------------- ------------------------------------->
+                        <!------------------------------- --------------- ------------------------------------->
+                        <!------------------------------- MODAL STRUCTURE ------------------------------------->
+                        <!------------------------------- --------------- ------------------------------------->
+                        <!------------------------------- --------------- ------------------------------------->
+
+                        <div id="modal{{ subGallery.id }}" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4 class="center">{{ subGallery.sgallery }}</h4>
+                                <p>{{ subGallery.description }}</p>
+                                <div class="right">
+                                    <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                                    <p>{{ subGallery.prix }} €</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                {# ################# Si L'ADMIN EST ACTIF ###########################c#}
+                                {% if is_granted('ROLE_ADMIN') %}
+
+                                    <a href="{{ path('subgallery_edit', { 'id': subGallery.id }) }}" class="left">
+                                        <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
+                                    </a>
+                                    <a href="{{ path('subgallery_delete', { 'id': subGallery.id }) }}" class="left">
+                                        <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
+                                    </a>
+
+                                {% endif %}
+                                {# ################################################################## #}
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Quitter</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="container">
+
+                <div class="valign-wrapper">
+                    <h5>Nous n'avons pas trouvé votre recherche</h5>
+                </div>
+
+            </div>
+
+        {% endif %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center">
+
+                {# ################# Si L'ADMIN EST ACTIF ###########################c#}
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    <a href="{{ path('subgallery_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close bouton-new">
+                        <i class=" material-icons">add</i>
+                    </a>
+
+                {% endif %}
+                {# ################################################################## #}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('js/effects/jquery.elevateZoom-3.0.8.min.js') }}"></script>
+    <script>
+        // ********************************************************************
+        // *                    ZOOM IMAGE
+        // ********************************************************************
+
+        //Lens Zoom
+        function zoomer() {
+
+            console.log('ma fonction zoom');
+
+            {% for subGallery in subGalleries %}
+
+            // INNER ZOOM
+            $("#{{ subGallery.id }}").elevateZoom({
+                zoomType : "inner",
+                cursor: "crosshair"
+            });
+
+                // OPTIONS FOR DIFFERENT ZOOM
+
+                // LENS
+                // zoomType : "lens",
+                // lensShape : "round",
+                // lensSize : 150
+
+                // COLOR OF BACK
+                // tint:true,
+                // tintColour:'#F90',
+                // tintOpacity:0.5
+
+                // FADE IN / FADE OUT
+                // zoomWindowFadeIn: 500,
+                // zoomWindowFadeOut: 500,
+                // lensFadeIn: 500,
+                // lensFadeOut: 500
+
+                // MOUSEWHEEL
+                // scrollZoom : true
+
+                // EASING
+                // easing : true
+
+
+
+            {% endfor %}
+
+        }
+        zoomer();
+    </script>
+
+{% endblock %}

@@ -12,11 +12,26 @@ AppBundle\Entity\SubGallery:
         sgallery:
             type: string
             length: 255
+        prix:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        slider:
+            type: boolean
+            nullable: true
 
     manyToOne:
         gallery:
-          targetEntity: gallery
+          targetEntity: AppBundle\Entity\Gallery
           joinColumn:
             name: gallery_id
             referencedColumnName: id
+            cascade: ['all']
+        media:
+          targetEntity: AppBundle\Entity\Media
+          cascade: ['all']
+
     lifecycleCallbacks: {  }

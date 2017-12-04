@@ -40,6 +40,11 @@ class Media
     private $picname;
 
     /**
+     * @var string
+     */
+    private $picpath;
+
+    /**
      * Get id
      *
      * @return integer
@@ -72,11 +77,6 @@ class Media
     {
         return $this->picname;
     }
-    /**
-     * @var string
-     */
-    private $picpath;
-
 
     /**
      * Set picpath

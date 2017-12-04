@@ -33,8 +33,10 @@ A Symfony project created on August 11, 2017, 6:03 pm.
     	5. ^$ composer dump-autoload 
                 (Evite certain problèmes de bundles avec Symfony 3.3.6)
     	6. ^$ php bin/console d:d:c 
+    	        (Création de la base de données)
     	7. ^$ php bin/console d:s:u --force
-    	8. ^$ php bin/console a:i`--symlink 
+    	        (Enregistrement des tables dans la base de données)
+    	8. ^$ php bin/console a:i --symlink 
     	        (Non obligatoire car le dossier PUBLIC est directement dans le web) 
     	
 
@@ -60,7 +62,7 @@ Dans la console taper:
 
     $ composer dump-autoload
 
-tLe Bundle est activé 
+Le Bundle est activé 
 
 
 ```
