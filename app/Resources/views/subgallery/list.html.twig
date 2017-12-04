@@ -21,6 +21,7 @@
 
                         <div class="view back-picture">
                             <a class="modal-trigger" href="#modal{{ subGallery.id }}">
+                                {#<img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>#}
                                 <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                             </a>
                         </div>
@@ -98,9 +99,9 @@
 
 {% block javascripts %}
 
-    <script type="text/javascript" src="{{ asset('js/effects/jquery.elevateZoom-3.0.8.min.js') }}">
+    {{ parent() }}
 
-    </script>
+    <script type="text/javascript" src="{{ asset('js/effects/jquery.elevateZoom-3.0.8.min.js') }}"></script>
     <script>
         // ********************************************************************
         // *                    ZOOM IMAGE
@@ -113,11 +114,38 @@
 
             {% for subGallery in subGalleries %}
 
-            $( '#{{ subGallery.id }}' ).elevateZoom({
-                zoomType : "lens",
-                lensShape : "round",
-                lensSize : 200
+            // INNER ZOOM
+            $("#{{ subGallery.id }}").elevateZoom({
+                zoomType : "inner",
+                cursor: "crosshair"
             });
+
+                // OPTIONS FOR DIFFERENT ZOOM
+
+                // LENS
+                // zoomType : "lens",
+                // lensShape : "round",
+                // lensSize : 150
+
+                // COLOR OF BACK
+                // tint:true,
+                // tintColour:'#F90',
+                // tintOpacity:0.5
+
+                // FADE IN / FADE OUT
+                // zoomWindowFadeIn: 500,
+                // zoomWindowFadeOut: 500,
+                // lensFadeIn: 500,
+                // lensFadeOut: 500
+
+                // MOUSEWHEEL
+                // scrollZoom : true
+
+                // EASING
+                // easing : true
+
+
+
             {% endfor %}
 
         }
