@@ -328,8 +328,8 @@ main {
     height: 200px;
     width: 300px;
     border-radius: 20px;
-    margin-left: 1.5%;
-    margin-top: 1.5%;
+    /*margin-left: 1.5%;*/
+    /*margin-top: 1.5%;*/
 }
 
 .picsize-listindex{
@@ -343,4 +343,9 @@ main {
     background-color: #9F9F9F;
     border-radius: 20px;
     box-shadow: 8px 8px 12px #aaa;
+}
+
+.view{
+    background-color: #9F9F9F;
+    border-radius: 20px;
 }

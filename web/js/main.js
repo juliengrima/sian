@@ -12,6 +12,8 @@ jQuery(document).ready(function($) {
     text();
     selecteur();
     modal();
+    zoom1()
+
 
 });
 
@@ -49,8 +51,15 @@ function carousel() {
 // ********************************************************************
 
 function modal() {
+    $('.modal').modal();
+}
 
-        $('.modal').modal();
+function zoom1(){
+    $("#zoom_01").elevateZoom({
+        zoomType				: "lens",
+        lensShape : "round",
+        lensSize    : 200
+    });
 }
 
 
