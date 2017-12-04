@@ -103,8 +103,12 @@ button{
     background: none;
 }
 
+/*.font-slide{*/
+    /*color: #546e7a;*/
+/*}*/
+
 .font-slide{
-    color: #546e7a;
+    color: #5a5959;
 }
 
 .font-href-foot{
@@ -210,6 +214,14 @@ main {
 /*******************************************************/
 .marge {
     margin-top: 94px;
+}
+
+.slider{
+    z-index: -20;
+}
+
+.slider .indicators .indicator-item.active {
+    background-color: #9F9F9F;
 }
 
 /*******************************************************/
