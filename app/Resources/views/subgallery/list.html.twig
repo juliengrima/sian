@@ -21,7 +21,7 @@
 
                         <div class="view back-picture">
                             <a class="modal-trigger" href="#modal{{ subGallery.id }}">
-                                <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                                <img id="zoom_01" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                             </a>
                         </div>
 
@@ -36,7 +36,7 @@
                                 <h4 class="center">{{ subGallery.sgallery }}</h4>
                                 <p>{{ subGallery.description }}</p>
                                 <div class="right">
-                                    <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                                    <img id="zoom_01" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                                     <p>{{ subGallery.prix }} €</p>
                                 </div>
                             </div>
