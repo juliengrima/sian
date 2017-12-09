@@ -7,7 +7,7 @@ security:
 
     role_hierarchy:
         ROLE_USER:        ROLE_USER
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_ADMIN:       ROLE_ADMIN
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -41,7 +41,7 @@ security:
                 # [redirection apres logout]
 #                success_handler: redirect.after.logout
 
-            anonymous:    true
+            anonymous:    ~
 
     access_control:
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -51,7 +51,7 @@ security:
         - { path: ^/header/index.html, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/gallery, role: ROLE_ADMIN }
         - { path: ^/subgallery, role: ROLE_ADMIN }
-        - { path: ^/calendar, role: ROLE_ADMIN }
+        - { path: ^/calendar/, role: ROLE_ADMIN }
 
             # activate different ways to authenticate
 
