@@ -14,7 +14,7 @@ app_header:
 
 app_gallery:
     resource: "@AppBundle/Resources/config/routing/gallery.yml"
-    prefix:   /admin/gallery
+    prefix:   /gallery
 
 ##############################################
 #                                            #
@@ -34,7 +34,7 @@ app_subgallery:
 
 app_about:
         resource: "@AppBundle/Resources/config/routing/about.yml"
-        prefix:   /admin/about
+        prefix:   /about
 
 ##############################################
 #                                            #
@@ -44,7 +44,7 @@ app_about:
 
 app_partner:
      resource: "@AppBundle/Resources/config/routing/partner.yml"
-     prefix:   /admin/partner
+     prefix:   /partner
 
 
 ############################################################################################################
@@ -56,7 +56,7 @@ app_partner:
 
 calendar:
     resource: "@CalendarBundle/Resources/config/routing.yml"
-    prefix:   /admin/calendar
+    prefix:   /
 
 ##########################################
 ###########   Routes ADMIN   #############
