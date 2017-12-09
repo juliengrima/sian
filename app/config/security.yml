@@ -43,7 +43,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_SUPER_ADMIN }
         - { path: ^/header/, role: ROLE_SUPER_ADMIN }
-        - { path: ^/header/index.html, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/header/index.html, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/gallery/, role: ROLE_SUPER_ADMIN }
         - { path: ^/subgallery, role: ROLE_SUPER_ADMIN }
         - { path: ^/calendar/, role: ROLE_SUPER_ADMIN }
