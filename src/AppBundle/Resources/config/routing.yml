@@ -7,7 +7,7 @@
 
 app_gallery:
     resource: "@AppBundle/Resources/config/routing/gallery.yml"
-    prefix:   /gallery
+    prefix:   /admin/gallery
 
 ##############################################
 #                                            #
@@ -27,7 +27,7 @@ app_subgallery:
 
 app_about:
         resource: "@AppBundle/Resources/config/routing/about.yml"
-        prefix:   /about
+        prefix:   /admin/about
 
 ##########################################
 ##############   LIIP IMAGINE   ##########
