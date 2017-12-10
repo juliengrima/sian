@@ -1,128 +1,92 @@
-{% if is_granted('ROLE_ADMIN') %}
-
 {% extends 'layout.html.twig' %}
 
 {% block body %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
+    {% if is_granted('ROLE_ADMIN') %}
 
-                <div class="center">
-                    <h1>Je me présente</h1>
-                </div>
-
-            </div>
-        </div>
-
-        {% for about in abouts %}
-
+        <div class="container">
             <div class="row">
-                <div class="col s12 m6 l6">
-                    <div class="row">
-                        <div class="col s12 m6 l6">
-                            <p>{{ about.about }}</p>
+                <div class="col s12">
+
+                    <div class="center">
+                        <h1>Je me présente</h1>
+                    </div>
+
+                </div>
+            </div>
+
+            {% for about in abouts %}
+
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <div class="row">
+                            <div class="col s12 m6 l6">
+                                <p>{{ about.about }}</p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <img src="{{ asset(about.media.picpath) }}" alt="{{ about.media.picname }}" class="picsize">
+                            </div>
                         </div>
-                        <div class="col s12 m6 l6">
-                            <img src="{{ asset(about.media.picpath) }}" alt="{{ about.media.picname }}" class="picsize">
+                    </div>
+                    <div class="col s12 m6 l6">
+                        <div class="center">
+                            <a href="{{ path('about_edit', { 'id': about.id }) }}">
+                                <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col s12 m6 l6">
-                    <div class="center">
-                        <a href="{{ path('about_edit', { 'id': about.id }) }}">
-                            <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
+
+            {% endfor %}
+
+            {% if abouts != null %}
+
+
+            {% else %}
+
+                <div class="row">
+                    <div class="col s12 center">
+                        <a href="{{ path('about_new') }}">
+                            <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
                         </a>
                     </div>
                 </div>
+
+            {% endif %}
+
+        </div>
+
+    {% else %}
+
+        <link rel="stylesheet" href="{{ asset('css/errors/errors_pages.css') }}" media="all">
+
+        <body class="background-error">
+
+            <div class="row font-color2">
+                <div class="col s12">
+                    <div class="center-align">
+                        <h2>Oops! Ce n'est pas la bonne route!</h2>
+                    </div>
+                </div>
             </div>
-
-        {% endfor %}
-
-
-
-        {% if abouts != null %}
-
-
-        {% else %}
-
-            <div class="row">
-                <div class="col s12 center">
-                    <a href="{{ path('about_new') }}">
-                        <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
-                    </a>
+            <div class="row font-color2">
+                <div class="col s12 m6 l5">
+                    <div>
+                        <h3> Vous voilà au bord de la plage, prenez le temps d'observer le paysage.</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row left font-color2">
+                <div class="col s12 m8 l7">
+                    <div class="position-status">
+                        <h3 class="font-color1">Si vous lisez ce message, prévenez<span class="right"> l'administrateur :</span></h3>
+                        <h3 class="position-h3 font-color1"> "Erreur 404 - Page non trouvée".</h3>
+                    </div>
                 </div>
             </div>
 
-        {% endif %}
+        </body>
 
-    </div>
+    {% endif %}
 
 {% endblock %}
-
-{% else %}
-
-    {% block error %}
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Nathalie Sian Création {{ status_text }}</title>
-        <link rel="icon" type="image/x-icon" href="{{ asset('') }}" />
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="all">
-        <link rel="stylesheet" href="{{ asset('css/errors/errors_pages.css') }}" media="all">
-        <!-- FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Allura|Dancing+Script|Great+Vibes|Lobster|Pacifico|Parisienne|Sacramento|Tangerine" rel="stylesheet">
-        <!-- ICONS -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-
-    <body class="background-error">
-
-    <div class="row font-color2">
-        <div class="col s12">
-            <div class="center-align">
-                <h2>Oops! Ce n'est pas la bonne route!</h2>
-            </div>
-        </div>
-    </div>
-    <div class="row font-color2">
-        <div class="col s12 m6 l5">
-            <div>
-                <h3> Vous voilà au bord de la plage, prenez le temps d'observer le paysage.</h3>
-            </div>
-        </div>
-    </div>
-    <div class="row left font-color2">
-        <div class="col s12 m8 l7">
-            <div class="position-status">
-                <h3 class="font-color1">Si vous lisez ce message, prévenez<span class="right"> l'administrateur :</span></h3>
-                <h3 class="position-h3"> "{{ status_code }} {{ status_text }}".</h3>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="">
-            <a class="btn dropdown-button navbutton fsize grey darken-2" href="mailto:qq1@qqpart.com" data-activates="dropdown2">
-                Contactez moi
-            </a>
-        </div>
-        <div class="">
-            <a class="btn dropdown-button navbutton fsize red darken-4" href="{{ path('homepage') }}" data-activates="dropdown2">
-                Retour au menu
-            </a>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-    {% endblock %}
-
-{% endif %}
-
-
-
