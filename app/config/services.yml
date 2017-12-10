@@ -29,18 +29,6 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-<<<<<<< HEAD
-    # [...] Vos autres services
-#    redirect.after.login:
-#        class: AdminBundle\Redirection\AfterLoginRedirection
-#        arguments: [@router]
-#
-#    redirect.after.logout:
-#        class: AdminBundle\Redirection\AfterLogoutRedirection
-#        arguments: [@router, security]
-
-=======
->>>>>>> dev
     # Upload Service
     media.interface:
         class: CalendarBundle\Services\mediaInterface
