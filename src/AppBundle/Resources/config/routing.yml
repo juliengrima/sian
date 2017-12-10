@@ -27,7 +27,11 @@ app_subgallery:
 
 app_about:
         resource: "@AppBundle/Resources/config/routing/about.yml"
+<<<<<<< HEAD
         prefix:   /admin/about
+=======
+        prefix:   /about
+>>>>>>> dev
 
 ##########################################
 ##############   LIIP IMAGINE   ##########

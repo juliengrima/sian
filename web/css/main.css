@@ -103,17 +103,83 @@ button{
     background: none;
 }
 
+<<<<<<< HEAD
 /*.font-slide{*/
     /*color: #546e7a;*/
 /*}*/
 
 .font-slide{
     color: #5a5959;
+=======
+.font-slide{
+    color: #546e7a;
+>>>>>>> dev
 }
 
 .font-href-foot{
     color: white;
 }
+<<<<<<< HEAD
+
+/*******************************************************/
+/*                                                     */
+/*                                                     */
+/*                   LAYOUT                            */
+/*                                                     */
+/*                                                     */
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/
+/************************ NAV BAR **********************/
+/*******************************************************/
+/*******************************************************/
+.decal {
+    margin-left: 30px;
+}
+
+.fsize {
+    font-size: 15px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.backnav, .backfoot {
+    background-color: black !important;
+}
+
+/* Extension TITRE */
+.backcontent {
+    background-color: #546e7a !important;
+}
+
+.navbutton {
+    background-color: black;
+    border-color: #546e7a;
+}
+
+.navbutton:hover {
+    background-color: #546e7a;
+}
+
+.f-size {
+    font-size: 70px !important;
+    color: white;
+}
+.bouton-new-gallery{
+     width: 30px !important;
+     height: 30px !important;
+ }
+.bouton-new-gallery-icon{
+    margin-top: -12px;
+}
+
+.material-icons-size{
+    margin-left: 40px !important;
+    font-size: 40px !important;
+}
+
+.marginright{
+    margin-right: 7%;
+=======
 
 /*******************************************************/
 /*                                                     */
@@ -189,9 +255,35 @@ body {
 
 main {
     flex: 1 0 auto !important;
+>>>>>>> dev
 }
 
+/*******************************************************/
+/*******************************************************/
+/************************ FOOTER ***********************/
+/*******************************************************/
+/*******************************************************/
+body {
+    display: flex !important;
+    min-height: 100vh !important;
+    flex-direction: column !important;
+    font-family: 'Dancing Script', cursive !important;
+}
 
+<<<<<<< HEAD
+main {
+    flex: 1 0 auto !important;
+=======
+.valign{
+    padding-top: 25%;
+>>>>>>> dev
+}
+
+.valign-li{
+    padding-top: 3%;
+}
+
+<<<<<<< HEAD
 .valign{
     padding-top: 25%;
 }
@@ -224,6 +316,24 @@ main {
     background-color: #9F9F9F;
 }
 
+=======
+/*******************************************************/
+/*                                                     */
+/*                                                     */
+/*                     ACCUEIL                         */
+/*                                                     */
+/*                                                     */
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/
+/*********************** CAROUSEL **********************/
+/*******************************************************/
+/*******************************************************/
+.marge {
+    margin-top: 94px;
+}
+
+>>>>>>> dev
 /*******************************************************/
 /*******************************************************/
 /********************* CARD ABOUT **********************/
