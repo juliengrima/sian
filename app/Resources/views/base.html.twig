@@ -4,8 +4,10 @@
         <meta charset="UTF-8" />
         <title>
             {% block title %}
-                Nathalie Sian Création
-            {% endblock %}</title>
+            {% endblock %}
+            - Nathalie Sian Création - Plasticienne
+        </title>
+        <meta name="description" content="Découvrez les collections de la création d'objets artisanaux décoratifs fait mains. Pour le jardin, la maison ou des bijoux de hautes qualités">
         <link rel="icon" type="image/x-icon" href="{{ asset('') }}" />
         <!-- CSS -->
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"> -->
@@ -16,11 +18,12 @@
         <!-- ICONS -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <stylesheets>
+            {% block stylesheets %}
+            {% endblock %}
+        </stylesheets>
     </head>
-    <stylesheets>
-        {% block stylesheets %}
-        {% endblock %}
-    </stylesheets>
+
     <body>
 
         {% block header %}{% endblock %}

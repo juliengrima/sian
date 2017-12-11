@@ -1,5 +1,11 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}
+    {% for gallery in galleries %}
+        {{ gallery.name }}
+    {% endfor %}
+{% endblock %}
+
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style_common.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/effects/style.css') }}" />
@@ -21,7 +27,6 @@
 
                         <div class="view back-picture">
                             <a class="modal-trigger" href="#modal{{ subGallery.id }}">
-                                {#<img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>#}
                                 <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
                             </a>
                         </div>
