@@ -2335,7 +2335,6 @@
         },
         {
             "name": "symfony/symfony",
-<<<<<<< HEAD
             "version": "v3.3.14",
             "source": {
                 "type": "git",
@@ -2346,18 +2345,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/symfony/zipball/8e2b473de636a65a018b370d5e88778a260f0e33",
                 "reference": "8e2b473de636a65a018b370d5e88778a260f0e33",
-=======
-            "version": "v3.3.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/symfony.git",
-                "reference": "9b0226340705f75fd0cebd220746a36050ead8a9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/9b0226340705f75fd0cebd220746a36050ead8a9",
-                "reference": "9b0226340705f75fd0cebd220746a36050ead8a9",
->>>>>>> dev
                 "shasum": ""
             },
             "require": {
@@ -2454,11 +2441,8 @@
                 "phpdocumentor/reflection-docblock": "^3.0|^4.0",
                 "predis/predis": "~1.0",
                 "sensio/framework-extra-bundle": "^3.0.2",
-<<<<<<< HEAD
+
                 "symfony/phpunit-bridge": "~3.4|~4.0",
-=======
-                "symfony/phpunit-bridge": "~3.2",
->>>>>>> dev
                 "symfony/security-acl": "~2.8|~3.0"
             },
             "type": "library",
@@ -2502,11 +2486,7 @@
             "keywords": [
                 "framework"
             ],
-<<<<<<< HEAD
-            "time": "2017-12-04T22:26:41+00:00"
-=======
             "time": "2017-11-16T18:15:01+00:00"
->>>>>>> dev
         },
         {
             "name": "twig/extensions",
@@ -2728,7 +2708,6 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-<<<<<<< HEAD
             "version": "v3.4.1",
             "source": {
                 "type": "git",
@@ -2739,18 +2718,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/9ecf83a2628b4668f02e680f65357c62600749fc",
                 "reference": "9ecf83a2628b4668f02e680f65357c62600749fc",
-=======
-            "version": "v3.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "292c1a79c5c32360c62bbe67022a38c6535094d5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/292c1a79c5c32360c62bbe67022a38c6535094d5",
-                "reference": "292c1a79c5c32360c62bbe67022a38c6535094d5",
->>>>>>> dev
                 "shasum": ""
             },
             "require": {
@@ -2799,11 +2766,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2017-12-04T20:23:06+00:00"
-=======
-            "time": "2017-11-22T11:41:29+00:00"
->>>>>>> dev
         }
     ],
     "aliases": [],
