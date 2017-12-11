@@ -103,23 +103,13 @@ button{
     background: none;
 }
 
-<<<<<<< HEAD
-/*.font-slide{*/
-    /*color: #546e7a;*/
-/*}*/
-
-.font-slide{
-    color: #5a5959;
-=======
 .font-slide{
     color: #546e7a;
->>>>>>> dev
 }
 
 .font-href-foot{
     color: white;
 }
-<<<<<<< HEAD
 
 /*******************************************************/
 /*                                                     */
@@ -177,9 +167,9 @@ button{
     font-size: 40px !important;
 }
 
-.marginright{
+.marginright {
     margin-right: 7%;
-=======
+}
 
 /*******************************************************/
 /*                                                     */
@@ -255,37 +245,11 @@ body {
 
 main {
     flex: 1 0 auto !important;
->>>>>>> dev
 }
 
-/*******************************************************/
-/*******************************************************/
-/************************ FOOTER ***********************/
-/*******************************************************/
-/*******************************************************/
-body {
-    display: flex !important;
-    min-height: 100vh !important;
-    flex-direction: column !important;
-    font-family: 'Dancing Script', cursive !important;
-}
-
-<<<<<<< HEAD
-main {
-    flex: 1 0 auto !important;
-=======
 .valign{
     padding-top: 25%;
->>>>>>> dev
-}
 
-.valign-li{
-    padding-top: 3%;
-}
-
-<<<<<<< HEAD
-.valign{
-    padding-top: 25%;
 }
 
 .valign-li{
@@ -316,7 +280,6 @@ main {
     background-color: #9F9F9F;
 }
 
-=======
 /*******************************************************/
 /*                                                     */
 /*                                                     */
@@ -333,7 +296,6 @@ main {
     margin-top: 94px;
 }
 
->>>>>>> dev
 /*******************************************************/
 /*******************************************************/
 /********************* CARD ABOUT **********************/
