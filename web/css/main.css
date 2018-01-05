@@ -231,6 +231,18 @@ button{
     margin-right: 7%;
 }
 
+.font-size{
+    font-size: 15px;
+}
+
+.fontref{
+    color: white;
+}
+
+.fontref:hover{
+    color: #03a9f4;
+}
+
 /*******************************************************/
 /*******************************************************/
 /************************ FOOTER ***********************/
@@ -414,6 +426,17 @@ main {
     border-radius: 20px;
     /*margin-left: 1.5%;*/
     /*margin-top: 1.5%;*/
+}
+
+.picratio{
+    width: 70%;
+    height: auto;
+
+    -webkit-box-shadow: 20px 20px 46px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: 20px 20px 46px -17px rgba(0,0,0,0.75);
+    box-shadow: 20px 20px 46px -17px rgba(0,0,0,0.75);
+
+    border-radius: 50px;
 }
 
 .picsize-listindex{
