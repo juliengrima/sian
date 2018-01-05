@@ -429,7 +429,7 @@ main {
 }
 
 .picratio{
-    width: 70%;
+    width: 90%;
     height: auto;
 
     -webkit-box-shadow: 20px 20px 46px -17px rgba(0,0,0,0.75);
@@ -437,6 +437,11 @@ main {
     box-shadow: 20px 20px 46px -17px rgba(0,0,0,0.75);
 
     border-radius: 50px;
+}
+
+.picratio-modal{
+    width: 50%;
+    height: auto;
 }
 
 .picsize-listindex{
@@ -456,3 +461,12 @@ main {
     background-color: #9F9F9F;
     border-radius: 20px;
 }
+
+.grid_view {
+    max-width: 69em;
+    list-style: none;
+    margin: 30px auto;
+    padding: 0;
+}
+
+.grid-item { width: 200px; }

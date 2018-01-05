@@ -121,7 +121,7 @@ class HeaderController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('header_index');
+        return $this->redirectToRoute('header_show_all');
     }
 
     /**

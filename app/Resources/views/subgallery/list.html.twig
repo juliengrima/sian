@@ -16,21 +16,20 @@
         {% if subGalleries != null  %}
 
             <div class="container">
-
-            <div class="row"></div>
-
                 <div class="row">
 
-                {% for subGallery in subGalleries %}
-
-                    <div class="col s12 m4 l4">
-
-                        <div class="">
+                    <ul class="grid" id="grid">
+                        {% for subGallery in subGalleries %}
+                        <li class="grid-item">
                             <a class="modal-trigger" href="#modal{{ subGallery.id }}">
-                                <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picratio"/>
+                                <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picratio"/>
                             </a>
-                        </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
 
+                </div>
+                    {% for subGallery in subGalleries %}
                         <!------------------------------- --------------- ------------------------------------->
                         <!------------------------------- --------------- ------------------------------------->
                         <!------------------------------- MODAL STRUCTURE ------------------------------------->
@@ -41,8 +40,10 @@
                             <div class="modal-content">
                                 <h4 class="center">{{ subGallery.sgallery }}</h4>
                                 <p>{{ subGallery.description }}</p>
-                                <div class="right">
-                                    <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" data-zoom-image="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picsize"/>
+                                <div>
+                                    <img id="{{ subGallery.id }}" src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}" class="picratio-modal right"/>
+                                </div>
+                                <div class="valign">
                                     <p>{{ subGallery.prix }} €</p>
                                 </div>
                             </div>
@@ -53,9 +54,6 @@
                                     <a href="{{ path('subgallery_edit', { 'id': subGallery.id }) }}" class="left">
                                         <img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon">
                                     </a>
-                                    <a href="{{ path('subgallery_delete', { 'id': subGallery.id }) }}" class="left">
-                                        <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
-                                    </a>
 
                                 {% endif %}
                                 {# ################################################################## #}
@@ -63,11 +61,8 @@
                             </div>
                         </div>
 
-                    </div>
+                    {% endfor %}
 
-                {% endfor %}
-
-                </div>
             </div>
 
         {% else %}
@@ -106,7 +101,18 @@
 
     {{ parent() }}
 
+    <script type="text/javascript" src="{{ asset('js/masonry_grid/masonry.pkgd.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/effects/jquery.elevateZoom-3.0.8.min.js') }}"></script>
+
+    <script>
+        $('.grid').masonry({
+            // options
+            itemSelector: '.grid-item',
+            columnWidth: 200
+        });
+
+    </script>
+
     <script>
         // ********************************************************************
         // *                    ZOOM IMAGE
@@ -121,11 +127,14 @@
 
             // INNER ZOOM
             $("#{{ subGallery.id }}").elevateZoom({
-                zoomType : "inner",
-                cursor: "crosshair"
+
             });
 
                 // OPTIONS FOR DIFFERENT ZOOM
+
+                //INNER
+                //zoomType : "inner",
+                // cursor: "crosshair"
 
                 // LENS
                 // zoomType : "lens",

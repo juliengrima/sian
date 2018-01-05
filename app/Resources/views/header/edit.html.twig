@@ -30,7 +30,9 @@
                                 <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon">
                             </button>
 
-                            {{ form_start(delete_form) }}
+                        {{ form_end(edit_form) }}
+
+                        {{ form_start(delete_form) }}
 
                             <button class="right" type="submit" name="action"
                                     data-position="bottom"
@@ -39,14 +41,12 @@
                                 <img src="{{ asset('images/local/icons/delete.svg') }}" class="plus-icon">
                             </button>
 
-                            {{ form_end(delete_form) }}
+                        {{ form_end(delete_form) }}
 
                             <a class="" href="{{ path('header_show_all') }}">
                                 <img src="{{ asset('images/local/icons/menu-icon.svg') }}" class="plus-icon">
                             </a>
                         </div>
-
-                        {{ form_end(edit_form) }}
 
                         <div class="header-buttom-marge"></div>
 
