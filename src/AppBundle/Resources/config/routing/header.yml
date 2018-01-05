@@ -26,4 +26,4 @@ header_edit:
 header_delete:
     path:     /{id}/delete
     defaults: { _controller: "AppBundle:Header:delete" }
-    methods:  DELETE
+    methods:  [GET, POST]
