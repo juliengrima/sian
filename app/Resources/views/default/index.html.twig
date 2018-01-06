@@ -17,10 +17,10 @@
                     {% if subGallery.media != null %}
                         <img src="{{ asset(subGallery.media.picpath) }}" alt="{{ subGallery.media.picname }}"/>
                     {% endif %}
-                    <div class="caption center-align">
-                        <h3 class="font-slide">{{ subGallery.sgallery }}</h3>
-                        <h5 class="font-slide">{{ subGallery.gallery }}</h5>
-                    </div>
+                    {#<div class="caption center-align">#}
+                        {#<h3 class="font-slide">{{ subGallery.sgallery }}</h3>#}
+                        {#<h5 class="font-slide">{{ subGallery.gallery }}</h5>#}
+                    {#</div>#}
                 </li>
 
             {% endfor %}
