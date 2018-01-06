@@ -1,161 +1,97 @@
+<style>
+    .brand-logo{
+        font-weight:900;
+    }
 
-    <style>
-        .navbarjs {
-            overflow: hidden;
-            background-color: #333;
-        }
+    .dropdown-content {
+        background-color: #FFFFFF;
+        margin: 0;
+        display: none;
+        min-width: 300px; /* Changed this to accomodate content width */
+        max-height: auto;
+        margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
+        overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
+        opacity: 0;
+        position: absolute;
+        white-space: nowrap;
+        z-index: 1;
+        will-change: width, height;
+    }
+    .index{
+        z-index: 3;
+    }
 
-        .navbarjs a {
-            float: left;
-            font-size: 16px;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+    .a-input {
+        color: dimgray;
+        font-size: x-large;
+        margin-top: 0px;
+        margin-left: -45px;
+    }
+</style>
 
-        .dropdown1 {
-            float: left;
-            overflow: hidden;
-        }
-
-        .dropdown1 .dropbtn {
-            cursor: pointer;
-            font-size: 16px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 14px 16px;
-            background-color: inherit;
-        }
-
-        .navbarjs a:hover, .dropdown1:hover .dropbtn {
-            background-color: #546e7a;
-        }
-
-        .dropdown-content1 {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content1 a {
-            float: none;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        .show {
-            display: block;
-        }
-
-        .float-right{
-            margin-top: 0.5%;
-            margin-left: 70%;
-        }
-
-        .top{
-            margin-top: 1.3%;
-        }
-
-        .disposition-a1{
-            width: 100%;
-        }
-
-        .disposition-add{
-            height: 30px;
-        }
-
-
-    </style>
-
-    <div class="navbarjs">
-        <a href="{{ path('homepage') }}" class="brand-logo decal">Acceuil</a>
-        <div class="float-right">
+<nav>
+    <div class="nav-wrapper grey darken-3">
+        <a href="{{ path('homepage') }}" class="brand-logo left">Accueil</a>
+        <ul class="right hide-on-med-and-down">
 
             {% for header in headers %}
-                <div class="dropdown1">
-                    <button class="dropbtn" onclick="myFunction{{ header.id }}()">{{ header.name }}
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content1" id="myDropdown{{ header.id }}">
-                        {% for gallery in galleries %}
-                            {% if header == gallery.header %}
-
-                                <div class="disposition1">
-                                    <a href="{{ path('list_show', { 'id': gallery.id }) }}" class="disposition-a1">{{ gallery.name }}</a> <!-- class box-size -->
-                                </div>
-
-                            {% endif %}
-                        {% endfor %}
-
-                        {# ################# Si L'ADMIN EST ACTIF ###########################c#}
-                        {% if is_granted('ROLE_ADMIN') %}
-
-                            <div class="">
-                                <a href="{{ path('gallery_new') }}" class="left">
-                                    <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon-index">
-                                </a>
-                                <a href="{{ path('gallery_show_all') }}" class="right">
-                                    <img src="{{ asset('images/local/icons/shuffle.svg') }}" class="plus-icon-index">
-                                </a>
-                            </div>
-
-                        {% endif %}
-                        {# ################################################################## #}
-
-                    </div>
-                 </div>
+            <!-- Dropdown Trigger -->
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown{{ header.id }}" data-beloworigin="true">{{ header.name }}<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
             {% endfor %}
+        </ul>
+    </div>
+</nav>
+<!-- Dropdown Structure -->
+{% for header in headers %}
+    <ul id="dropdown{{ header.id }}" class="dropdown-content collection index">
+        {% for gallery in galleries %}
+            {% if header == gallery.header %}
+            <li class="collection-item avatar">
+                <a href="{{ path('list_show', { 'id': gallery.id }) }}" class="a-input">{{ gallery.name }}</a>
 
-        </div>
+                {# ---------------------- ADMINISTRATEUR -------------------#}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('gallery_edit', { 'id': gallery.id }) }}" class="secondary-content"><img src="{{ asset('images/local/icons/edit.svg') }}" class="plus-icon-index"></a>
+                {% endif %}
+            </li>
+            {% endif %}
+        {% endfor %}
 
-        {# ################# Si L'ADMIN EST ACTIF ########################### #}
+        {# ---------------------- ADMINISTRATEUR -------------------#}
         {% if is_granted('ROLE_ADMIN') %}
-            <div class="float-right top">
-                <a href="{{ path('header_new') }}" class="">
+            <li>
+                <a href="{{ path('gallery_new') }}" class="left">
                     <img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="plus-icon-index">
                 </a>
-                <a href="{{ path('header_show_all') }}" class="">
+                <a href="{{ path('gallery_show_all') }}" class="right">
                     <img src="{{ asset('images/local/icons/shuffle.svg') }}" class="plus-icon-index">
                 </a>
-            </div>
+            </li>
         {% endif %}
-        {# ################################################################## #}
-
-    </div>
-    <div class="nav-content backcontent center">
+    </ul>
+{% endfor %}
+<div class="nav-content backcontent center">
     <span class="nav-title f-size">Nathalie Sian Créations</span>
-    </div>
+</div>
 
-    <script>
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        {% for header in headers %}
-        function myFunction{{ header.id }}() {
-                document.getElementById("myDropdown{{ header.id }}").classList.toggle("show");
-        }
-        {% endfor %}
-        // fermer le dropdown lorque l'on click sur le bt ouvert
-        window.onclick = function(e) {
-            if (!e.target.matches('.dropbtn')) {
-                {% for header in headers %}
-                    var myDropdown = document.getElementById("myDropdown{{ header.id }}");
 
-                    if (myDropdown.classList.contains('show')) {
-                        myDropdown.classList.remove('show');
+<script>
+
+    (function($) {
+        $(function() {
+
+            {% for header in headers %}
+                $('.dropdown-button').dropdown{{ header.id }}({
+                        inDuration: 300,
+                        outDuration: 225,
+                        hover: true, // Activate on hover
+                        belowOrigin: true, // Displays dropdown below the button
+                        alignment: 'right' // Displays dropdown with edge aligned to the left of button
                     }
-                {% endfor %}
-            }
-        }
-    </script>
+                );
+            {% endfor %}
+
+        }); // End Document Ready
+    })(jQuery); // End of jQuery name space
+
+</script>

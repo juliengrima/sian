@@ -109,7 +109,7 @@ class GalleryController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('gallery_edit', array('id' => $gallery->getId()));
+            return $this->redirectToRoute('gallery_show_all', array('id' => $gallery->getId()));
         }
 
         return $this->render('gallery/edit.html.twig', array(
