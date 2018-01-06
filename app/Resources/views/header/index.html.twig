@@ -30,6 +30,23 @@
     .accueil{
         margin-left: 5%;
     }
+    .imgsize{
+        margin-top: 45%;
+        margin-left: 20%;
+        width: 70%;
+        height: auto;
+    }
+
+    .buttom{
+        width: 100%;
+        height: 80%;
+    }
+
+    .li-size{
+        width: 70px;
+        height: 80px;
+    }
+
 </style>
 
 <nav>
@@ -37,10 +54,20 @@
         <a href="{{ path('homepage') }}" class="brand-logo accueil">Accueil</a>
         <ul class="right hide-on-med-and-down">
 
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="li-size">
+                    <a class="dropdown-button buttom" href="{{ path('header_new') }}" ><img src="{{ asset('images/local/icons/plus-icon.svg') }}" class="imgsize"></a>
+                </li>
+                <li class="li-size">
+                    <a class="dropdown-button buttom" href="{{ path('header_show_all') }}" ><img src="{{ asset('images/local/icons/shuffle.svg') }}" class="imgsize"></a>
+                </li>
+            {% endif %}
+
             {% for header in headers %}
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown{{ header.id }}" data-beloworigin="true">{{ header.name }}<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
             {% endfor %}
+
         </ul>
     </div>
 </nav>
@@ -80,27 +107,12 @@
 
 <script>
 
-
-    {#{% for header in headers %}#}
-
-        {#$('.dropdown-button{{ header.id }}').dropdown{{ header.id }}({#}
-                {#inDuration: 300,#}
-                {#outDuration: 225,#}
-                {#hover: true, // Activate on hover#}
-                {#belowOrigin: true, // Displays dropdown below the button#}
-                {#alignment: 'right' // Displays dropdown with edge aligned to the left of button#}
-            {#}#}
-        {#);#}
-
-    {#{% endfor %}#}
-
-
     (function($) {
         $(function() {
 
             {% for header in headers %}
 
-            var id = {{ header.id }}
+                var id = {{ header.id }}
                 $('.dropdown-button').dropdown{{ header.id }}({
                         inDuration: 300,
                         outDuration: 225,
@@ -110,7 +122,6 @@
                     }
                 );
             {% endfor %}
-
         }); // End Document Ready
     })(jQuery); // End of jQuery name space
 
